@@ -1,4 +1,5 @@
 import type { CalendarEvent, DayCell, MonthRef } from '../domain/calendar';
+import { dateFromKey } from '../domain/day';
 import { COPY } from './copy';
 
 const LOCALE = 'he-IL';
@@ -20,11 +21,6 @@ export function monthTitle(ref: MonthRef): string {
 
 export function dayTitle(dateKey: string): string {
   return DAY_FORMAT.format(dateFromKey(dateKey));
-}
-
-export function dateFromKey(dateKey: string): Date {
-  const [year, month, day] = dateKey.split('-').map(Number);
-  return new Date(year, month - 1, day);
 }
 
 export function renderMonth(grid: HTMLElement, cells: readonly DayCell[], state: MonthState): void {

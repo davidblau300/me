@@ -5,3 +5,8 @@ export function localDateKey(date: Date): string {
   const day = String(date.getDate()).padStart(2, '0');
   return `${year}-${month}-${day}`;
 }
+
+export function dateFromKey(dateKey: string): Date {
+  const [year, month, day] = dateKey.split('-').map(Number);
+  return new Date(year, month - 1, day);
+}

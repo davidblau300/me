@@ -1,10 +1,10 @@
 import type { AppDeps, Mounted } from '../deps';
 import { addEvent, addMonths, datesWithEvents, deleteEvent, eventsOn, monthGrid, updateEvent, type EventList, type MonthRef } from '../domain/calendar';
-import { localDateKey } from '../domain/day';
+import { dateFromKey, localDateKey } from '../domain/day';
 import { CALENDAR_KEY, loadEvents, saveEvents } from '../storage/calendarStore';
 import { DUCK_FAB_SVG, DUCK_SVG } from '../ui/art';
 import { backButton } from '../ui/back';
-import { WEEKDAY_LETTERS, dateFromKey, dayTitle, monthTitle, renderDayEvents, renderMonth } from '../ui/calendarView';
+import { WEEKDAY_LETTERS, dayTitle, monthTitle, renderDayEvents, renderMonth } from '../ui/calendarView';
 import { COPY } from '../ui/copy';
 import { bindPress } from '../ui/press';
 import { createSheet } from '../ui/sheet';
