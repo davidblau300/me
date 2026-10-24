@@ -96,3 +96,32 @@ body { background: #fff6f4; font-family: 'Varela Round', system-ui, sans-serif; 
 .duck-theme .sheet input { border-color: #1d3f8a; }
 .duck-theme .save { background: #2f6fd6; }
 .duck-theme .del { background: #ffb21a; border-color: #1d3f8a; color: #13294f; }
+
+/* Weather — Goofy-inspired theme (green hat, orange, blue) */
+.pick-weather { background: #fff1e3; border-color: #1f5e2a; color: #1f5e2a; box-shadow: 6px 6px 0 #f47b20; }
+.app.goofy-theme { background-color: #fff3e6; background-image: radial-gradient(#ffd9b3 18%, transparent 19%); background-size: 24px 24px; color: #1f2a1f; }
+.weather-head { display: flex; align-items: center; gap: 14px; padding: 18px 16px 2px; }
+.weather-head .logo { color: #1f5e2a; font-size: 32px; }
+.goofy-theme .back { border-color: #1f5e2a; color: #1f5e2a; }
+.goofy-theme .mascot svg { display: block; width: 54px; height: 66px; }
+.weather-body { padding-bottom: 40px; }
+.weather-title { font-family: 'Playpen Sans Hebrew', cursive; font-weight: 500; font-size: 23px; color: #1f5e2a; margin: 8px 4px 14px; }
+.now-card { display: flex; align-items: center; gap: 18px; background: #fff; border: 3px solid #1f5e2a; border-radius: 24px; padding: 18px; box-shadow: 5px 5px 0 #f47b20; }
+.now-icon svg { display: block; width: 92px; height: 92px; }
+.now-temp { font-family: 'Playpen Sans Hebrew', cursive; font-weight: 500; font-size: 52px; line-height: 1; color: #1f5e2a; }
+.now-label { font-size: 18px; margin-top: 6px; }
+.now-wind { font-size: 14px; color: #555; margin-top: 2px; }
+.updated { font-size: 12.5px; color: #6b5a4a; margin: 8px 6px 0; }
+.notice { background: #fff; border: 2px dashed #f47b20; border-radius: 14px; padding: 8px 12px; margin-top: 10px; font-size: 14px; color: #9a4a00; }
+.days { list-style: none; margin-top: 16px; display: grid; gap: 10px; }
+.day-row { display: grid; grid-template-columns: 44px 1fr auto; grid-template-areas: "icon info temps" "icon info rain"; align-items: center; column-gap: 12px; background: #fff; border: 2px solid #1f5e2a; border-radius: 18px; padding: 10px 14px; box-shadow: 3px 3px 0 #2b5aa5; }
+.day-icon { grid-area: icon; }
+.day-icon svg { display: block; width: 40px; height: 40px; }
+.day-info { grid-area: info; display: flex; flex-direction: column; }
+.day-name { font-family: 'Playpen Sans Hebrew', cursive; font-weight: 500; font-size: 17px; }
+.day-label { font-size: 13px; color: #555; }
+.day-temps { grid-area: temps; font-size: 16px; color: #1f5e2a; }
+.day-rain { grid-area: rain; justify-self: end; font-size: 12px; color: #2b5aa5; }
+.weather-error { text-align: center; background: #fff; border: 2px solid #1f5e2a; border-radius: 18px; padding: 18px; margin-top: 20px; }
+.retry { margin-top: 12px; font: inherit; font-size: 16px; padding: 10px 22px; border-radius: 22px; border: 0; background: #f47b20; color: #fff; cursor: pointer; }
+.loading { text-align: center; margin-top: 40px; color: #1f5e2a; }

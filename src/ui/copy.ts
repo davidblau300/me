@@ -23,4 +23,10 @@ export const COPY = {
   addEventLabel: 'הוספת אירוע',
   prevMonth: 'החודש הקודם',
   nextMonth: 'החודש הבא',
+  routeWeather: 'מזג אוויר',
+  weatherTitle: 'מזג האוויר בתל אביב',
+  weatherLoading: 'טוען…',
+  weatherOffline: 'אין חיבור — מוצג המידע האחרון',
+  weatherError: 'לא הצלחנו לטעון את מזג האוויר',
+  retry: 'לנסות שוב',
 } as const;

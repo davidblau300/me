@@ -3,6 +3,7 @@ import { ROUTE_HASH, routeFromHash, type Route, type ScreenRoute } from './route
 import { mountCalendar } from './screens/calendar';
 import { mountPicker } from './screens/picker';
 import { mountTasks } from './screens/tasks';
+import { mountWeather } from './screens/weather';
 
 interface PickerHistoryState {
   fromPicker: true;
@@ -19,6 +20,7 @@ export function startApp(root: HTMLElement, deps: AppDeps): Mounted {
   const mount = (route: Route): Mounted => {
     if (route === 'tasks') return mountTasks(root, deps, goBack);
     if (route === 'calendar') return mountCalendar(root, deps, goBack);
+    if (route === 'weather') return mountWeather(root, deps, goBack);
     return mountPicker(root, open);
   };
 

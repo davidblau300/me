@@ -14,5 +14,6 @@ startApp(root, {
   now: () => new Date(),
   makeId: () => crypto.randomUUID(),
   confirm: (message) => window.confirm(message),
+  fetch: (input, init) => window.fetch(input, init),
 });
 void requestPersistence();

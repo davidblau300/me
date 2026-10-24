@@ -1,3 +1,5 @@
+import type { WeatherIcon } from '../weather/forecast';
+
 // Original Mickey-inspired drawings (no Disney artwork). Trusted constants only — inserted via innerHTML.
 export const MOUSE_SVG = `<svg class="mouse" viewBox="0 0 40 52" aria-hidden="true">
 <path d="M27 36 C 36 38, 38 30, 35 26" fill="none" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
@@ -47,3 +49,38 @@ export const DUCK_SVG = `<svg class="duck" viewBox="0 0 64 70" aria-hidden="true
 </svg>`;
 
 export const DUCK_FAB_SVG = `<svg viewBox="0 0 92 82" aria-hidden="true"><ellipse cx="46" cy="14" rx="26" ry="11" fill="#2f6fd6"/><rect x="20" y="16" width="52" height="9" rx="4.5" fill="#1d3f8a"/><circle cx="46" cy="50" r="30" fill="#2f6fd6" stroke="#1d3f8a" stroke-width="3"/><path d="M46 36 V64 M32 50 H60" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`;
+
+// Original tall-hat dog mascot (Goofy-inspired colors only, no Disney artwork).
+export const GOOFY_SVG = `<svg class="goofy" viewBox="0 0 64 78" aria-hidden="true">
+<path d="M20 26 L23 4 Q32 0 41 4 L44 26 Z" fill="#3f9b45" stroke="#1f5e2a" stroke-width="1.6"/>
+<rect x="20" y="20" width="24" height="5" fill="#111"/>
+<ellipse cx="32" cy="27" rx="20" ry="4" fill="#3f9b45" stroke="#1f5e2a" stroke-width="1.6"/>
+<path d="M14 32 Q4 44 9 60 Q14 62 17 56 Q15 44 20 36 Z" fill="#111"/>
+<path d="M50 32 Q60 44 55 60 Q50 62 47 56 Q49 44 44 36 Z" fill="#111"/>
+<ellipse cx="32" cy="42" rx="14" ry="13" fill="#111"/>
+<ellipse cx="32" cy="50" rx="11" ry="9" fill="#f6d5b5"/>
+<ellipse cx="27" cy="38" rx="4" ry="5" fill="#fff"/>
+<ellipse cx="37" cy="38" rx="4" ry="5" fill="#fff"/>
+<circle cx="28" cy="39" r="1.8" fill="#111"/>
+<circle cx="36" cy="39" r="1.8" fill="#111"/>
+<ellipse cx="32" cy="47" rx="4.5" ry="3" fill="#111"/>
+<path d="M25 53 Q32 59 39 53" fill="none" stroke="#111" stroke-width="1.6" stroke-linecap="round"/>
+<rect x="29.5" y="54.5" width="5" height="4" rx="1" fill="#fff" stroke="#111" stroke-width=".8"/>
+<path d="M18 66 Q32 60 46 66 L48 78 L16 78 Z" fill="#f47b20"/>
+</svg>`;
+
+const SUN = '<circle cx="24" cy="24" r="9" fill="#ffc21a"/><g stroke="#ffc21a" stroke-width="3" stroke-linecap="round"><path d="M24 5v6M24 37v6M5 24h6M37 24h6M10.6 10.6l4.2 4.2M33.2 33.2l4.2 4.2M10.6 37.4l4.2-4.2M33.2 14.8l4.2-4.2"/></g>';
+const CLOUD = '<path d="M14 36h22a8 8 0 0 0 0-16 11 11 0 0 0-21-2 8 8 0 0 0-1 18z" fill="#fff" stroke="#5b6f86" stroke-width="2.4" stroke-linejoin="round"/>';
+const SMALL_SUN = '<circle cx="15" cy="16" r="7" fill="#ffc21a"/><g stroke="#ffc21a" stroke-width="2.4" stroke-linecap="round"><path d="M15 3v3M3 16h3M6.5 7.5l2 2M23.5 7.5l-2 2"/></g>';
+const DROPS = '<g stroke="#2f6fd6" stroke-width="2.6" stroke-linecap="round"><path d="M17 40l-2 5M25 40l-2 5M33 40l-2 5"/></g>';
+
+export const WEATHER_ICON_SVG: Record<WeatherIcon, string> = {
+  sun: `<svg viewBox="0 0 48 48" aria-hidden="true">${SUN}</svg>`,
+  partly: `<svg viewBox="0 0 48 48" aria-hidden="true">${SMALL_SUN}${CLOUD}</svg>`,
+  cloud: `<svg viewBox="0 0 48 48" aria-hidden="true">${CLOUD}</svg>`,
+  fog: `<svg viewBox="0 0 48 48" aria-hidden="true">${CLOUD}<g stroke="#8a9bb0" stroke-width="2.6" stroke-linecap="round"><path d="M10 41h28M14 46h20"/></g></svg>`,
+  drizzle: `<svg viewBox="0 0 48 48" aria-hidden="true">${CLOUD}<g stroke="#2f6fd6" stroke-width="2.2" stroke-linecap="round"><path d="M18 41l-1 3M28 41l-1 3"/></g></svg>`,
+  rain: `<svg viewBox="0 0 48 48" aria-hidden="true">${CLOUD}${DROPS}</svg>`,
+  snow: `<svg viewBox="0 0 48 48" aria-hidden="true">${CLOUD}<g fill="#7fb2f0"><circle cx="17" cy="42" r="2"/><circle cx="25" cy="44" r="2"/><circle cx="33" cy="42" r="2"/></g></svg>`,
+  storm: `<svg viewBox="0 0 48 48" aria-hidden="true">${CLOUD}<path d="M26 36l-5 7h5l-3 5 8-8h-5l3-4z" fill="#ffc21a" stroke="#c97c00" stroke-width="1"/></svg>`,
+};

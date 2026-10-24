@@ -14,6 +14,7 @@ function start(): void {
     now: () => current,
     makeId: () => `id-${++idCounter}`,
     confirm: () => true,
+    fetch: vi.fn<typeof fetch>(),
   }, onBack);
 }
 

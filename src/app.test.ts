@@ -9,6 +9,7 @@ function start(): void {
     now: () => new Date(2026, 9, 24, 9, 0),
     makeId: () => crypto.randomUUID(),
     confirm: () => true,
+    fetch: vi.fn<typeof fetch>(),
   });
 }
 
@@ -35,6 +36,15 @@ describe('startApp routing', () => {
     expect(screenName()).toBe('picker');
     expect(root.querySelector('[data-route="tasks"]')).not.toBeNull();
     expect(root.querySelector('[data-route="calendar"]')).not.toBeNull();
+    expect(root.querySelector('[data-route="weather"]')).not.toBeNull();
+  });
+
+  it('opens the weather from the picker', () => {
+    start();
+    root.querySelector<HTMLButtonElement>('[data-route="weather"]')!.click();
+
+    expect(screenName()).toBe('weather');
+    expect(location.hash).toBe('#weather');
   });
 
   it('opens tasks from the picker and back returns to the picker', async () => {

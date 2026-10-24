@@ -3,6 +3,7 @@ export interface AppDeps {
   now: () => Date;
   makeId: () => string;
   confirm: (message: string) => boolean;
+  fetch: typeof fetch;
 }
 
 export interface Mounted {

@@ -15,6 +15,7 @@ function start(): void {
     now: () => new Date(2026, 9, 24, 9, 0),
     makeId: () => `e-${++idCounter}`,
     confirm: () => confirmAnswer,
+    fetch: vi.fn<typeof fetch>(),
   }, onBack);
 }
 
