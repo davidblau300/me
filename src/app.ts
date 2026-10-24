@@ -6,6 +6,9 @@ import { COPY } from './ui/copy';
 import { mountCalendar } from './screens/calendar';
 import { mountPicker } from './screens/picker';
 import { mountSchedule } from './screens/schedule';
+import { mountDesign } from './screens/design';
+import { applyPrefs } from './prefs/prefs';
+import { PREFS_KEY, loadPrefs } from './storage/prefsStore';
 import { mountTasks } from './screens/tasks';
 import { mountWeather } from './screens/weather';
 
@@ -18,6 +21,7 @@ interface PickerHistoryState {
 
 export function startApp(root: HTMLElement, deps: AppDeps): Mounted {
   importScheduleFromLink(deps);
+  applyPrefs(document.documentElement, loadPrefs(deps.storage));
   let current: Mounted | null = null;
 
   const show = (route: Route): void => {
@@ -30,6 +34,7 @@ export function startApp(root: HTMLElement, deps: AppDeps): Mounted {
     if (route === 'calendar') return mountCalendar(root, deps, goBack);
     if (route === 'weather') return mountWeather(root, deps, goBack);
     if (route === 'schedule') return mountSchedule(root, deps, goBack);
+    if (route === 'design') return mountDesign(root, deps, goBack);
     return mountPicker(root, open);
   };
 
@@ -50,12 +55,18 @@ export function startApp(root: HTMLElement, deps: AppDeps): Mounted {
   };
 
   const onPopState = (): void => show(routeFromHash(location.hash));
+  // Design chosen in another window (browser tab vs installed app) applies here too.
+  const onStorage = (event: StorageEvent): void => {
+    if (event.key === PREFS_KEY || event.key === null) applyPrefs(document.documentElement, loadPrefs(deps.storage));
+  };
   window.addEventListener('popstate', onPopState);
+  window.addEventListener('storage', onStorage);
   show(routeFromHash(location.hash));
 
   return {
     stop() {
       window.removeEventListener('popstate', onPopState);
+      window.removeEventListener('storage', onStorage);
       current?.stop();
     },
   };

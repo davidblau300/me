@@ -2,6 +2,7 @@ import { startApp } from './app';
 import { SCHEDULE_FIXTURE } from './schedule/fixture';
 import { encodeSchedule, type Schedule } from './schedule/schedule';
 import { SCHEDULE_KEY, loadSchedule, saveSchedule } from './storage/scheduleStore';
+import { savePrefs } from './storage/prefsStore';
 
 let root: HTMLElement;
 let app: { stop(): void };
@@ -43,6 +44,23 @@ describe('startApp routing', () => {
     expect(root.querySelector('[data-route="calendar"]')).not.toBeNull();
     expect(root.querySelector('[data-route="weather"]')).not.toBeNull();
     expect(root.querySelector('[data-route="schedule"]')).not.toBeNull();
+    expect(root.querySelector('[data-route="design"]')).not.toBeNull();
+  });
+
+  it('opens the design screen from the picker', () => {
+    start();
+    root.querySelector<HTMLButtonElement>('[data-route="design"]')!.click();
+
+    expect(screenName()).toBe('design');
+    expect(location.hash).toBe('#design');
+  });
+
+  it('applies saved design choices on start', () => {
+    savePrefs(localStorage, { font: 'karantina', palette: 'candy' });
+    start();
+
+    expect(document.documentElement.dataset.font).toBe('karantina');
+    expect(document.documentElement.dataset.palette).toBe('candy');
   });
 
   it('opens the weather from the picker', () => {

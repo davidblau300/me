@@ -33,4 +33,10 @@ export const COPY = {
   scheduleEmpty: 'עוד לא נטענה מערכת שעות — פתחי את הקישור שקיבלת כדי לטעון אותה',
   scheduleReplace: 'להחליף את מערכת השעות הקיימת בחדשה?',
   scheduleNow: 'עכשיו',
+  routeDesign: 'עיצוב',
+  designTitle: 'עיצוב',
+  designFont: 'גופן',
+  designColors: 'צבעים',
+  designSample: 'מה עושים היום?',
+  designReset: 'חזרה לברירת המחדל',
 } as const;

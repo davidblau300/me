@@ -97,3 +97,15 @@ export const MINNIE_SVG = `<svg class="minnie" viewBox="0 0 92 86" aria-hidden="
 <circle cx="46" cy="20" r="6" fill="#e8318a" stroke="#a3125c" stroke-width="1.5"/>
 <g fill="#fff"><circle cx="27" cy="14" r="2.2"/><circle cx="25" cy="26" r="2.2"/><circle cx="33" cy="21" r="2"/><circle cx="65" cy="14" r="2.2"/><circle cx="67" cy="26" r="2.2"/><circle cx="59" cy="21" r="2"/></g>
 </svg>`;
+
+// Original duck-with-bow mascot (Daisy-inspired colors only, no Disney artwork).
+export const DAISY_SVG = `<svg class="daisy" viewBox="0 0 72 74" aria-hidden="true">
+<path d="M36 14 L14 4 Q8 16 14 28 Z M36 14 L58 4 Q64 16 58 28 Z" fill="#ff6fb0" stroke="#c23d80" stroke-width="1.5"/>
+<circle cx="36" cy="14" r="6" fill="#b88cff" stroke="#6a3fb5" stroke-width="1.5"/>
+<circle cx="36" cy="38" r="18" fill="#fff" stroke="#6a3fb5" stroke-width="1.6"/>
+<ellipse cx="30" cy="34" rx="2.2" ry="3.4" fill="#111"/><ellipse cx="42" cy="34" rx="2.2" ry="3.4" fill="#111"/>
+<path d="M26 29 l-3 -3 M28 28 l-1.5 -3.5 M46 29 l3 -3 M44 28 l1.5 -3.5" stroke="#111" stroke-width="1.4" stroke-linecap="round"/>
+<ellipse cx="36" cy="46" rx="11" ry="5" fill="#ffb21a" stroke="#c97c00" stroke-width="1"/>
+<ellipse cx="36" cy="49.5" rx="7.5" ry="3" fill="#f29a00"/>
+<path d="M22 60 Q36 54 50 60 L52 74 L20 74 Z" fill="#b88cff"/>
+</svg>`;
