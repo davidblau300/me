@@ -26,7 +26,7 @@ describe('options', () => {
   it('offers six fonts and five palettes with the defaults first', () => {
     expect(FONT_OPTIONS.map((option) => option.id)).toEqual(['playpen', 'amatic', 'secular', 'suez', 'karantina', 'varela']);
     expect(PALETTE_OPTIONS.map((option) => option.id)).toEqual(['characters', 'daisy', 'ocean', 'candy', 'forest']);
-    expect(CAST_OPTIONS.map((option) => option.id)).toEqual(['animals', 'princesses']);
+    expect(CAST_OPTIONS.map((option) => option.id)).toEqual(['animals', 'princesses', 'emotions']);
     expect(DEFAULT_PREFS).toEqual({ font: 'playpen', palette: 'characters', cast: 'animals' });
   });
 });

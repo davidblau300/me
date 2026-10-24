@@ -18,4 +18,17 @@ describe('cast art', () => {
     expect(designMascot).toContain('class="aurora"');
     expect(recipesMascot).toContain('class="rapunzel"');
   });
+
+  it('gives each screen its emotion character', () => {
+    const { picker, chipMascot, calendarMascot, weatherMascot, scheduleMascot, designMascot, recipesMascot, logoDecor } = CAST_ART.emotions;
+
+    expect(picker).toEqual({ tasks: chipMascot, calendar: calendarMascot, weather: weatherMascot, schedule: scheduleMascot, design: designMascot, recipes: recipesMascot });
+    expect(chipMascot).toContain('class="joy"');
+    expect(calendarMascot).toContain('class="fear"');
+    expect(weatherMascot).toContain('class="sadness"');
+    expect(scheduleMascot).toContain('class="anger"');
+    expect(recipesMascot).toContain('class="disgust"');
+    expect(designMascot).toContain('class="envy"');
+    expect(logoDecor).toBe('orbs');
+  });
 });

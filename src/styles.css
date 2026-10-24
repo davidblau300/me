@@ -277,6 +277,51 @@ html[data-cast="princesses"] .recipes-theme .mascot svg { width: 54px; height: 6
 .step::before { content: counter(step); position: absolute; inset-inline-start: 12px; top: 12px; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 13.5px; display: grid; place-items: center; }
 .adult-badge { display: inline-block; margin-inline-start: 8px; padding: 1px 9px; border-radius: 10px; background: #e3191b; color: #fff; font-size: 11.5px; vertical-align: middle; }
 
+/* Emotions — Joy, Fear, Sadness, Anger, Disgust, Envy (inspired colors; still overridden by a chosen color set) */
+html[data-cast="emotions"] .app[data-screen="picker"] { --bg: var(--pal-bg, #fbf7ff); --dot: var(--pal-dot, #ece0fb); --primary: var(--pal-primary, #6c3fb0); }
+html[data-cast="emotions"] .app[data-screen="tasks"] {
+  --bg: var(--pal-bg, #fffbe0); --dot: var(--pal-dot, #fff0a8); --ink: var(--pal-ink, #2a2a10); --muted: var(--pal-muted, #5f5a30);
+  --primary: var(--pal-primary, #1f5fc4); --accent: var(--pal-accent, #3aa845); --accent-2: var(--pal-accent-2, #ffd52e);
+  --accent-2-edge: var(--pal-accent-2-edge, #d1a900); --tint: var(--pal-tint, #fff6c2);
+}
+html[data-cast="emotions"] .app[data-screen="calendar"] {
+  --bg: var(--pal-bg, #f4eefc); --dot: var(--pal-dot, #e3d6f7); --ink: var(--pal-ink, #2b1d40); --muted: var(--pal-muted, #5c4d73);
+  --primary: var(--pal-primary, #6c3fb0); --accent: var(--pal-accent, #9b6ad1); --accent-2: var(--pal-accent-2, #c8a6ff);
+  --accent-2-edge: var(--pal-accent-2-edge, #7b4bc4); --tint: var(--pal-tint, #ece2ff); --marker: var(--pal-primary, #e05d9c);
+}
+html[data-cast="emotions"] .app[data-screen="weather"] {
+  --bg: var(--pal-bg, #eaf2fd); --dot: var(--pal-dot, #cfe0f8); --ink: var(--pal-ink, #1a2e52); --muted: var(--pal-muted, #4a5d80);
+  --primary: var(--pal-primary, #2f5fb3); --accent: var(--pal-accent, #4f8ce0); --accent-2: var(--pal-accent-2, #9cc3f0);
+  --accent-2-edge: var(--pal-accent-2-edge, #3f6fae); --tint: var(--pal-tint, #fff);
+}
+html[data-cast="emotions"] .app[data-screen="schedule"] {
+  --bg: var(--pal-bg, #fff0ec); --dot: var(--pal-dot, #ffd2c6); --ink: var(--pal-ink, #3a0f0a); --muted: var(--pal-muted, #6e3a32);
+  --primary: var(--pal-primary, #c0281e); --accent: var(--pal-accent, #e8431f); --accent-2: var(--pal-accent-2, #ff9a3c);
+  --accent-2-edge: var(--pal-accent-2-edge, #c26a10); --tint: var(--pal-tint, #ffe1d6);
+}
+html[data-cast="emotions"] .app[data-screen="recipes"] {
+  --bg: var(--pal-bg, #eefae8); --dot: var(--pal-dot, #d3f0c4); --ink: var(--pal-ink, #1d3a14); --muted: var(--pal-muted, #4a6a3e);
+  --primary: var(--pal-primary, #3d8a2a); --accent: var(--pal-accent, #5fa83f); --accent-2: var(--pal-accent-2, #c58df0);
+  --accent-2-edge: var(--pal-accent-2-edge, #8a55c0); --tint: var(--pal-tint, #e6f7d9);
+}
+html[data-cast="emotions"] .app[data-screen="design"] {
+  --bg: var(--pal-bg, #e8fbfb); --dot: var(--pal-dot, #c6f0ee); --ink: var(--pal-ink, #0e3a3a); --muted: var(--pal-muted, #3d6463);
+  --primary: var(--pal-primary, #13968f); --accent: var(--pal-accent, #1fb3aa); --accent-2: var(--pal-accent-2, #ffb3d1);
+  --accent-2-edge: var(--pal-accent-2-edge, #e07aa8); --tint: var(--pal-tint, #dcf7f5);
+}
+html[data-cast="emotions"] .pick-tasks { background: #fffbe0; border-color: #1f5fc4; color: #1f5fc4; box-shadow: 6px 6px 0 #ffd52e; }
+html[data-cast="emotions"] .pick-calendar { background: #f4eefc; border-color: #6c3fb0; color: #6c3fb0; box-shadow: 6px 6px 0 #c8a6ff; }
+html[data-cast="emotions"] .pick-weather { background: #eaf2fd; border-color: #2f5fb3; color: #2f5fb3; box-shadow: 6px 6px 0 #9cc3f0; }
+html[data-cast="emotions"] .pick-schedule { background: #fff0ec; border-color: #c0281e; color: #c0281e; box-shadow: 6px 6px 0 #ff9a3c; }
+html[data-cast="emotions"] .pick-recipes { background: #eefae8; border-color: #3d8a2a; color: #3d8a2a; box-shadow: 6px 6px 0 #c58df0; }
+html[data-cast="emotions"] .pick-design { background: #e8fbfb; border-color: #13968f; color: #13968f; box-shadow: 6px 6px 0 #ffb3d1; }
+html[data-cast="emotions"] .mascot svg, html[data-cast="emotions"] .recipes-theme .mascot svg { width: 54px; height: 61px; }
+.orbed { position: relative; display: inline-block; padding: 0 6px; }
+.orbed .orbs { position: absolute; top: -14px; left: 50%; width: 50px; height: 12px; transform: translateX(-50%); }
+/* Row marker becomes a small glowing memory orb */
+html[data-cast="emotions"] .mini { width: 14px; height: 14px; background: radial-gradient(circle at 35% 30%, #fffbd1, #ffd52e 55%, #d9a800); box-shadow: 0 0 6px #ffd52e; }
+html[data-cast="emotions"] .mini::before, html[data-cast="emotions"] .mini::after { display: none; }
+
 @media (prefers-reduced-motion: reduce) {
   .mouse .wave { animation: none; }
   .sheet, .scrim, .row { transition: none; }

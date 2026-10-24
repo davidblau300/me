@@ -58,10 +58,11 @@ export const PALETTE_OPTIONS = [
   },
 ] as const satisfies readonly PaletteOption[];
 
-/** Which cartoon world decorates the screens: original animal-inspired or princess-inspired art. */
+/** Which cartoon world decorates the screens: original animal-, princess- or emotion-inspired art. */
 export const CAST_OPTIONS = [
   { id: 'animals', label: 'חיות מצוירות' },
   { id: 'princesses', label: 'נסיכות' },
+  { id: 'emotions', label: 'רגשות' },
 ] as const satisfies ReadonlyArray<{ readonly id: string; readonly label: string }>;
 
 export type FontId = (typeof FONT_OPTIONS)[number]['id'];

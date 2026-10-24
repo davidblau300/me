@@ -193,3 +193,87 @@ export const RAPUNZEL_SVG = princess('rapunzel',
   '<path d="M17 31 Q17 16 32 15 Q47 16 47 31 Q42 21 32 21 Q22 21 17 31 Z" fill="#f0c75a"/>'
     + '<circle cx="53" cy="56" r="2.6" fill="#ff7eb9"/><circle cx="51" cy="64" r="2.2" fill="#b88cff"/><circle cx="56" cy="69" r="2" fill="#fff59d"/>'
     + '<circle cx="20" cy="22" r="2.4" fill="#ff7eb9"/><circle cx="20" cy="22" r="1" fill="#fff59d"/>');
+
+// ── Emotion characters (original cartoons inspired by Inside Out colors; no Pixar artwork) ──
+
+function emotion(className: string, parts: string): string {
+  return `<svg class="${className}" viewBox="0 0 64 72" aria-hidden="true">${parts}</svg>`;
+}
+
+export const JOY_SVG = emotion('joy',
+  '<circle cx="32" cy="36" r="27" fill="#fff7b0" opacity=".55"/>'
+  + '<path d="M10 72 Q12 56 32 55 Q52 56 54 72 Z" fill="#6ccf4f"/><path d="M24 56 L28 60 L32 56 L36 60 L40 56" fill="none" stroke="#3f9b2f" stroke-width="1.6"/>'
+  + '<rect x="28" y="47" width="8" height="9" fill="#ffe066"/>'
+  + '<ellipse cx="32" cy="34" rx="15" ry="16" fill="#ffe066" stroke="#e6c200" stroke-width="1.2"/>'
+  + '<path d="M16 30 L15 16 L22 22 L24 9 L30 18 L34 6 L38 18 L44 9 L45 22 L51 16 L48 30 Q46 18 32 17 Q18 18 16 30 Z" fill="#2e6fe0"/>'
+  + '<ellipse cx="26.5" cy="33" rx="2.6" ry="3.4" fill="#1b2a5a"/><ellipse cx="37.5" cy="33" rx="2.6" ry="3.4" fill="#1b2a5a"/>'
+  + '<circle cx="27.4" cy="32" r="1" fill="#fff"/><circle cx="38.4" cy="32" r="1" fill="#fff"/>'
+  + '<path d="M24 40 Q32 51 40 40 Z" fill="#8a1f33"/><ellipse cx="32" cy="45.5" rx="4" ry="2" fill="#f28aa0"/>');
+
+export const SADNESS_SVG = emotion('sadness',
+  '<path d="M12 42 Q10 16 32 14 Q54 16 52 42 L52 48 L12 48 Z" fill="#2c4f9e"/>'
+  + '<path d="M8 72 Q10 56 32 55 Q54 56 56 72 Z" fill="#f2f2f4" stroke="#cfd4dc" stroke-width="1"/><rect x="24" y="49" width="16" height="8" rx="3" fill="#f2f2f4" stroke="#cfd4dc" stroke-width="1"/>'
+  + '<ellipse cx="32" cy="36" rx="15.5" ry="15" fill="#7fb0ec"/>'
+  + '<path d="M17 32 Q18 19 32 18 Q46 19 47 32 Q40 24 32 25 Q24 24 17 32 Z" fill="#2c4f9e"/>'
+  + '<circle cx="26" cy="36" r="5.6" fill="#dfeeff" fill-opacity=".45" stroke="#1b1b2f" stroke-width="1.8"/><circle cx="38" cy="36" r="5.6" fill="#dfeeff" fill-opacity=".45" stroke="#1b1b2f" stroke-width="1.8"/>'
+  + '<path d="M31.6 36 L32.4 36" stroke="#1b1b2f" stroke-width="1.8"/>'
+  + '<ellipse cx="26" cy="37" rx="1.7" ry="2.2" fill="#1b2a5a"/><ellipse cx="38" cy="37" rx="1.7" ry="2.2" fill="#1b2a5a"/>'
+  + '<path d="M28 45.5 Q32 42.5 36 45.5" fill="none" stroke="#1b2f5a" stroke-width="1.8" stroke-linecap="round"/>'
+  + '<path d="M43 41 Q45.5 45 43 47.5 Q40.5 45 43 41 Z" fill="#cfe7ff" stroke="#7fb0ec" stroke-width=".8"/>');
+
+export const ANGER_SVG = emotion('anger',
+  '<path d="M8 72 Q10 58 32 57 Q54 58 56 72 Z" fill="#f2f2f2" stroke="#cfcfcf" stroke-width="1"/>'
+  + '<path d="M30 57 L34 57 L35.5 69 L32 72 L28.5 69 Z" fill="#b5121b"/>'
+  + '<path d="M18 22 Q20 7 28 12 Q30 1 36 10 Q42 3 44 14 Q51 9 46 22 Z" fill="#ff9a3c"/><path d="M24 22 Q26 13 31 16 Q33 9 37 16 Q41 12 40 22 Z" fill="#ffd23f"/>'
+  + '<rect x="14" y="20" width="36" height="36" rx="7" fill="#e8431f" stroke="#a8260f" stroke-width="1.4"/>'
+  + '<path d="M19 29 L29 33 M45 29 L35 33" stroke="#1b1b1b" stroke-width="3.6" stroke-linecap="round"/>'
+  + '<ellipse cx="25.5" cy="37" rx="2.2" ry="2.6" fill="#1b1b1b"/><ellipse cx="38.5" cy="37" rx="2.2" ry="2.6" fill="#1b1b1b"/>'
+  + '<path d="M24 48 Q32 42 40 48" fill="none" stroke="#1b1b1b" stroke-width="2.6" stroke-linecap="round"/>');
+
+export const FEAR_SVG = emotion('fear',
+  '<path d="M12 72 Q14 58 32 57 Q50 58 52 72 Z" fill="#8a6bbf"/><path d="M26 58 L32 66 L38 58" fill="none" stroke="#f2e9ff" stroke-width="1.4"/>'
+  + '<rect x="29" y="48" width="6" height="10" fill="#a07ad6"/>'
+  + '<path d="M32 58 L25.5 54.5 L25.5 61.5 Z M32 58 L38.5 54.5 L38.5 61.5 Z" fill="#d62828"/>'
+  + '<ellipse cx="32" cy="33" rx="13.5" ry="18" fill="#a07ad6" stroke="#7b4bc4" stroke-width="1.2"/>'
+  + '<path d="M32 15.5 Q29 6 36 3.5" fill="none" stroke="#4b2a7a" stroke-width="2" stroke-linecap="round"/>'
+  + '<path d="M20.5 22 Q25.5 18.5 30 22.5 M34 22.5 Q38.5 18.5 43.5 22" fill="none" stroke="#4b2a7a" stroke-width="2" stroke-linecap="round"/>'
+  + '<ellipse cx="26" cy="31" rx="5" ry="6.5" fill="#fff"/><ellipse cx="38" cy="31" rx="5" ry="6.5" fill="#fff"/>'
+  + '<circle cx="26.5" cy="32" r="1.8" fill="#1b1b2f"/><circle cx="37.5" cy="32" r="1.8" fill="#1b1b2f"/>'
+  + '<path d="M25 44 Q27 42 29 44 Q31 46 33 44 Q35 42 37 44 Q38 45 39 44" fill="none" stroke="#4b2a7a" stroke-width="1.8" stroke-linecap="round"/>');
+
+export const DISGUST_SVG = emotion('disgust',
+  '<path d="M12 38 Q10 14 32 13 Q54 14 52 38 Q56 46 50 50 L46 40 L18 40 L14 50 Q8 46 12 38 Z" fill="#2f6b2a"/>'
+  + '<path d="M8 72 Q10 57 32 56 Q54 57 56 72 Z" fill="#5fb34a"/><rect x="28" y="47" width="8" height="9" fill="#8fd66a"/>'
+  + '<path d="M17 55 Q32 63 47 55 L47 60 Q32 68 17 60 Z" fill="#b47de0"/>'
+  + '<ellipse cx="32" cy="35" rx="14.5" ry="15.5" fill="#8fd66a"/>'
+  + '<path d="M17 31 Q16 17 32 16 Q48 17 47 28 Q40 20 30 22 Q22 24 17 31 Z" fill="#2f6b2a"/>'
+  + '<ellipse cx="26.5" cy="36" rx="3.2" ry="3.4" fill="#fff"/><ellipse cx="37.5" cy="36" rx="3.2" ry="3.4" fill="#fff"/>'
+  + '<circle cx="26.5" cy="37" r="1.7" fill="#1b3a14"/><circle cx="37.5" cy="37" r="1.7" fill="#1b3a14"/>'
+  + '<path d="M22.8 34.6 Q26.5 32.4 30.2 34.6 M33.8 34.6 Q37.5 32.4 41.2 34.6" fill="none" stroke="#1b3a14" stroke-width="1.8" stroke-linecap="round"/>'
+  + '<path d="M22.6 34 L20.6 31.8 M41.4 34 L43.4 31.8" stroke="#1b3a14" stroke-width="1.4" stroke-linecap="round"/>'
+  + '<path d="M28 44.5 Q32 42.5 36 44.5 Q32 46.8 28 44.5 Z" fill="#7a2d5a"/>');
+
+export const ENVY_SVG = emotion('envy',
+  '<g fill="#1b6e69"><circle cx="19" cy="25" r="7"/><circle cx="27" cy="18" r="8"/><circle cx="37" cy="18" r="8"/><circle cx="45" cy="25" r="7"/><circle cx="48" cy="34" r="6"/><circle cx="16" cy="34" r="6"/></g>'
+  + '<path d="M14 72 Q16 58 32 57 Q48 58 50 72 Z" fill="#7fe0d8"/><rect x="29" y="48" width="6" height="9" fill="#3fd0c8"/>'
+  + '<circle cx="32" cy="37" r="15" fill="#3fd0c8" stroke="#13968f" stroke-width="1.2"/>'
+  + '<ellipse cx="25.5" cy="36" rx="6.4" ry="7.4" fill="#fff"/><ellipse cx="38.5" cy="36" rx="6.4" ry="7.4" fill="#fff"/>'
+  + '<circle cx="26" cy="37" r="4.4" fill="#1b2a3a"/><circle cx="38" cy="37" r="4.4" fill="#1b2a3a"/>'
+  + '<circle cx="27.6" cy="35.2" r="1.5" fill="#fff"/><circle cx="39.6" cy="35.2" r="1.5" fill="#fff"/>'
+  + '<ellipse cx="21" cy="44" rx="2.4" ry="1.4" fill="#ff9fc4" opacity=".8"/><ellipse cx="43" cy="44" rx="2.4" ry="1.4" fill="#ff9fc4" opacity=".8"/>'
+  + '<path d="M29.5 46 Q32 48.5 34.5 46" fill="none" stroke="#0e3a3a" stroke-width="1.6" stroke-linecap="round"/>');
+
+// Five memory orbs above the logo.
+export const ORBS_SVG = `<svg class="orbs" viewBox="0 0 62 14" aria-hidden="true">${[
+  ['#ffd52e', 7], ['#4f8ce0', 19], ['#e8431f', 31], ['#9b6ad1', 43], ['#6bc24a', 55],
+].map(([color, cx]) => `<circle cx="${cx}" cy="7" r="5.4" fill="${color}"/><circle cx="${Number(cx) - 1.8}" cy="5.2" r="1.6" fill="#fff" opacity=".75"/>`).join('')}</svg>`;
+
+function memoryOrbFab(name: string, light: string, mid: string, dark: string): string {
+  return `<svg viewBox="0 0 92 82" aria-hidden="true"><defs><radialGradient id="orb-${name}" cx="35%" cy="30%" r="70%">`
+    + `<stop offset="0" stop-color="${light}"/><stop offset=".55" stop-color="${mid}"/><stop offset="1" stop-color="${dark}"/></radialGradient></defs>`
+    + `<circle cx="46" cy="44" r="37" fill="${mid}" opacity=".25"/><circle cx="46" cy="44" r="31" fill="url(#orb-${name})"/>`
+    + '<path d="M46 30 V58 M32 44 H60" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>';
+}
+
+export const JOY_ORB_FAB_SVG = memoryOrbFab('joy', '#fffbd1', '#ffd52e', '#d9a800');
+export const FEAR_ORB_FAB_SVG = memoryOrbFab('fear', '#efe2ff', '#9b6ad1', '#6c3fb0');

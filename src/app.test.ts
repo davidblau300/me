@@ -187,4 +187,17 @@ describe('startApp routing', () => {
     expect(root.querySelector('[data-filter="done"] svg.mouse')).not.toBeNull();
     expect(root.querySelector('.brand .ears')).not.toBeNull();
   });
+
+  it('uses the emotions art when that style is chosen', () => {
+    savePrefs(localStorage, { font: 'playpen', palette: 'characters', cast: 'emotions' });
+    start();
+
+    expect(document.documentElement.dataset.cast).toBe('emotions');
+    expect(root.querySelector('[data-route="tasks"] svg.joy')).not.toBeNull();
+    expect(root.querySelector('[data-route="recipes"] svg.disgust')).not.toBeNull();
+
+    root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
+    expect(root.querySelector('[data-filter="done"] svg.joy')).not.toBeNull();
+    expect(root.querySelector('.brand .orbed')).not.toBeNull();
+  });
 });

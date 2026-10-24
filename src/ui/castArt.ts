@@ -1,13 +1,14 @@
 import type { CastId } from '../prefs/prefs';
 import type { ScreenRoute } from '../router';
 import {
-  APPLE_FAB_SVG, AURORA_SVG, BELLE_SVG, CINDERELLA_SVG, DAISY_SVG, DUCK_FAB_SVG, DUCK_SVG, FAB_SVG, GOOFY_SVG, MERMAID_SVG,
+  ANGER_SVG, APPLE_FAB_SVG, AURORA_SVG, BELLE_SVG, CINDERELLA_SVG, DAISY_SVG, DISGUST_SVG, DUCK_FAB_SVG, DUCK_SVG, ENVY_SVG,
+  FAB_SVG, FEAR_ORB_FAB_SVG, FEAR_SVG, GOOFY_SVG, JOY_ORB_FAB_SVG, JOY_SVG, MERMAID_SVG, SADNESS_SVG,
   MINNIE_SVG, MOUSE_HEAD_SVG, MOUSE_SVG, PLUTO_SVG, PRINCESS_CAL_FAB_SVG, RAPUNZEL_SVG, SNOW_WHITE_SVG,
 } from './art';
 
 export interface CastArt {
-  /** Decoration around the tasks logo: Mickey ears (CSS) or a crown (SVG). */
-  logoDecor: 'ears' | 'crown';
+  /** Decoration around the tasks logo: Mickey ears (CSS), a crown or memory orbs (SVG). */
+  logoDecor: 'ears' | 'crown' | 'orbs';
   chipMascot: string;
   tasksFab: string;
   calendarMascot: string;
@@ -45,4 +46,17 @@ const PRINCESSES: CastArt = {
   picker: { tasks: SNOW_WHITE_SVG, calendar: CINDERELLA_SVG, weather: MERMAID_SVG, schedule: BELLE_SVG, design: AURORA_SVG, recipes: RAPUNZEL_SVG },
 };
 
-export const CAST_ART: Record<CastId, CastArt> = { animals: ANIMALS, princesses: PRINCESSES };
+const EMOTIONS: CastArt = {
+  logoDecor: 'orbs',
+  chipMascot: JOY_SVG,
+  tasksFab: JOY_ORB_FAB_SVG,
+  calendarMascot: FEAR_SVG,
+  calendarFab: FEAR_ORB_FAB_SVG,
+  weatherMascot: SADNESS_SVG,
+  scheduleMascot: ANGER_SVG,
+  designMascot: ENVY_SVG,
+  recipesMascot: DISGUST_SVG,
+  picker: { tasks: JOY_SVG, calendar: FEAR_SVG, weather: SADNESS_SVG, schedule: ANGER_SVG, design: ENVY_SVG, recipes: DISGUST_SVG },
+};
+
+export const CAST_ART: Record<CastId, CastArt> = { animals: ANIMALS, princesses: PRINCESSES, emotions: EMOTIONS };
