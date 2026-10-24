@@ -4,6 +4,7 @@ import { defineConfig } from 'vitest/config';
 // The deployed origin is https://davidblau300.github.io/me/ — storage and the installed app are bound to it.
 const BASE_PATH = '/me/';
 const APP_BACKGROUND = '#fff6f4';
+const ICON_VERSION = 2;
 
 export default defineConfig({
   base: BASE_PATH,
@@ -21,11 +22,12 @@ export default defineConfig({
         display: 'standalone',
         background_color: APP_BACKGROUND,
         theme_color: APP_BACKGROUND,
+        // Bump ICON_VERSION when the icon art changes so installed apps notice and refresh their home-screen icon.
         icons: [
-          { src: 'pwa-64x64.png', sizes: '64x64', type: 'image/png' },
-          { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' },
-          { src: 'maskable-icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' },
+          { src: `pwa-64x64.png?v=${ICON_VERSION}`, sizes: '64x64', type: 'image/png' },
+          { src: `pwa-192x192.png?v=${ICON_VERSION}`, sizes: '192x192', type: 'image/png' },
+          { src: `pwa-512x512.png?v=${ICON_VERSION}`, sizes: '512x512', type: 'image/png' },
+          { src: `maskable-icon-512x512.png?v=${ICON_VERSION}`, sizes: '512x512', type: 'image/png', purpose: 'maskable' },
         ],
       },
       workbox: {
