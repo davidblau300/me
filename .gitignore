@@ -2,3 +2,4 @@ node_modules/
 dist/
 .superpowers/
 dev-dist/
+docs/
