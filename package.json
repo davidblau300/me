@@ -12,7 +12,8 @@
     "test": "vitest run",
     "preview": "vite preview",
     "icons": "pwa-assets-generator",
-    "deploy": "bash scripts/deploy.sh"
+    "deploy": "bash scripts/deploy.sh",
+    "schedule-link": "node scripts/schedule-link.mjs"
   },
   "devDependencies": {
     "@vite-pwa/assets-generator": "2.0.0",

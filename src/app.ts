@@ -1,15 +1,23 @@
 import type { AppDeps, Mounted } from './deps';
 import { ROUTE_HASH, routeFromHash, type Route, type ScreenRoute } from './router';
+import { decodeSchedule } from './schedule/schedule';
+import { loadSchedule, saveSchedule } from './storage/scheduleStore';
+import { COPY } from './ui/copy';
 import { mountCalendar } from './screens/calendar';
 import { mountPicker } from './screens/picker';
+import { mountSchedule } from './screens/schedule';
 import { mountTasks } from './screens/tasks';
 import { mountWeather } from './screens/weather';
+
+// A private link "…/me/#schedule=<payload>" carries her timetable; fragments never reach any server.
+const SCHEDULE_IMPORT_PREFIX = '#schedule=';
 
 interface PickerHistoryState {
   fromPicker: true;
 }
 
 export function startApp(root: HTMLElement, deps: AppDeps): Mounted {
+  importScheduleFromLink(deps);
   let current: Mounted | null = null;
 
   const show = (route: Route): void => {
@@ -21,6 +29,7 @@ export function startApp(root: HTMLElement, deps: AppDeps): Mounted {
     if (route === 'tasks') return mountTasks(root, deps, goBack);
     if (route === 'calendar') return mountCalendar(root, deps, goBack);
     if (route === 'weather') return mountWeather(root, deps, goBack);
+    if (route === 'schedule') return mountSchedule(root, deps, goBack);
     return mountPicker(root, open);
   };
 
@@ -50,6 +59,19 @@ export function startApp(root: HTMLElement, deps: AppDeps): Mounted {
       current?.stop();
     },
   };
+}
+
+function importScheduleFromLink(deps: AppDeps): void {
+  if (!location.hash.startsWith(SCHEDULE_IMPORT_PREFIX)) return;
+  const incoming = decodeSchedule(location.hash.slice(SCHEDULE_IMPORT_PREFIX.length));
+  // Drop the payload from the address bar and session history whether or not it was valid.
+  history.replaceState(null, '', location.pathname + location.search + ROUTE_HASH.schedule);
+  if (!incoming) return;
+
+  const existing = loadSchedule(deps.storage, deps.now().getTime()).schedule;
+  const differs = existing !== null && JSON.stringify(existing) !== JSON.stringify(incoming);
+  if (differs && !deps.confirm(COPY.scheduleReplace)) return;
+  saveSchedule(deps.storage, incoming);
 }
 
 function isPickerState(state: unknown): state is PickerHistoryState {

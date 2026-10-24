@@ -1,14 +1,18 @@
 import { startApp } from './app';
+import { SCHEDULE_FIXTURE } from './schedule/fixture';
+import { encodeSchedule, type Schedule } from './schedule/schedule';
+import { SCHEDULE_KEY, loadSchedule, saveSchedule } from './storage/scheduleStore';
 
 let root: HTMLElement;
 let app: { stop(): void };
+let confirmAnswer = true;
 
 function start(): void {
   app = startApp(root, {
     storage: localStorage,
     now: () => new Date(2026, 9, 24, 9, 0),
     makeId: () => crypto.randomUUID(),
-    confirm: () => true,
+    confirm: () => confirmAnswer,
     fetch: vi.fn<typeof fetch>(),
   });
 }
@@ -19,6 +23,7 @@ function screenName(): string | undefined {
 
 beforeEach(() => {
   localStorage.clear();
+  confirmAnswer = true;
   history.replaceState(null, '', '/');
   root = document.createElement('div');
   document.body.append(root);
@@ -37,6 +42,7 @@ describe('startApp routing', () => {
     expect(root.querySelector('[data-route="tasks"]')).not.toBeNull();
     expect(root.querySelector('[data-route="calendar"]')).not.toBeNull();
     expect(root.querySelector('[data-route="weather"]')).not.toBeNull();
+    expect(root.querySelector('[data-route="schedule"]')).not.toBeNull();
   });
 
   it('opens the weather from the picker', () => {
@@ -97,5 +103,34 @@ describe('startApp routing', () => {
     window.dispatchEvent(new PopStateEvent('popstate', { state: null }));
 
     expect(screenName()).toBe('picker');
+  });
+
+  it('imports a timetable from a link, strips it from the address and opens it', () => {
+    history.replaceState(null, '', `/#schedule=${encodeSchedule(SCHEDULE_FIXTURE)}`);
+    start();
+
+    expect(screenName()).toBe('schedule');
+    expect(location.hash).toBe('#schedule');
+    expect(loadSchedule(localStorage, 0).schedule).toEqual(SCHEDULE_FIXTURE);
+  });
+
+  it('keeps the existing timetable when replacing is declined', () => {
+    const existing: Schedule = { version: 1, slots: [{ kind: 'ribbon', time: '', title: 'ישן' }] };
+    saveSchedule(localStorage, existing);
+    confirmAnswer = false;
+    history.replaceState(null, '', `/#schedule=${encodeSchedule(SCHEDULE_FIXTURE)}`);
+    start();
+
+    expect(loadSchedule(localStorage, 0).schedule).toEqual(existing);
+    expect(location.hash).toBe('#schedule');
+  });
+
+  it('ignores an invalid timetable link and strips it', () => {
+    history.replaceState(null, '', '/#schedule=not-a-timetable');
+    start();
+
+    expect(screenName()).toBe('schedule');
+    expect(location.hash).toBe('#schedule');
+    expect(localStorage.getItem(SCHEDULE_KEY)).toBeNull();
   });
 });

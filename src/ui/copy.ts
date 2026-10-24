@@ -29,4 +29,8 @@ export const COPY = {
   weatherOffline: 'אין חיבור — מוצג המידע האחרון',
   weatherError: 'לא הצלחנו לטעון את מזג האוויר',
   retry: 'לנסות שוב',
+  routeSchedule: 'מערכת שעות',
+  scheduleEmpty: 'עוד לא נטענה מערכת שעות — פתחי את הקישור שקיבלת כדי לטעון אותה',
+  scheduleReplace: 'להחליף את מערכת השעות הקיימת בחדשה?',
+  scheduleNow: 'עכשיו',
 } as const;

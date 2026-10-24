@@ -84,3 +84,16 @@ export const WEATHER_ICON_SVG: Record<WeatherIcon, string> = {
   snow: `<svg viewBox="0 0 48 48" aria-hidden="true">${CLOUD}<g fill="#7fb2f0"><circle cx="17" cy="42" r="2"/><circle cx="25" cy="44" r="2"/><circle cx="33" cy="42" r="2"/></g></svg>`,
   storm: `<svg viewBox="0 0 48 48" aria-hidden="true">${CLOUD}<path d="M26 36l-5 7h5l-3 5 8-8h-5l3-4z" fill="#ffc21a" stroke="#c97c00" stroke-width="1"/></svg>`,
 };
+
+// Original mouse-with-bow mascot (Minnie-inspired colors only, no Disney artwork).
+export const MINNIE_SVG = `<svg class="minnie" viewBox="0 0 92 86" aria-hidden="true">
+<circle cx="18" cy="26" r="16" fill="#111"/><circle cx="74" cy="26" r="16" fill="#111"/>
+<circle cx="46" cy="54" r="30" fill="#111"/>
+<ellipse cx="46" cy="61" rx="20" ry="17" fill="#f8dcc4"/>
+<ellipse cx="39" cy="50" rx="3" ry="5" fill="#111"/><ellipse cx="53" cy="50" rx="3" ry="5" fill="#111"/>
+<ellipse cx="46" cy="61" rx="5" ry="3.6" fill="#111"/>
+<path d="M37 67 Q46 75 55 67" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/>
+<path d="M46 20 L22 6 Q16 20 22 34 Z M46 20 L70 6 Q76 20 70 34 Z" fill="#e8318a" stroke="#a3125c" stroke-width="1.5"/>
+<circle cx="46" cy="20" r="6" fill="#e8318a" stroke="#a3125c" stroke-width="1.5"/>
+<g fill="#fff"><circle cx="27" cy="14" r="2.2"/><circle cx="25" cy="26" r="2.2"/><circle cx="33" cy="21" r="2"/><circle cx="65" cy="14" r="2.2"/><circle cx="67" cy="26" r="2.2"/><circle cx="59" cy="21" r="2"/></g>
+</svg>`;

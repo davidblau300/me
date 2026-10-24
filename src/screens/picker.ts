@@ -1,6 +1,6 @@
 import type { Mounted } from '../deps';
 import type { ScreenRoute } from '../router';
-import { DUCK_SVG, GOOFY_SVG, MOUSE_HEAD_SVG } from '../ui/art';
+import { DUCK_SVG, GOOFY_SVG, MINNIE_SVG, MOUSE_HEAD_SVG } from '../ui/art';
 import { COPY } from '../ui/copy';
 
 export function mountPicker(root: HTMLElement, onPick: (route: ScreenRoute) => void): Mounted {
@@ -22,6 +22,7 @@ export function mountPicker(root: HTMLElement, onPick: (route: ScreenRoute) => v
     choice('tasks', COPY.routeTasks, MOUSE_HEAD_SVG, onPick),
     choice('calendar', COPY.routeCalendar, DUCK_SVG, onPick),
     choice('weather', COPY.routeWeather, GOOFY_SVG, onPick),
+    choice('schedule', COPY.routeSchedule, MINNIE_SVG, onPick),
   );
 
   app.append(logo, title, choices);
