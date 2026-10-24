@@ -322,6 +322,51 @@ html[data-cast="emotions"] .mascot svg, html[data-cast="emotions"] .recipes-them
 html[data-cast="emotions"] .mini { width: 14px; height: 14px; background: radial-gradient(circle at 35% 30%, #fffbd1, #ffd52e 55%, #d9a800); box-shadow: 0 0 6px #ffd52e; }
 html[data-cast="emotions"] .mini::before, html[data-cast="emotions"] .mini::after { display: none; }
 
+/* Pooh-inspired cast: honey, the red shirt and each friend's colors (still overridden by a chosen color set) */
+html[data-cast="pooh"] .app[data-screen="picker"] { --bg: var(--pal-bg, #fff8e6); --dot: var(--pal-dot, #fde3a7); --primary: var(--pal-primary, #a8641e); }
+html[data-cast="pooh"] .app[data-screen="tasks"] {
+  --bg: var(--pal-bg, #fff6dc); --dot: var(--pal-dot, #fde6a6); --ink: var(--pal-ink, #3a2508); --muted: var(--pal-muted, #6b5434);
+  --primary: var(--pal-primary, #c8102e); --accent: var(--pal-accent, #e8a317); --accent-2: var(--pal-accent-2, #f7c948);
+  --accent-2-edge: var(--pal-accent-2-edge, #d49a16); --tint: var(--pal-tint, #fff1c2);
+}
+html[data-cast="pooh"] .app[data-screen="calendar"] {
+  --bg: var(--pal-bg, #fff0f4); --dot: var(--pal-dot, #fdd5e0); --ink: var(--pal-ink, #3d1a28); --muted: var(--pal-muted, #6e4a5a);
+  --primary: var(--pal-primary, #c2477a); --accent: var(--pal-accent, #e66a95); --accent-2: var(--pal-accent-2, #f7b2c8);
+  --accent-2-edge: var(--pal-accent-2-edge, #d6457a); --tint: var(--pal-tint, #ffe3ec); --marker: var(--pal-primary, #d62839);
+}
+html[data-cast="pooh"] .app[data-screen="weather"] {
+  --bg: var(--pal-bg, #eef0f6); --dot: var(--pal-dot, #d8dce9); --ink: var(--pal-ink, #23283a); --muted: var(--pal-muted, #525a70);
+  --primary: var(--pal-primary, #5a6788); --accent: var(--pal-accent, #8a94b5); --accent-2: var(--pal-accent-2, #f08aa8);
+  --accent-2-edge: var(--pal-accent-2-edge, #c9607f); --tint: var(--pal-tint, #fff);
+}
+html[data-cast="pooh"] .app[data-screen="schedule"] {
+  --bg: var(--pal-bg, #f6efe6); --dot: var(--pal-dot, #e6d6c0); --ink: var(--pal-ink, #3a2814); --muted: var(--pal-muted, #6b5640);
+  --primary: var(--pal-primary, #7a4e24); --accent: var(--pal-accent, #a87442); --accent-2: var(--pal-accent-2, #8cbf5a);
+  --accent-2-edge: var(--pal-accent-2-edge, #5e9a32); --tint: var(--pal-tint, #f2e6d4);
+}
+html[data-cast="pooh"] .app[data-screen="design"] {
+  --bg: var(--pal-bg, #fff2e6); --dot: var(--pal-dot, #ffd9b8); --ink: var(--pal-ink, #3d1f08); --muted: var(--pal-muted, #6e4c30);
+  --primary: var(--pal-primary, #d9661a); --accent: var(--pal-accent, #f58a1f); --accent-2: var(--pal-accent-2, #2a1a10);
+  --accent-2-edge: var(--pal-accent-2-edge, #2a1a10); --tint: var(--pal-tint, #ffe6cc);
+}
+html[data-cast="pooh"] .app[data-screen="recipes"] {
+  --bg: var(--pal-bg, #f3f9e6); --dot: var(--pal-dot, #dcefc0); --ink: var(--pal-ink, #233512); --muted: var(--pal-muted, #546640);
+  --primary: var(--pal-primary, #4f8a2a); --accent: var(--pal-accent, #e8782a); --accent-2: var(--pal-accent-2, #efd96e);
+  --accent-2-edge: var(--pal-accent-2-edge, #c4ae3a); --tint: var(--pal-tint, #fbf3cc);
+}
+html[data-cast="pooh"] .pick-tasks { background: #fff6dc; border-color: #c8102e; color: #c8102e; box-shadow: 6px 6px 0 #f5b82e; }
+html[data-cast="pooh"] .pick-calendar { background: #fff0f4; border-color: #c2477a; color: #c2477a; box-shadow: 6px 6px 0 #f7b2c8; }
+html[data-cast="pooh"] .pick-weather { background: #eef0f6; border-color: #5a6788; color: #5a6788; box-shadow: 6px 6px 0 #f08aa8; }
+html[data-cast="pooh"] .pick-schedule { background: #f6efe6; border-color: #7a4e24; color: #7a4e24; box-shadow: 6px 6px 0 #8cbf5a; }
+html[data-cast="pooh"] .pick-design { background: #fff2e6; border-color: #d9661a; color: #d9661a; box-shadow: 6px 6px 0 #2a1a10; }
+html[data-cast="pooh"] .pick-recipes { background: #f3f9e6; border-color: #4f8a2a; color: #4f8a2a; box-shadow: 6px 6px 0 #e8782a; }
+html[data-cast="pooh"] .mascot svg, html[data-cast="pooh"] .recipes-theme .mascot svg { width: 54px; height: 61px; }
+.honeyed { position: relative; display: inline-block; padding: 0 6px; }
+.honeyed .honey-pot { position: absolute; top: -20px; left: 50%; width: 32px; height: 25px; transform: translateX(-50%); }
+/* Row marker becomes a drop of honey */
+html[data-cast="pooh"] .mini { width: 12px; height: 12px; border-radius: 0 50% 50% 50%; transform: translateY(-50%) rotate(45deg); background: radial-gradient(circle at 60% 60%, #ffe08a, #f5b82e 55%, #c97d0a); }
+html[data-cast="pooh"] .mini::before, html[data-cast="pooh"] .mini::after { display: none; }
+
 @media (prefers-reduced-motion: reduce) {
   .mouse .wave { animation: none; }
   .sheet, .scrim, .row { transition: none; }

@@ -1,14 +1,15 @@
 import type { CastId } from '../prefs/prefs';
 import type { ScreenRoute } from '../router';
 import {
-  ANGER_SVG, APPLE_FAB_SVG, AURORA_SVG, BELLE_SVG, CINDERELLA_SVG, DAISY_SVG, DISGUST_SVG, DUCK_FAB_SVG, DUCK_SVG, ENVY_SVG,
-  FAB_SVG, FEAR_ORB_FAB_SVG, FEAR_SVG, GOOFY_SVG, JOY_ORB_FAB_SVG, JOY_SVG, MERMAID_SVG, SADNESS_SVG,
-  MINNIE_SVG, MOUSE_HEAD_SVG, MOUSE_SVG, PLUTO_SVG, PRINCESS_CAL_FAB_SVG, RAPUNZEL_SVG, SNOW_WHITE_SVG,
+  ANGER_SVG, APPLE_FAB_SVG, AURORA_SVG, BALLOON_FAB_SVG, BELLE_SVG, CINDERELLA_SVG, DAISY_SVG, DISGUST_SVG, DUCK_FAB_SVG, DUCK_SVG,
+  EEYORE_SVG, ENVY_SVG, FAB_SVG, FEAR_ORB_FAB_SVG, FEAR_SVG, GOOFY_SVG, HONEY_POT_FAB_SVG, JOY_ORB_FAB_SVG, JOY_SVG, MERMAID_SVG,
+  MINNIE_SVG, MOUSE_HEAD_SVG, MOUSE_SVG, OWL_SVG, PIGLET_SVG, PLUTO_SVG, POOH_SVG, PRINCESS_CAL_FAB_SVG, RABBIT_SVG, RAPUNZEL_SVG,
+  SADNESS_SVG, SNOW_WHITE_SVG, TIGGER_SVG,
 } from './art';
 
 export interface CastArt {
-  /** Decoration around the tasks logo: Mickey ears (CSS), a crown or memory orbs (SVG). */
-  logoDecor: 'ears' | 'crown' | 'orbs';
+  /** Decoration around the tasks logo: Mickey ears (CSS), a crown, memory orbs or a honey pot (SVG). */
+  logoDecor: 'ears' | 'crown' | 'orbs' | 'honey';
   chipMascot: string;
   tasksFab: string;
   calendarMascot: string;
@@ -59,4 +60,17 @@ const EMOTIONS: CastArt = {
   picker: { tasks: JOY_SVG, calendar: FEAR_SVG, weather: SADNESS_SVG, schedule: ANGER_SVG, design: ENVY_SVG, recipes: DISGUST_SVG },
 };
 
-export const CAST_ART: Record<CastId, CastArt> = { animals: ANIMALS, princesses: PRINCESSES, emotions: EMOTIONS };
+const POOH: CastArt = {
+  logoDecor: 'honey',
+  chipMascot: POOH_SVG,
+  tasksFab: HONEY_POT_FAB_SVG,
+  calendarMascot: PIGLET_SVG,
+  calendarFab: BALLOON_FAB_SVG,
+  weatherMascot: EEYORE_SVG,
+  scheduleMascot: OWL_SVG,
+  designMascot: TIGGER_SVG,
+  recipesMascot: RABBIT_SVG,
+  picker: { tasks: POOH_SVG, calendar: PIGLET_SVG, weather: EEYORE_SVG, schedule: OWL_SVG, design: TIGGER_SVG, recipes: RABBIT_SVG },
+};
+
+export const CAST_ART: Record<CastId, CastArt> = { animals: ANIMALS, princesses: PRINCESSES, emotions: EMOTIONS, pooh: POOH };

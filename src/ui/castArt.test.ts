@@ -31,4 +31,17 @@ describe('cast art', () => {
     expect(designMascot).toContain('class="envy"');
     expect(logoDecor).toBe('orbs');
   });
+
+  it('gives each screen its Hundred Acre Wood character', () => {
+    const { picker, chipMascot, calendarMascot, weatherMascot, scheduleMascot, designMascot, recipesMascot, logoDecor } = CAST_ART.pooh;
+
+    expect(picker).toEqual({ tasks: chipMascot, calendar: calendarMascot, weather: weatherMascot, schedule: scheduleMascot, design: designMascot, recipes: recipesMascot });
+    expect(chipMascot).toContain('class="pooh"');
+    expect(calendarMascot).toContain('class="piglet"');
+    expect(weatherMascot).toContain('class="eeyore"');
+    expect(scheduleMascot).toContain('class="owl"');
+    expect(designMascot).toContain('class="tigger"');
+    expect(recipesMascot).toContain('class="rabbit"');
+    expect(logoDecor).toBe('honey');
+  });
 });

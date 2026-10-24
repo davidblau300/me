@@ -200,4 +200,17 @@ describe('startApp routing', () => {
     expect(root.querySelector('[data-filter="done"] svg.joy')).not.toBeNull();
     expect(root.querySelector('.brand .orbed')).not.toBeNull();
   });
+
+  it('uses the Pooh art when that style is chosen', () => {
+    savePrefs(localStorage, { font: 'playpen', palette: 'characters', cast: 'pooh' });
+    start();
+
+    expect(document.documentElement.dataset.cast).toBe('pooh');
+    expect(root.querySelector('[data-route="tasks"] svg.pooh')).not.toBeNull();
+    expect(root.querySelector('[data-route="weather"] svg.eeyore')).not.toBeNull();
+
+    root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
+    expect(root.querySelector('[data-filter="done"] svg.pooh')).not.toBeNull();
+    expect(root.querySelector('.brand .honeyed svg.honey-pot')).not.toBeNull();
+  });
 });

@@ -3,7 +3,7 @@ import { localDateKey } from '../domain/day';
 import type { Filter } from '../domain/order';
 import { addTask, deleteTask, toggleDone, updateTask, type TaskList } from '../domain/task';
 import { STORAGE_KEY, loadState, saveState } from '../storage/store';
-import { CROWN_SVG, ORBS_SVG } from '../ui/art';
+import { CROWN_SVG, HONEY_POT_SVG, ORBS_SVG } from '../ui/art';
 import { CAST_ART, type CastArt } from '../ui/castArt';
 import { loadPrefs } from '../storage/prefsStore';
 import { backButton } from '../ui/back';
@@ -15,7 +15,9 @@ import { createSheet } from '../ui/sheet';
 export const DAY_CHECK_MS = 60_000;
 const ROW_SELECTOR = '.row';
 
-const DECOR_CLASS = { ears: 'ears', crown: 'crowned', orbs: 'orbed' } as const;
+const DECOR_CLASS = { ears: 'ears', crown: 'crowned', orbs: 'orbed', honey: 'honeyed' } as const;
+// Mickey ears are drawn by CSS on the class alone.
+const DECOR_ART = { ears: '', crown: CROWN_SVG, orbs: ORBS_SVG, honey: HONEY_POT_SVG } as const;
 
 export function mountTasks(root: HTMLElement, deps: AppDeps, onBack: () => void): Mounted {
   const loaded = loadState(deps.storage, deps.now().getTime());
@@ -110,8 +112,7 @@ function buildShell(onBack: () => void, art: CastArt): Shell {
   brand.append(backButton(onBack));
   const decor = document.createElement('span');
   decor.className = DECOR_CLASS[art.logoDecor];
-  if (art.logoDecor === 'crown') decor.innerHTML = CROWN_SVG;
-  if (art.logoDecor === 'orbs') decor.innerHTML = ORBS_SVG;
+  decor.innerHTML = DECOR_ART[art.logoDecor];
   const logo = document.createElement('span');
   logo.className = 'logo';
   logo.textContent = 'me';

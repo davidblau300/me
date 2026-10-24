@@ -277,3 +277,113 @@ function memoryOrbFab(name: string, light: string, mid: string, dark: string): s
 
 export const JOY_ORB_FAB_SVG = memoryOrbFab('joy', '#fffbd1', '#ffd52e', '#d9a800');
 export const FEAR_ORB_FAB_SVG = memoryOrbFab('fear', '#efe2ff', '#9b6ad1', '#6c3fb0');
+
+// ── Hundred Acre Wood friends (original cartoons inspired by the Pooh stories; no Disney artwork) ──
+
+function woodFriend(className: string, parts: string): string {
+  return `<svg class="${className}" viewBox="0 0 64 72" aria-hidden="true">${parts}</svg>`;
+}
+
+export const POOH_SVG = woodFriend('pooh',
+  '<path d="M8 72 Q10 55 32 54 Q54 55 56 72 Z" fill="#c8102e"/><path d="M20 72 Q22 66 32 66 Q42 66 44 72 Z" fill="#a50d26"/>'
+  + '<circle cx="15" cy="17" r="7.5" fill="#f2b632" stroke="#c98a12" stroke-width="1.2"/><circle cx="49" cy="17" r="7.5" fill="#f2b632" stroke="#c98a12" stroke-width="1.2"/>'
+  + '<circle cx="15" cy="17" r="3.8" fill="#e09a1c"/><circle cx="49" cy="17" r="3.8" fill="#e09a1c"/>'
+  + '<ellipse cx="32" cy="34" rx="20" ry="18.5" fill="#f5bd3a" stroke="#c98a12" stroke-width="1.2"/>'
+  + '<ellipse cx="32" cy="42" rx="10.5" ry="7.5" fill="#fbd77a"/>'
+  + '<path d="M22 24 Q25 21.5 28 23.5 M36 23.5 Q39 21.5 42 24" fill="none" stroke="#8a5a10" stroke-width="1.5" stroke-linecap="round"/>'
+  + '<circle cx="25" cy="31" r="2" fill="#2a1a08"/><circle cx="39" cy="31" r="2" fill="#2a1a08"/>'
+  + '<ellipse cx="32" cy="38" rx="4" ry="2.8" fill="#3a2208"/><ellipse cx="31" cy="37.2" rx="1.3" ry=".7" fill="#fff" opacity=".6"/>'
+  + '<path d="M26.5 44 Q32 49 37.5 44" fill="none" stroke="#8a4a10" stroke-width="1.6" stroke-linecap="round"/>'
+  + '<ellipse cx="19.5" cy="39" rx="2.6" ry="1.6" fill="#f08a5a" opacity=".55"/><ellipse cx="44.5" cy="39" rx="2.6" ry="1.6" fill="#f08a5a" opacity=".55"/>');
+
+export const PIGLET_SVG = woodFriend('piglet',
+  '<path d="M14 72 Q16 57 32 56 Q48 57 50 72 Z" fill="#d6457a"/>'
+  + '<path d="M18.5 62 Q32 59.5 45.5 62 M15.6 67 Q32 64.5 48.4 67" fill="none" stroke="#f28ab0" stroke-width="2.4"/>'
+  + '<path d="M20 23 Q12 15 15 9 Q24 9 28 18 Z M44 23 Q52 15 49 9 Q40 9 36 18 Z" fill="#f7b2c8" stroke="#e08aa6" stroke-width="1"/>'
+  + '<path d="M21 20 Q16 15 17.5 11.5 Q22.5 12 25 17.5 Z M43 20 Q48 15 46.5 11.5 Q41.5 12 39 17.5 Z" fill="#ec8fae"/>'
+  + '<ellipse cx="32" cy="34" rx="14" ry="17.5" fill="#f9c1d3" stroke="#e08aa6" stroke-width="1.2"/>'
+  + '<path d="M24.5 27.5 Q27 25.5 29 27 M35 27 Q37 25.5 39.5 27.5" fill="none" stroke="#a8466b" stroke-width="1.4" stroke-linecap="round"/>'
+  + '<ellipse cx="27" cy="32" rx="1.8" ry="2.3" fill="#2a1420"/><ellipse cx="37" cy="32" rx="1.8" ry="2.3" fill="#2a1420"/>'
+  + '<ellipse cx="32" cy="41" rx="6" ry="4.4" fill="#f59ab8" stroke="#e07a9e" stroke-width="1"/>'
+  + '<ellipse cx="30" cy="41" rx=".9" ry="1.4" fill="#a8466b"/><ellipse cx="34" cy="41" rx=".9" ry="1.4" fill="#a8466b"/>'
+  + '<path d="M29 47.5 Q32 49.5 35 47.5" fill="none" stroke="#a8466b" stroke-width="1.4" stroke-linecap="round"/>'
+  + '<ellipse cx="22.5" cy="39" rx="2.2" ry="1.4" fill="#f27aa0" opacity=".55"/><ellipse cx="41.5" cy="39" rx="2.2" ry="1.4" fill="#f27aa0" opacity=".55"/>');
+
+export const EEYORE_SVG = woodFriend('eeyore',
+  '<path d="M16 72 Q18 58 32 57 Q46 58 48 72 Z" fill="#8c95b0"/>'
+  + '<g fill="#b8c2d8"><circle cx="51" cy="8" r="4"/><circle cx="56" cy="6.5" r="5"/><circle cx="60.5" cy="8.5" r="3.4"/><rect x="51" y="8" width="10" height="4" rx="2"/></g>'
+  + '<path d="M53 15 L52 17.5 M57 15 L56 17.5 M60.5 14.5 L59.5 17" stroke="#7fa8e0" stroke-width="1.3" stroke-linecap="round"/>'
+  + '<path d="M21 22 Q7 21 3 33 Q8 36 13 30.5 Q18 27.5 22 27.5 Z M43 22 Q57 21 61 33 Q56 36 51 30.5 Q46 27.5 42 27.5 Z" fill="#8c95b0" stroke="#6a7390" stroke-width="1"/>'
+  + '<path d="M19 25 Q10 25 7 31 Q11 31 15 28 Z M45 25 Q54 25 57 31 Q53 31 49 28 Z" fill="#c9a3b8"/>'
+  + '<path d="M20 24 Q20 12 32 12 Q44 12 44 24 L45 40 Q47 55 32 55 Q17 55 19 40 Z" fill="#9aa3bd" stroke="#6a7390" stroke-width="1.2"/>'
+  + '<path d="M28 13 Q26 6 30.5 8 Q32 3 34.5 8 Q38.5 6 36 13 Z" fill="#2a2a35"/>'
+  + '<ellipse cx="32" cy="46.5" rx="12" ry="8" fill="#c3c9da"/>'
+  + '<ellipse cx="27.5" cy="45" rx="1.4" ry="2" fill="#3a3f52"/><ellipse cx="36.5" cy="45" rx="1.4" ry="2" fill="#3a3f52"/>'
+  + '<path d="M27 51.5 Q32 50.5 37 51.5" fill="none" stroke="#3a3f52" stroke-width="1.4" stroke-linecap="round"/>'
+  + '<path d="M22.5 29 Q26 33.5 29.5 29 Z M34.5 29 Q38 33.5 41.5 29 Z" fill="#fff"/>'
+  + '<circle cx="26" cy="30.6" r="1.3" fill="#1b1b2f"/><circle cx="38" cy="30.6" r="1.3" fill="#1b1b2f"/>'
+  + '<path d="M22 29 L30 29 M34 29 L42 29" stroke="#3a3f52" stroke-width="1.6" stroke-linecap="round"/>'
+  + '<path d="M22 26 Q25.5 24.5 29 24 M35 24 Q38.5 24.5 42 26" fill="none" stroke="#3a3f52" stroke-width="1.4" stroke-linecap="round"/>');
+
+export const OWL_SVG = woodFriend('owl',
+  '<ellipse cx="32" cy="58" rx="19" ry="17" fill="#8a5a2b"/>'
+  + '<path d="M13 46 Q6 57 12 70 Q17 61 17 50 Z M51 46 Q58 57 52 70 Q47 61 47 50 Z" fill="#6e4520"/>'
+  + '<ellipse cx="32" cy="61" rx="11" ry="11" fill="#e8cfa0"/>'
+  + '<path d="M26 57 Q28 59 30 57 M34 57 Q36 59 38 57 M30 62 Q32 64 34 62 M26 66 Q28 68 30 66 M34 66 Q36 68 38 66" fill="none" stroke="#b8935a" stroke-width="1.1" stroke-linecap="round"/>'
+  + '<path d="M27 16 Q26 8 30 10 Q32 5 34 10 Q38 8 37 16 Z" fill="#8a5a2b"/>'
+  + '<ellipse cx="32" cy="31" rx="20" ry="17" fill="#9b6834" stroke="#6b4320" stroke-width="1.2"/>'
+  + '<circle cx="24" cy="31" r="8.5" fill="#f0dcb4"/><circle cx="40" cy="31" r="8.5" fill="#f0dcb4"/>'
+  + '<circle cx="24" cy="31" r="5.6" fill="#fff" stroke="#c9a46a" stroke-width=".8"/><circle cx="40" cy="31" r="5.6" fill="#fff" stroke="#c9a46a" stroke-width=".8"/>'
+  + '<circle cx="24.6" cy="31.6" r="2.7" fill="#2a1a08"/><circle cx="39.4" cy="31.6" r="2.7" fill="#2a1a08"/>'
+  + '<circle cx="25.6" cy="30.4" r=".9" fill="#fff"/><circle cx="40.4" cy="30.4" r=".9" fill="#fff"/>'
+  + '<path d="M15 22 Q23 17.5 30 22.5 M34 22.5 Q41 17.5 49 22" fill="none" stroke="#4a2a10" stroke-width="2.6" stroke-linecap="round"/>'
+  + '<path d="M29.5 36 L34.5 36 L32 42 Z" fill="#e8a33a" stroke="#b8761a" stroke-width="1" stroke-linejoin="round"/>');
+
+export const TIGGER_SVG = woodFriend('tigger',
+  '<path d="M10 72 Q12 56 32 55 Q52 56 54 72 Z" fill="#f58a1f"/>'
+  + '<path d="M15 63 L22 65 M14 68 L21 69.5 M49 63 L42 65 M50 68 L43 69.5" stroke="#2a1a10" stroke-width="2" stroke-linecap="round"/>'
+  + '<ellipse cx="32" cy="64" rx="9" ry="8" fill="#fff3d9"/>'
+  + '<path d="M15 22 Q12 7 25 12 Z M49 22 Q52 7 39 12 Z" fill="#f7941f" stroke="#c96a10" stroke-width="1.2" stroke-linejoin="round"/>'
+  + '<path d="M17 18 Q16 11 22 13 Z M47 18 Q48 11 42 13 Z" fill="#2a1a10"/>'
+  + '<path d="M15 30 Q14 14 32 14 Q50 14 49 30 L55 34 L49.5 37 L54 41.5 L46.5 42 Q42 51 32 51 Q22 51 17.5 42 L10 41.5 L14.5 37 L9 34 Z" fill="#f7941f" stroke="#c96a10" stroke-width="1.2" stroke-linejoin="round"/>'
+  + '<path d="M28 15 L29.5 20 M32 14.5 L32 20.5 M36 15 L34.5 20 M15.5 27 L20 28.5 M48.5 27 L44 28.5 M13 36 L18 36.5 M51 36 L46 36.5" stroke="#2a1a10" stroke-width="2" stroke-linecap="round"/>'
+  + '<ellipse cx="27" cy="41" rx="6.5" ry="5" fill="#fff3d9"/><ellipse cx="37" cy="41" rx="6.5" ry="5" fill="#fff3d9"/>'
+  + '<path d="M25 43 Q32 52 39 43 Q32 46 25 43 Z" fill="#8a1f2a"/>'
+  + '<ellipse cx="32" cy="37" rx="3.6" ry="2.6" fill="#f07aa0" stroke="#c94a75" stroke-width=".9"/>'
+  + '<ellipse cx="26" cy="29" rx="2.8" ry="3.6" fill="#fff"/><ellipse cx="38" cy="29" rx="2.8" ry="3.6" fill="#fff"/>'
+  + '<circle cx="26.6" cy="28.6" r="1.7" fill="#1b1b2f"/><circle cx="37.4" cy="28.6" r="1.7" fill="#1b1b2f"/>'
+  + '<path d="M22 23 Q26 20 29.5 23 M34.5 23 Q38 20 42 23" fill="none" stroke="#2a1a10" stroke-width="1.6" stroke-linecap="round"/>');
+
+export const RABBIT_SVG = woodFriend('rabbit',
+  '<path d="M14 72 Q16 56 32 55 Q48 56 50 72 Z" fill="#efd96e"/><ellipse cx="32" cy="66" rx="9" ry="7" fill="#fff6cf"/>'
+  + '<ellipse cx="24" cy="14" rx="5.2" ry="13" transform="rotate(-12 24 14)" fill="#f2df7a" stroke="#c4ae3a" stroke-width="1"/>'
+  + '<ellipse cx="40" cy="14" rx="5.2" ry="13" transform="rotate(12 40 14)" fill="#f2df7a" stroke="#c4ae3a" stroke-width="1"/>'
+  + '<ellipse cx="24" cy="15" rx="2.4" ry="9" transform="rotate(-12 24 15)" fill="#f4b3b3"/><ellipse cx="40" cy="15" rx="2.4" ry="9" transform="rotate(12 40 15)" fill="#f4b3b3"/>'
+  + '<ellipse cx="32" cy="38" rx="15" ry="15" fill="#f2df7a" stroke="#c4ae3a" stroke-width="1.2"/>'
+  + '<ellipse cx="28.3" cy="45" rx="4.6" ry="3.6" fill="#fff6cf"/><ellipse cx="35.7" cy="45" rx="4.6" ry="3.6" fill="#fff6cf"/>'
+  + '<rect x="30" y="46.5" width="4" height="4.2" rx=".8" fill="#fff" stroke="#c4ae3a" stroke-width=".8"/><path d="M32 46.5 V50.7" stroke="#c4ae3a" stroke-width=".6"/>'
+  + '<ellipse cx="32" cy="42" rx="3" ry="2.2" fill="#f08aa0"/>'
+  + '<ellipse cx="26.5" cy="35" rx="2.6" ry="3.2" fill="#fff"/><ellipse cx="37.5" cy="35" rx="2.6" ry="3.2" fill="#fff"/>'
+  + '<circle cx="26.8" cy="35.6" r="1.6" fill="#1b1b2f"/><circle cx="37.2" cy="35.6" r="1.6" fill="#1b1b2f"/>'
+  + '<path d="M23 30 L29.5 31.2 M41 30 L34.5 31.2" stroke="#6b5a14" stroke-width="1.5" stroke-linecap="round"/>'
+  + '<path d="M45 67 L57 54 Q60 56 57.5 58.5 Z" fill="#f08a24" stroke="#c96a10" stroke-width=".8" stroke-linejoin="round"/>'
+  + '<path d="M57.5 55 Q60 49 63 50 M58 55.5 Q63 53 64 56" fill="none" stroke="#3c9a4a" stroke-width="1.8" stroke-linecap="round"/>');
+
+// A little honey pot above the logo.
+export const HONEY_POT_SVG = '<svg class="honey-pot" viewBox="0 0 36 28" aria-hidden="true">'
+  + '<path d="M8 9 Q4 18 9 25 Q18 29 27 25 Q32 18 28 9 Z" fill="#c97d2a" stroke="#8a5216" stroke-width="1.4"/>'
+  + '<rect x="6" y="5" width="24" height="5.5" rx="2.7" fill="#a8641e" stroke="#8a5216" stroke-width="1.2"/>'
+  + '<path d="M9 6 Q11 2 18 2.5 Q25 2 27 6 Q25 9 24 13 Q23 15 22 13 Q21 9 18 9 Q14 9 13 12 Q12 14.5 11 12 Q10 9 9 6 Z" fill="#f5b82e"/>'
+  + '<path d="M12 18 Q18 15 24 18" fill="none" stroke="#f0c98a" stroke-width="1.4" stroke-linecap="round"/></svg>';
+
+export const HONEY_POT_FAB_SVG = '<svg viewBox="0 0 92 82" aria-hidden="true">'
+  + '<path d="M22 24 Q8 46 20 70 Q46 82 72 70 Q84 46 70 24 Z" fill="#c97d2a" stroke="#8a5216" stroke-width="2.5"/>'
+  + '<rect x="16" y="13" width="60" height="13" rx="6.5" fill="#a8641e" stroke="#8a5216" stroke-width="2.2"/>'
+  + '<path d="M20 15 Q24 4 46 5 Q68 4 72 15 Q68 22 66 32 Q64 37 62 32 Q60 24 50 23 Q40 23 36 30 Q34 36 31 30 Q28 22 20 15 Z" fill="#f5b82e"/>'
+  + '<path d="M46 38 V64 M33 51 H59" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>';
+
+export const BALLOON_FAB_SVG = '<svg class="balloon" viewBox="0 0 92 82" aria-hidden="true">'
+  + '<path d="M46 66 Q42 72 47 76 Q51 80 46 82" fill="none" stroke="#6b4320" stroke-width="2" stroke-linecap="round"/>'
+  + '<path d="M46 66 C22 62 16 36 22 22 C28 6 64 6 70 22 C76 36 70 62 46 66 Z" fill="#d62839" stroke="#9b1c2a" stroke-width="2.5"/>'
+  + '<path d="M42 64 L50 64 L48 68 L44 68 Z" fill="#9b1c2a"/><ellipse cx="33" cy="22" rx="5" ry="8" transform="rotate(25 33 22)" fill="#fff" opacity=".35"/>'
+  + '<path d="M46 24 V50 M33 37 H59" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>';
