@@ -1,4 +1,7 @@
 import { TONES, type Task, type TaskList, type Tone } from '../domain/task';
+import { isRecord, loadValidated, writeBestEffort } from './safeStorage';
+
+export { resolveStorage } from './safeStorage';
 
 export const STORAGE_KEY = 'me:v1';
 export const CORRUPT_KEY_PREFIX = 'me:v1:corrupt:';
@@ -14,42 +17,17 @@ interface StoredState {
 
 export interface LoadResult {
   list: TaskList;
-  /** False when saving could destroy data we failed to read or back up — the session stays in memory only. */
   canPersist: boolean;
 }
 
 export function loadState(storage: Storage, nowMs: number): LoadResult {
-  let raw: string | null;
-  try {
-    raw = storage.getItem(STORAGE_KEY);
-  } catch {
-    return { list: EMPTY_STATE, canPersist: false };
-  }
-  if (raw === null) return { list: EMPTY_STATE, canPersist: true };
-
-  const parsed = parseStoredState(raw);
-  if (parsed) return { list: { tasks: parsed.tasks, nextTone: parsed.nextTone }, canPersist: true };
-
-  // Never silently destroy her data: keep every unreadable payload under its own key for manual recovery.
-  const backedUp = writeBestEffort(storage, `${CORRUPT_KEY_PREFIX}${nowMs}`, raw);
-  return { list: EMPTY_STATE, canPersist: backedUp };
+  const { value, canPersist } = loadValidated(storage, STORAGE_KEY, CORRUPT_KEY_PREFIX, nowMs, parseTaskList, EMPTY_STATE);
+  return { list: value, canPersist };
 }
 
-// Best-effort: a failed write must not break ticking; the in-memory list stays authoritative.
 export function saveState(storage: Storage, list: TaskList): boolean {
   const stored: StoredState = { version: SCHEMA_VERSION, tasks: [...list.tasks], nextTone: list.nextTone };
   return writeBestEffort(storage, STORAGE_KEY, JSON.stringify(stored));
-}
-
-/** Chrome throws on merely touching `localStorage` when site data is blocked; fall back to memory so the app still opens. */
-export function resolveStorage(getStorage: () => Storage): Storage {
-  try {
-    const storage = getStorage();
-    storage.getItem(STORAGE_KEY);
-    return storage;
-  } catch {
-    return createMemoryStorage();
-  }
 }
 
 export async function requestPersistence(): Promise<void> {
@@ -60,35 +38,9 @@ export async function requestPersistence(): Promise<void> {
   }
 }
 
-function createMemoryStorage(): Storage {
-  const entries = new Map<string, string>();
-  return {
-    get length() { return entries.size; },
-    clear: () => entries.clear(),
-    key: (index: number) => [...entries.keys()][index] ?? null,
-    getItem: (key: string) => entries.get(key) ?? null,
-    setItem: (key: string, value: string) => { entries.set(key, value); },
-    removeItem: (key: string) => { entries.delete(key); },
-  };
-}
-
-function writeBestEffort(storage: Storage, key: string, value: string): boolean {
-  try {
-    storage.setItem(key, value);
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function parseStoredState(raw: string): StoredState | null {
-  let value: unknown;
-  try {
-    value = JSON.parse(raw);
-  } catch {
-    return null;
-  }
-  return isStoredState(value) ? value : null;
+function parseTaskList(value: unknown): TaskList | null {
+  if (!isStoredState(value)) return null;
+  return { tasks: value.tasks, nextTone: value.nextTone };
 }
 
 function isStoredState(value: unknown): value is StoredState {
@@ -109,8 +61,4 @@ function isTask(value: unknown): value is Task {
     && TONES.includes(value.tone as Tone)
     && (value.doneOn === null || typeof value.doneOn === 'string')
     && typeof value.createdAt === 'number';
-}
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === 'object' && value !== null;
 }
