@@ -201,14 +201,15 @@ function emotion(className: string, parts: string): string {
 }
 
 export const JOY_SVG = emotion('joy',
-  '<circle cx="32" cy="36" r="27" fill="#fff7b0" opacity=".55"/>'
-  + '<path d="M10 72 Q12 56 32 55 Q52 56 54 72 Z" fill="#6ccf4f"/><path d="M24 56 L28 60 L32 56 L36 60 L40 56" fill="none" stroke="#3f9b2f" stroke-width="1.6"/>'
-  + '<rect x="28" y="47" width="8" height="9" fill="#ffe066"/>'
-  + '<ellipse cx="32" cy="34" rx="15" ry="16" fill="#ffe066" stroke="#e6c200" stroke-width="1.2"/>'
-  + '<path d="M16 30 L15 16 L22 22 L24 9 L30 18 L34 6 L38 18 L44 9 L45 22 L51 16 L48 30 Q46 18 32 17 Q18 18 16 30 Z" fill="#2e6fe0"/>'
-  + '<ellipse cx="26.5" cy="33" rx="2.6" ry="3.4" fill="#1b2a5a"/><ellipse cx="37.5" cy="33" rx="2.6" ry="3.4" fill="#1b2a5a"/>'
-  + '<circle cx="27.4" cy="32" r="1" fill="#fff"/><circle cx="38.4" cy="32" r="1" fill="#fff"/>'
-  + '<path d="M24 40 Q32 51 40 40 Z" fill="#8a1f33"/><ellipse cx="32" cy="45.5" rx="4" ry="2" fill="#f28aa0"/>');
+  '<circle cx="32" cy="36" r="27" fill="#fff7b0" opacity=".55"/><path d="M10 72 Q12 56 32 55 Q52 56 54 72 Z" fill="#6ccf4f"/>'
+  + '<path d="M24 56 L28 60 L32 56 L36 60 L40 56" fill="none" stroke="#3f9b2f" stroke-width="1.6"/><rect x="28" y="47" width="8" height="9" fill="#ffe066"/>'
+  + '<path d="M14 38 Q11 14 32 12 Q53 13 51 36 Q49 27 46 24 L18 24 Q15 30 14 38 Z" fill="#2e6fe0"/>'
+  + '<ellipse cx="32" cy="35" rx="15" ry="16" fill="#ffe066" stroke="#e6c200" stroke-width="1.2"/>'
+  + '<path d="M16 33 Q15 15 34 14 Q50 15 50 30 Q46 21 36 21 Q27 21 22 27 Q19 30 16 33 Z" fill="#2e6fe0"/><path d="M31 14 Q33 5 41 6 Q36 9 36 15 Z" fill="#2e6fe0"/>'
+  + '<path d="M24 18 Q33 14 44 19" fill="none" stroke="#6aa1ff" stroke-width="1.8" stroke-linecap="round"/><ellipse cx="26.5" cy="35" rx="2.6" ry="3.4" fill="#1b2a5a"/>'
+  + '<ellipse cx="37.5" cy="35" rx="2.6" ry="3.4" fill="#1b2a5a"/><circle cx="27.4" cy="34" r="1" fill="#fff"/><circle cx="38.4" cy="34" r="1" fill="#fff"/>'
+  + '<path d="M24 42 Q32 52 40 42 Z" fill="#8a1f33"/><ellipse cx="32" cy="47" rx="4" ry="2" fill="#f28aa0"/><ellipse cx="21.5" cy="42" rx="2.4" ry="1.4" fill="#ffb347" opacity=".6"/>'
+  + '<ellipse cx="42.5" cy="42" rx="2.4" ry="1.4" fill="#ffb347" opacity=".6"/>');
 
 export const SADNESS_SVG = emotion('sadness',
   '<path d="M12 42 Q10 16 32 14 Q54 16 52 42 L52 48 L12 48 Z" fill="#2c4f9e"/>'
@@ -242,16 +243,15 @@ export const FEAR_SVG = emotion('fear',
   + '<path d="M25 44 Q27 42 29 44 Q31 46 33 44 Q35 42 37 44 Q38 45 39 44" fill="none" stroke="#4b2a7a" stroke-width="1.8" stroke-linecap="round"/>');
 
 export const DISGUST_SVG = emotion('disgust',
-  '<path d="M12 38 Q10 14 32 13 Q54 14 52 38 Q56 46 50 50 L46 40 L18 40 L14 50 Q8 46 12 38 Z" fill="#2f6b2a"/>'
-  + '<path d="M8 72 Q10 57 32 56 Q54 57 56 72 Z" fill="#5fb34a"/><rect x="28" y="47" width="8" height="9" fill="#8fd66a"/>'
-  + '<path d="M17 55 Q32 63 47 55 L47 60 Q32 68 17 60 Z" fill="#b47de0"/>'
-  + '<ellipse cx="32" cy="35" rx="14.5" ry="15.5" fill="#8fd66a"/>'
-  + '<path d="M17 31 Q16 17 32 16 Q48 17 47 28 Q40 20 30 22 Q22 24 17 31 Z" fill="#2f6b2a"/>'
-  + '<ellipse cx="26.5" cy="36" rx="3.2" ry="3.4" fill="#fff"/><ellipse cx="37.5" cy="36" rx="3.2" ry="3.4" fill="#fff"/>'
-  + '<circle cx="26.5" cy="37" r="1.7" fill="#1b3a14"/><circle cx="37.5" cy="37" r="1.7" fill="#1b3a14"/>'
-  + '<path d="M22.8 34.6 Q26.5 32.4 30.2 34.6 M33.8 34.6 Q37.5 32.4 41.2 34.6" fill="none" stroke="#1b3a14" stroke-width="1.8" stroke-linecap="round"/>'
-  + '<path d="M22.6 34 L20.6 31.8 M41.4 34 L43.4 31.8" stroke="#1b3a14" stroke-width="1.4" stroke-linecap="round"/>'
-  + '<path d="M28 44.5 Q32 42.5 36 44.5 Q32 46.8 28 44.5 Z" fill="#7a2d5a"/>');
+  '<path d="M12 40 Q9 14 32 13 Q55 14 52 40 Q53 47 58 49 Q50 53 46 46 L18 46 Q14 53 6 49 Q11 47 12 40 Z" fill="#2a6324"/><path d="M8 72 Q10 57 32 56 Q54 57 56 72 Z" fill="#5fb34a"/>'
+  + '<rect x="28" y="47" width="8" height="9" fill="#8fd66a"/><path d="M17 55 Q32 63 47 55 L47 60 Q32 68 17 60 Z" fill="#c78be8"/>'
+  + '<ellipse cx="32" cy="35" rx="14.5" ry="15.5" fill="#8fd66a"/><path d="M17 32 Q14 16 33 15 Q50 16 47 31 Q43 22 33 21 Q25 21 17 32 Z" fill="#2a6324"/>'
+  + '<path d="M24 18 Q33 15 42 18" fill="none" stroke="#4f9a3f" stroke-width="1.6" stroke-linecap="round"/><ellipse cx="26.5" cy="36" rx="4" ry="4.4" fill="#fff"/>'
+  + '<ellipse cx="37.5" cy="36" rx="4" ry="4.4" fill="#fff"/><circle cx="28.5" cy="36.5" r="2.3" fill="#1b3a14"/><circle cx="39.5" cy="36.5" r="2.3" fill="#1b3a14"/>'
+  + '<path d="M22.3 33.5 Q26.5 30.6 30.7 33.5 M33.3 33.5 Q37.5 30.6 41.7 33.5" fill="none" stroke="#1b3a14" stroke-width="2" stroke-linecap="round"/>'
+  + '<path d="M22.5 33 L20 30.5 M23.6 32.1 L22.2 29.2 M41.5 33 L44 30.5 M40.4 32.1 L41.8 29.2" stroke="#1b3a14" stroke-width="1.3" stroke-linecap="round"/>'
+  + '<path d="M22 28 Q26 25.5 30 27.5 M34 27 Q38 23 42 25" fill="none" stroke="#1b3a14" stroke-width="1.7" stroke-linecap="round"/>'
+  + '<path d="M28 45 Q32 43 36 45 Q32 47.6 28 45 Z" fill="#9b3a7a"/>');
 
 export const ENVY_SVG = emotion('envy',
   '<g fill="#1b6e69"><circle cx="19" cy="25" r="7"/><circle cx="27" cy="18" r="8"/><circle cx="37" cy="18" r="8"/><circle cx="45" cy="25" r="7"/><circle cx="48" cy="34" r="6"/><circle cx="16" cy="34" r="6"/></g>'
