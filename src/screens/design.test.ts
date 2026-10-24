@@ -57,7 +57,7 @@ describe('mountDesign', () => {
     expect(document.documentElement.dataset.cast).toBe('princesses');
     expect(loadPrefs(localStorage).cast).toBe('princesses');
     expect(selected('.cast-option')).toEqual(['princesses']);
-    expect(root.querySelector('.mascot svg.sun')).not.toBeNull();
+    expect(root.querySelector('.mascot svg.aurora')).not.toBeNull();
   });
 
   it('applies and saves a font choice', () => {

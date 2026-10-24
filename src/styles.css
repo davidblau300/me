@@ -207,9 +207,9 @@ html[data-cast="princesses"] .app[data-screen="calendar"] {
   --accent-2-edge: var(--pal-accent-2-edge, #8e98ad); --tint: var(--pal-tint, #dff0ff); --marker: var(--pal-primary, #e05d9c);
 }
 html[data-cast="princesses"] .app[data-screen="weather"] {
-  --bg: var(--pal-bg, #e8f8f6); --dot: var(--pal-dot, #c3ece6); --ink: var(--pal-ink, #0f3b3a); --muted: var(--pal-muted, #3e6461);
-  --primary: var(--pal-primary, #0b7a75); --accent: var(--pal-accent, #ff7f50); --accent-2: var(--pal-accent-2, #f2c14e);
-  --accent-2-edge: var(--pal-accent-2-edge, #c99a20); --tint: var(--pal-tint, #fff);
+  --bg: var(--pal-bg, #e6f8f6); --dot: var(--pal-dot, #c3ece6); --ink: var(--pal-ink, #0f3b3a); --muted: var(--pal-muted, #3e6461);
+  --primary: var(--pal-primary, #0b7a75); --accent: var(--pal-accent, #8a5cd6); --accent-2: var(--pal-accent-2, #ff7f50);
+  --accent-2-edge: var(--pal-accent-2-edge, #d9623b); --tint: var(--pal-tint, #fff);
 }
 html[data-cast="princesses"] .app[data-screen="schedule"] {
   --bg: var(--pal-bg, #fff8e6); --dot: var(--pal-dot, #ffecb3); --ink: var(--pal-ink, #3d2a0a); --muted: var(--pal-muted, #6e5a36);
@@ -217,22 +217,22 @@ html[data-cast="princesses"] .app[data-screen="schedule"] {
   --accent-2-edge: var(--pal-accent-2-edge, #9b0d23); --tint: var(--pal-tint, #fff1c4);
 }
 html[data-cast="princesses"] .app[data-screen="design"] {
-  --bg: var(--pal-bg, #f5edff); --dot: var(--pal-dot, #e6d6ff); --ink: var(--pal-ink, #2e1a47); --muted: var(--pal-muted, #5d4a78);
-  --primary: var(--pal-primary, #7b4bc4); --accent: var(--pal-accent, #e08a1e); --accent-2: var(--pal-accent-2, #f2c14e);
-  --accent-2-edge: var(--pal-accent-2-edge, #c99a20); --tint: var(--pal-tint, #fff4d6);
+  --bg: var(--pal-bg, #fff0f7); --dot: var(--pal-dot, #ffd6ea); --ink: var(--pal-ink, #3b1a2e); --muted: var(--pal-muted, #6e4a60);
+  --primary: var(--pal-primary, #b83b7e); --accent: var(--pal-accent, #e8679f); --accent-2: var(--pal-accent-2, #f2c14e);
+  --accent-2-edge: var(--pal-accent-2-edge, #c99a20); --tint: var(--pal-tint, #ffe3f0);
 }
 html[data-cast="princesses"] .pick-tasks { background: #f2f5ff; border-color: #2b4aa0; color: #2b4aa0; box-shadow: 6px 6px 0 #d62828; }
 html[data-cast="princesses"] .pick-calendar { background: #eef6ff; border-color: #3f6fae; color: #3f6fae; box-shadow: 6px 6px 0 #6fa8dc; }
-html[data-cast="princesses"] .pick-weather { background: #e8f8f6; border-color: #0b7a75; color: #0b7a75; box-shadow: 6px 6px 0 #ff7f50; }
+html[data-cast="princesses"] .pick-weather { background: #e6f8f6; border-color: #0b7a75; color: #0b7a75; box-shadow: 6px 6px 0 #8a5cd6; }
 html[data-cast="princesses"] .pick-schedule { background: #fff8e6; border-color: #8a6200; color: #8a6200; box-shadow: 6px 6px 0 #c8102e; }
-html[data-cast="princesses"] .pick-design { background: #f5edff; border-color: #7b4bc4; color: #7b4bc4; box-shadow: 6px 6px 0 #f2c14e; }
+html[data-cast="princesses"] .pick-design { background: #fff0f7; border-color: #b83b7e; color: #b83b7e; box-shadow: 6px 6px 0 #f4a6c8; }
 .crowned { position: relative; display: inline-block; padding: 0 6px; }
 .crowned .crown { position: absolute; top: -18px; left: 50%; width: 38px; height: 25px; transform: translateX(-50%); }
 /* Row marker becomes a small apple */
 html[data-cast="princesses"] .mini { background: #d62828; width: 15px; height: 14px; border-radius: 50% 50% 45% 45%; }
 html[data-cast="princesses"] .mini::before { top: -6px; right: 1px; width: 8px; height: 4px; border-radius: 50%; background: #3c9a4a; transform: rotate(-25deg); }
 html[data-cast="princesses"] .mini::after { top: -5px; left: 6px; width: 2px; height: 6px; border-radius: 1px; background: #6b3e1d; }
-html[data-cast="princesses"] .mascot svg { width: 56px; height: 56px; }
+html[data-cast="princesses"] .mascot svg { width: 54px; height: 61px; }
 
 /* Design — style (cast) choice */
 .cast-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }

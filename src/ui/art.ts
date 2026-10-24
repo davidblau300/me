@@ -114,18 +114,58 @@ export const DAISY_SVG = `<svg class="daisy" viewBox="0 0 72 74" aria-hidden="tr
 
 export const CROWN_SVG = `<svg class="crown" viewBox="0 0 40 26" aria-hidden="true"><path d="M3 23 L6 6 L14 14 L20 3 L26 14 L34 6 L37 23 Z" fill="#f5c242" stroke="#b8860b" stroke-width="1.6" stroke-linejoin="round"/><rect x="3" y="20" width="34" height="5" rx="2" fill="#e0a800"/><circle cx="20" cy="4" r="2.4" fill="#d62828"/><circle cx="6" cy="7" r="2" fill="#2b4aa0"/><circle cx="34" cy="7" r="2" fill="#2b4aa0"/></svg>`;
 
-const APPLE_BODY = '<path d="M20 14 C12 8 2 14 4 26 C6 38 14 44 20 41 C26 44 34 38 36 26 C38 14 28 8 20 14 Z" fill="#d62828" stroke="#9b1c1c" stroke-width="1.4"/><path d="M20 14 Q21 8 24 4" fill="none" stroke="#6b3e1d" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="28" cy="8" rx="6" ry="3" transform="rotate(-30 28 8)" fill="#3c9a4a"/><ellipse cx="12" cy="23" rx="3" ry="5.5" fill="#fff" opacity=".55"/>';
-
-export const APPLE_SVG = `<svg class="apple" viewBox="0 0 40 46" aria-hidden="true">${APPLE_BODY}</svg>`;
-
 export const APPLE_FAB_SVG = `<svg class="apple" viewBox="0 0 92 82" aria-hidden="true"><path d="M46 24 C30 12 8 24 12 48 C16 70 34 82 46 76 C58 82 76 70 80 48 C84 24 62 12 46 24 Z" fill="#d62828" stroke="#9b1c1c" stroke-width="2.5"/><path d="M46 24 Q48 12 54 6" fill="none" stroke="#6b3e1d" stroke-width="4" stroke-linecap="round"/><ellipse cx="62" cy="13" rx="11" ry="5.5" transform="rotate(-30 62 13)" fill="#3c9a4a"/><path d="M46 38 V64 M33 51 H59" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`;
-
-export const SLIPPER_SVG = `<svg class="slipper" viewBox="0 0 64 52" aria-hidden="true"><path d="M6 40 Q8 30 22 30 Q34 30 44 18 Q50 10 56 14 Q60 18 54 26 L50 40 Z" fill="#cfe9ff" stroke="#3f6fae" stroke-width="2" stroke-linejoin="round"/><path d="M12 36 Q20 33 30 34" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><rect x="48" y="38" width="5" height="11" rx="2" fill="#cfe9ff" stroke="#3f6fae" stroke-width="1.6"/><path d="M14 10 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 Z M34 4 l1.4 3.6 l3.6 1.4 l-3.6 1.4 l-1.4 3.6 l-1.4 -3.6 l-3.6 -1.4 l3.6 -1.4 Z" fill="#9fd0ff"/></svg>`;
 
 export const PRINCESS_CAL_FAB_SVG = `<svg viewBox="0 0 92 82" aria-hidden="true"><path d="M24 24 L28 5 L38 15 L46 1 L54 15 L64 5 L68 24 Z" fill="#f5c242" stroke="#b8860b" stroke-width="2" stroke-linejoin="round"/><circle cx="46" cy="52" r="29" fill="#6fa8dc" stroke="#3f6fae" stroke-width="3"/><path d="M46 38 V66 M32 52 H60" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`;
 
-export const SHELL_SVG = `<svg class="shell" viewBox="0 0 64 56" aria-hidden="true"><path d="M32 50 L8 26 Q10 8 32 6 Q54 8 56 26 Z" fill="#ffb08f" stroke="#d9623b" stroke-width="2" stroke-linejoin="round"/><g stroke="#d9623b" stroke-width="1.8" stroke-linecap="round"><path d="M32 50 L14 18 M32 50 L22 10 M32 50 L32 7 M32 50 L42 10 M32 50 L50 18"/></g><ellipse cx="32" cy="50" rx="8" ry="3.5" fill="#f2c14e" stroke="#c99a20" stroke-width="1.2"/><circle cx="52" cy="44" r="5" fill="#ff7f50"/><circle cx="52" cy="44" r="2" fill="#ffe08a"/></svg>`;
+// Original cartoon princess portraits (hair, outfit and accessory colors only; no Disney artwork).
+const SKIN = '#f9dcc4';
+const PRINCESS_FACE = `<rect x="28" y="47" width="8" height="9" fill="${SKIN}"/>`;
+const PRINCESS_FEATURES = `<ellipse cx="32" cy="35" rx="14.5" ry="15.5" fill="${SKIN}"/>`
+  + '<ellipse cx="26.5" cy="36" rx="2.3" ry="3" fill="#2b1a10"/><ellipse cx="37.5" cy="36" rx="2.3" ry="3" fill="#2b1a10"/>'
+  + '<circle cx="27.3" cy="35" r=".9" fill="#fff"/><circle cx="38.3" cy="35" r=".9" fill="#fff"/>'
+  + '<ellipse cx="22.5" cy="41" rx="2.6" ry="1.6" fill="#f7a1a8" opacity=".75"/><ellipse cx="41.5" cy="41" rx="2.6" ry="1.6" fill="#f7a1a8" opacity=".75"/>'
+  + '<path d="M28.5 43 Q32 46.5 35.5 43" fill="none" stroke="#b5544a" stroke-width="1.6" stroke-linecap="round"/>';
 
-export const ROSE_SVG = `<svg class="rose" viewBox="0 0 56 70" aria-hidden="true"><path d="M28 38 V67" stroke="#3c9a4a" stroke-width="3.2" stroke-linecap="round"/><ellipse cx="19" cy="52" rx="8" ry="4" transform="rotate(-25 19 52)" fill="#3c9a4a"/><ellipse cx="37" cy="58" rx="8" ry="4" transform="rotate(25 37 58)" fill="#3c9a4a"/><circle cx="28" cy="22" r="16" fill="#c8102e" stroke="#8a0b1f" stroke-width="1.5"/><path d="M28 22 m-9 0 a9 9 0 1 0 18 0 a6 6 0 1 0 -12 0 a3 3 0 1 0 6 0" fill="none" stroke="#8a0b1f" stroke-width="2" stroke-linecap="round"/></svg>`;
+function princess(className: string, behind: string, outfit: string, front: string): string {
+  return `<svg class="${className}" viewBox="0 0 64 72" aria-hidden="true">${behind}${PRINCESS_FACE}${outfit}${PRINCESS_FEATURES}${front}</svg>`;
+}
 
-export const SUN_SVG = `<svg class="sun" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#b48cf0"/><g fill="#e08a1e">${[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => `<path d="M32 6 Q36 13 32 20 Q28 13 32 6 Z" transform="rotate(${angle} 32 32)"/>`).join('')}</g><circle cx="32" cy="32" r="11" fill="#f2c14e" stroke="#e08a1e" stroke-width="2"/></svg>`;
+export const SNOW_WHITE_SVG = princess('snow-white',
+  '<path d="M12 36 Q10 14 32 12 Q54 14 52 36 L52 46 Q46 50 44 44 L20 44 Q18 50 12 46 Z" fill="#1b1b2f"/>',
+  '<path d="M8 72 Q10 56 32 55 Q54 56 56 72 Z" fill="#2b4aa0"/><circle cx="13" cy="62" r="7" fill="#d62828"/><circle cx="51" cy="62" r="7" fill="#d62828"/>'
+    + '<path d="M20 56 L24 47 L32 55 L40 47 L44 56 Q32 60 20 56 Z" fill="#fff" stroke="#c9ced8" stroke-width=".8"/>',
+  '<path d="M17 32 Q18 17 32 16 Q46 17 47 32 Q42 24 34 24 Q28 22 17 32 Z" fill="#1b1b2f"/>'
+    + '<path d="M16 25 Q32 10 48 25" fill="none" stroke="#d62828" stroke-width="3.5" stroke-linecap="round"/>'
+    + '<path d="M45 17 L38 11 L38 22 Z M45 17 L52 11 L52 22 Z" fill="#d62828"/><circle cx="45" cy="16.5" r="2.4" fill="#a81c1c"/>');
+
+export const CINDERELLA_SVG = princess('cinderella',
+  '<ellipse cx="32" cy="31" rx="19" ry="19" fill="#f2cd6b"/><circle cx="32" cy="11" r="8" fill="#f2cd6b" stroke="#d9ac3e" stroke-width="1"/>',
+  '<path d="M8 72 Q10 56 32 55 Q54 56 56 72 Z" fill="#9fd0f5"/><path d="M21 56 Q32 66 43 56 Z" fill="#f9dcc4"/>'
+    + '<rect x="27" y="50.5" width="10" height="2.6" rx="1.2" fill="#1b1b2f"/>',
+  '<path d="M17 31 Q17 17 32 16 Q47 17 47 30 Q40 20 30 22 Q22 24 17 31 Z" fill="#f2cd6b"/>'
+    + '<path d="M17 24 Q32 12 47 24" fill="none" stroke="#6fb3e8" stroke-width="3.5" stroke-linecap="round"/>'
+    + '<path d="M55 10 l1.4 3.4 l3.4 1.4 l-3.4 1.4 l-1.4 3.4 l-1.4 -3.4 l-3.4 -1.4 l3.4 -1.4 Z" fill="#9fd0f5"/>');
+
+export const MERMAID_SVG = princess('mermaid',
+  '<path d="M10 40 Q6 12 32 10 Q58 12 54 40 Q56 58 48 66 L44 50 L20 50 L16 66 Q8 58 10 40 Z" fill="#e0412e"/>',
+  '<path d="M10 72 Q12 58 32 57 Q52 58 54 72 Z" fill="#f9dcc4"/>'
+    + '<path d="M17 72 Q18 63 25 63 Q32 63 31 72 Z M33 72 Q32 63 39 63 Q46 63 47 72 Z" fill="#8a5cd6" stroke="#6a3fb5" stroke-width="1"/>',
+  '<path d="M16 33 Q14 15 32 14 Q50 15 49 30 Q44 18 36 22 Q30 20 24 26 Q20 28 16 33 Z" fill="#e0412e"/>'
+    + '<path d="M24 19 Q30 15 37 16" fill="none" stroke="#f47a5c" stroke-width="1.6" stroke-linecap="round"/>'
+    + '<circle cx="56" cy="14" r="2.6" fill="none" stroke="#7fd3d0" stroke-width="1.3"/><circle cx="59" cy="22" r="1.7" fill="none" stroke="#7fd3d0" stroke-width="1.2"/>');
+
+export const BELLE_SVG = princess('belle',
+  '<ellipse cx="32" cy="32" rx="19" ry="20" fill="#6b3e1d"/><circle cx="32" cy="12" r="7" fill="#6b3e1d"/>'
+    + '<path d="M14 36 Q12 52 18 58 L22 44 Z M50 36 Q52 52 46 58 L42 44 Z" fill="#6b3e1d"/>',
+  '<path d="M8 72 Q10 57 32 56 Q54 57 56 72 Z" fill="#f9dcc4"/><path d="M12 72 Q14 64 32 63 Q50 64 52 72 Z" fill="#f2c94c" stroke="#c99a20" stroke-width="1"/>'
+    + '<circle cx="49" cy="66" r="2.8" fill="#c8102e"/>',
+  '<path d="M17 31 Q18 17 32 16 Q46 17 47 31 Q44 22 36 21 Q26 22 17 31 Z" fill="#6b3e1d"/>'
+    + '<path d="M32 18 L26 14 L26 21 Z M32 18 L38 14 L38 21 Z" fill="#f2c94c"/>');
+
+export const AURORA_SVG = princess('aurora',
+  '<path d="M10 38 Q8 12 32 11 Q56 12 54 38 Q56 60 50 70 L42 52 L22 52 L14 70 Q8 60 10 38 Z" fill="#e8b84a"/>',
+  '<path d="M8 72 Q10 57 32 56 Q54 57 56 72 Z" fill="#f9dcc4"/><path d="M12 72 Q14 63 32 63 Q50 63 52 72 Z" fill="#f4a6c8" stroke="#d97aa5" stroke-width="1"/>'
+    + '<path d="M17 40 Q14 56 18 66 L22 64 Q20 52 22 42 Z M47 40 Q50 56 46 66 L42 64 Q44 52 42 42 Z" fill="#e8b84a"/>',
+  '<path d="M17 32 Q17 16 32 15 Q47 16 47 32 Q42 21 32 21 Q22 21 17 32 Z" fill="#e8b84a"/>'
+    + '<path d="M24 17 L26 10 L29 14 L32 7 L35 14 L38 10 L40 17 Z" fill="#f5c242" stroke="#b8860b" stroke-width="1"/><circle cx="32" cy="10" r="1.6" fill="#7b4bc4"/>');

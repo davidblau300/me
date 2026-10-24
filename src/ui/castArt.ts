@@ -1,8 +1,8 @@
 import type { CastId } from '../prefs/prefs';
 import type { ScreenRoute } from '../router';
 import {
-  APPLE_FAB_SVG, APPLE_SVG, DAISY_SVG, DUCK_FAB_SVG, DUCK_SVG, FAB_SVG, GOOFY_SVG, MINNIE_SVG, MOUSE_HEAD_SVG, MOUSE_SVG,
-  PRINCESS_CAL_FAB_SVG, ROSE_SVG, SHELL_SVG, SLIPPER_SVG, SUN_SVG,
+  APPLE_FAB_SVG, AURORA_SVG, BELLE_SVG, CINDERELLA_SVG, DAISY_SVG, DUCK_FAB_SVG, DUCK_SVG, FAB_SVG, GOOFY_SVG, MERMAID_SVG,
+  MINNIE_SVG, MOUSE_HEAD_SVG, MOUSE_SVG, PRINCESS_CAL_FAB_SVG, SNOW_WHITE_SVG,
 } from './art';
 
 export interface CastArt {
@@ -32,14 +32,14 @@ const ANIMALS: CastArt = {
 
 const PRINCESSES: CastArt = {
   logoDecor: 'crown',
-  chipMascot: APPLE_SVG,
+  chipMascot: SNOW_WHITE_SVG,
   tasksFab: APPLE_FAB_SVG,
-  calendarMascot: SLIPPER_SVG,
+  calendarMascot: CINDERELLA_SVG,
   calendarFab: PRINCESS_CAL_FAB_SVG,
-  weatherMascot: SHELL_SVG,
-  scheduleMascot: ROSE_SVG,
-  designMascot: SUN_SVG,
-  picker: { tasks: APPLE_SVG, calendar: SLIPPER_SVG, weather: SHELL_SVG, schedule: ROSE_SVG, design: SUN_SVG },
+  weatherMascot: MERMAID_SVG,
+  scheduleMascot: BELLE_SVG,
+  designMascot: AURORA_SVG,
+  picker: { tasks: SNOW_WHITE_SVG, calendar: CINDERELLA_SVG, weather: MERMAID_SVG, schedule: BELLE_SVG, design: AURORA_SVG },
 };
 
 export const CAST_ART: Record<CastId, CastArt> = { animals: ANIMALS, princesses: PRINCESSES };

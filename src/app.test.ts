@@ -157,18 +157,21 @@ describe('startApp routing', () => {
     start();
 
     expect(document.documentElement.dataset.cast).toBe('princesses');
-    expect(root.querySelector('[data-route="tasks"] svg.apple')).not.toBeNull();
-    expect(root.querySelector('[data-route="schedule"] svg.rose')).not.toBeNull();
+    expect(root.querySelector('[data-route="tasks"] svg.snow-white')).not.toBeNull();
+    expect(root.querySelector('[data-route="calendar"] svg.cinderella')).not.toBeNull();
+    expect(root.querySelector('[data-route="weather"] svg.mermaid')).not.toBeNull();
+    expect(root.querySelector('[data-route="schedule"] svg.belle')).not.toBeNull();
+    expect(root.querySelector('[data-route="design"] svg.aurora')).not.toBeNull();
 
     root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
-    expect(root.querySelector('[data-filter="done"] svg.apple')).not.toBeNull();
+    expect(root.querySelector('[data-filter="done"] svg.snow-white')).not.toBeNull();
     expect(root.querySelector('.brand .crowned')).not.toBeNull();
     expect(root.querySelector('.brand .ears')).toBeNull();
   });
 
   it('keeps animal art by default', () => {
     start();
-    expect(root.querySelector('[data-route="tasks"] svg.apple')).toBeNull();
+    expect(root.querySelector('[data-route="tasks"] svg.snow-white')).toBeNull();
     root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
     expect(root.querySelector('[data-filter="done"] svg.mouse')).not.toBeNull();
     expect(root.querySelector('.brand .ears')).not.toBeNull();
