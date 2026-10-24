@@ -1,4 +1,4 @@
-import type { Task, TaskDraft } from '../domain/task';
+import type { TaskDraft } from '../domain/task';
 import { COPY } from './copy';
 
 const FOCUS_DELAY_MS = 250;
@@ -9,12 +9,27 @@ export interface SheetHandlers {
   confirm: (message: string) => boolean;
 }
 
+export interface SheetItem {
+  readonly id: string;
+  title: string;
+  time: string;
+  note: string;
+}
+
+export interface SheetLabels {
+  newTitle: string;
+  editTitle: string;
+  name: string;
+}
+
+export const TASK_SHEET_LABELS: SheetLabels = { newTitle: COPY.sheetNew, editTitle: COPY.sheetEdit, name: COPY.fieldName };
+
 export interface Sheet {
-  open(task: Task | null): void;
+  open(item: SheetItem | null): void;
   close(): void;
 }
 
-export function createSheet(root: HTMLElement, handlers: SheetHandlers): Sheet {
+export function createSheet(root: HTMLElement, handlers: SheetHandlers, labels: SheetLabels = TASK_SHEET_LABELS): Sheet {
   const scrim = document.createElement('div');
   scrim.className = 'scrim';
 
@@ -26,7 +41,7 @@ export function createSheet(root: HTMLElement, handlers: SheetHandlers): Sheet {
   const grip = document.createElement('div');
   grip.className = 'grip';
   const heading = document.createElement('h2');
-  const titleInput = input('title', 'text', COPY.fieldName, 'name');
+  const titleInput = input('title', 'text', labels.name, 'name');
   const timeInput = input('time', 'time', COPY.fieldTime);
   const noteInput = input('note', 'text', COPY.fieldNote);
 
@@ -47,16 +62,16 @@ export function createSheet(root: HTMLElement, handlers: SheetHandlers): Sheet {
     titleInput.field.blur();
   };
 
-  const open = (task: Task | null): void => {
-    editingId = task?.id ?? null;
-    heading.textContent = task ? COPY.sheetEdit : COPY.sheetNew;
-    titleInput.field.value = task?.title ?? '';
-    timeInput.field.value = task?.time ?? '';
-    noteInput.field.value = task?.note ?? '';
-    deleteButton.hidden = !task;
+  const open = (item: SheetItem | null): void => {
+    editingId = item?.id ?? null;
+    heading.textContent = item ? labels.editTitle : labels.newTitle;
+    titleInput.field.value = item?.title ?? '';
+    timeInput.field.value = item?.time ?? '';
+    noteInput.field.value = item?.note ?? '';
+    deleteButton.hidden = !item;
     form.classList.add('open');
     scrim.classList.add('open');
-    if (!task) setTimeout(() => titleInput.field.focus(), FOCUS_DELAY_MS);
+    if (!item) setTimeout(() => titleInput.field.focus(), FOCUS_DELAY_MS);
   };
 
   form.addEventListener('submit', (event) => {

@@ -26,3 +26,24 @@ export const MOUSE_SVG = `<svg class="mouse" viewBox="0 0 40 52" aria-hidden="tr
 </svg>`;
 
 export const FAB_SVG = `<svg viewBox="0 0 92 82" aria-hidden="true"><circle cx="18" cy="20" r="16" fill="#111"/><circle cx="74" cy="20" r="16" fill="#111"/><circle cx="46" cy="49" r="31" fill="#e3191b"/><path d="M46 35 V63 M32 49 H60" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`;
+
+// Arrow pointing right: "back" in a right-to-left layout.
+export const BACK_ICON_SVG = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 L16 12 L9 19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+
+export const MOUSE_HEAD_SVG = `<svg viewBox="0 0 92 82" aria-hidden="true"><circle cx="18" cy="20" r="16" fill="#111"/><circle cx="74" cy="20" r="16" fill="#111"/><circle cx="46" cy="49" r="31" fill="#111"/><ellipse cx="46" cy="56" rx="20" ry="17" fill="#f8dcc4"/><ellipse cx="39" cy="44" rx="3" ry="5" fill="#111"/><ellipse cx="53" cy="44" rx="3" ry="5" fill="#111"/><ellipse cx="46" cy="56" rx="5" ry="3.6" fill="#111"/><path d="M37 62 Q46 70 55 62" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round"/></svg>`;
+
+// Original sailor-duck mascot (Donald-inspired colors only, no Disney artwork).
+export const DUCK_SVG = `<svg class="duck" viewBox="0 0 64 70" aria-hidden="true">
+<ellipse cx="32" cy="16" rx="17" ry="8" fill="#2f6fd6"/>
+<rect x="15" y="17" width="34" height="7" rx="3.5" fill="#1d3f8a"/>
+<path d="M47 21 L55 29 M47 21 L53 31" stroke="#1d3f8a" stroke-width="2.4" stroke-linecap="round"/>
+<circle cx="32" cy="36" r="15" fill="#fff" stroke="#1d3f8a" stroke-width="1.6"/>
+<ellipse cx="27" cy="32" rx="1.9" ry="3" fill="#111"/>
+<ellipse cx="37" cy="32" rx="1.9" ry="3" fill="#111"/>
+<ellipse cx="32" cy="43" rx="10.5" ry="4.6" fill="#ffb21a" stroke="#c97c00" stroke-width="1"/>
+<ellipse cx="32" cy="46.5" rx="7" ry="2.8" fill="#f29a00"/>
+<path d="M22 56 L32 60.5 L22 65 Z M42 56 L32 60.5 L42 65 Z" fill="#e3191b"/>
+<circle cx="32" cy="60.5" r="2.6" fill="#b5121b"/>
+</svg>`;
+
+export const DUCK_FAB_SVG = `<svg viewBox="0 0 92 82" aria-hidden="true"><ellipse cx="46" cy="14" rx="26" ry="11" fill="#2f6fd6"/><rect x="20" y="16" width="52" height="9" rx="4.5" fill="#1d3f8a"/><circle cx="46" cy="50" r="30" fill="#2f6fd6" stroke="#1d3f8a" stroke-width="3"/><path d="M46 36 V64 M32 50 H60" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`;
