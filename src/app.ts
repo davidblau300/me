@@ -1,7 +1,7 @@
 import { localDateKey } from './domain/day';
 import type { Filter } from './domain/order';
 import { addTask, deleteTask, toggleDone, updateTask, type TaskList } from './domain/task';
-import { loadState, saveState } from './storage/store';
+import { STORAGE_KEY, loadState, saveState } from './storage/store';
 import { FAB_SVG, MOUSE_SVG } from './ui/art';
 import { COPY } from './ui/copy';
 import { renderList } from './ui/list';
@@ -19,7 +19,9 @@ export interface AppDeps {
 }
 
 export function startApp(root: HTMLElement, deps: AppDeps): { stop(): void } {
-  let list: TaskList = loadState(deps.storage);
+  const loaded = loadState(deps.storage, deps.now().getTime());
+  let list: TaskList = loaded.list;
+  let canPersist = loaded.canPersist;
   let filter: Filter = 'all';
   let renderedDay = localDateKey(deps.now());
 
@@ -34,7 +36,7 @@ export function startApp(root: HTMLElement, deps: AppDeps): { stop(): void } {
 
   const commit = (next: TaskList): void => {
     list = next;
-    saveState(deps.storage, list);
+    if (canPersist) saveState(deps.storage, list);
     render();
   };
 
@@ -66,8 +68,17 @@ export function startApp(root: HTMLElement, deps: AppDeps): { stop(): void } {
   const onVisibility = (): void => {
     if (document.visibilityState === 'visible') renderIfNewDay();
   };
+  // Another instance (browser tab vs installed app) saved: adopt its list so neither overwrites the other.
+  const onStorage = (event: StorageEvent): void => {
+    if (event.key !== STORAGE_KEY && event.key !== null) return;
+    const reloaded = loadState(deps.storage, deps.now().getTime());
+    list = reloaded.list;
+    canPersist = reloaded.canPersist;
+    render();
+  };
   const dayTimer = setInterval(renderIfNewDay, DAY_CHECK_MS);
   document.addEventListener('visibilitychange', onVisibility);
+  window.addEventListener('storage', onStorage);
 
   render();
 
@@ -75,6 +86,7 @@ export function startApp(root: HTMLElement, deps: AppDeps): { stop(): void } {
     stop() {
       clearInterval(dayTimer);
       document.removeEventListener('visibilitychange', onVisibility);
+      window.removeEventListener('storage', onStorage);
       unbindPress();
     },
   };

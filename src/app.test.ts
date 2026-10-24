@@ -1,5 +1,5 @@
 import { DAY_CHECK_MS, startApp } from './app';
-import { STORAGE_KEY, saveState } from './storage/store';
+import { CORRUPT_KEY_PREFIX, STORAGE_KEY, saveState } from './storage/store';
 
 let root: HTMLElement;
 let current: Date;
@@ -128,5 +128,35 @@ describe('startApp', () => {
     expect(root.querySelector('[data-filter="done"] svg.mouse')).not.toBeNull();
     expect(root.querySelector('.fab svg')).not.toBeNull();
     expect(root.querySelector('[data-filter="done"]')!.textContent!.trim()).toBe('בוצע');
+  });
+
+  it('reloads tasks when another window saves', () => {
+    start();
+    saveState(localStorage, {
+      tasks: [{ id: 'other', title: 'מחלון אחר', time: '', note: '', tone: 'red', doneOn: null, createdAt: 1 }],
+      nextTone: 2,
+    });
+
+    window.dispatchEvent(new StorageEvent('storage', { key: STORAGE_KEY }));
+
+    expect(rows().map((row) => row.querySelector('.ttl')!.textContent)).toEqual(['מחלון אחר']);
+  });
+
+  it('never overwrites unreadable data it could not back up', () => {
+    localStorage.setItem(STORAGE_KEY, '{not json');
+    const originalSetItem = Storage.prototype.setItem;
+    const setItemSpy = vi.spyOn(Storage.prototype, 'setItem').mockImplementation(function (this: Storage, key: string, value: string) {
+      if (key.startsWith(CORRUPT_KEY_PREFIX)) throw new DOMException('full', 'QuotaExceededError');
+      originalSetItem.call(this, key, value);
+    });
+    try {
+      start();
+      addViaSheet('חדש');
+
+      expect(rows()).toHaveLength(1);
+      expect(localStorage.getItem(STORAGE_KEY)).toBe('{not json');
+    } finally {
+      setItemSpy.mockRestore();
+    }
   });
 });
