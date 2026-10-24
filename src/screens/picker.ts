@@ -23,6 +23,7 @@ export function mountPicker(root: HTMLElement, onPick: (route: ScreenRoute) => v
     choice('calendar', COPY.routeCalendar, art.picker.calendar, onPick),
     choice('weather', COPY.routeWeather, art.picker.weather, onPick),
     choice('schedule', COPY.routeSchedule, art.picker.schedule, onPick),
+    choice('recipes', COPY.routeRecipes, art.picker.recipes, onPick),
     choice('design', COPY.routeDesign, art.picker.design, onPick),
   );
 

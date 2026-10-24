@@ -45,6 +45,15 @@ describe('startApp routing', () => {
     expect(root.querySelector('[data-route="weather"]')).not.toBeNull();
     expect(root.querySelector('[data-route="schedule"]')).not.toBeNull();
     expect(root.querySelector('[data-route="design"]')).not.toBeNull();
+    expect(root.querySelector('[data-route="recipes"]')).not.toBeNull();
+  });
+
+  it('opens the recipes from the picker', () => {
+    start();
+    root.querySelector<HTMLButtonElement>('[data-route="recipes"]')!.click();
+
+    expect(screenName()).toBe('recipes');
+    expect(location.hash).toBe('#recipes');
   });
 
   it('opens the design screen from the picker', () => {
@@ -162,6 +171,7 @@ describe('startApp routing', () => {
     expect(root.querySelector('[data-route="weather"] svg.mermaid')).not.toBeNull();
     expect(root.querySelector('[data-route="schedule"] svg.belle')).not.toBeNull();
     expect(root.querySelector('[data-route="design"] svg.aurora')).not.toBeNull();
+    expect(root.querySelector('[data-route="recipes"] svg.rapunzel')).not.toBeNull();
 
     root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
     expect(root.querySelector('[data-filter="done"] svg.snow-white')).not.toBeNull();
@@ -172,6 +182,7 @@ describe('startApp routing', () => {
   it('keeps animal art by default', () => {
     start();
     expect(root.querySelector('[data-route="tasks"] svg.snow-white')).toBeNull();
+    expect(root.querySelector('[data-route="recipes"] svg.pluto')).not.toBeNull();
     root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
     expect(root.querySelector('[data-filter="done"] svg.mouse')).not.toBeNull();
     expect(root.querySelector('.brand .ears')).not.toBeNull();

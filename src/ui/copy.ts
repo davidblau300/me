@@ -40,4 +40,10 @@ export const COPY = {
   designSample: 'מה עושים היום?',
   designReset: 'חזרה לברירת המחדל',
   designCast: 'סגנון',
+  routeRecipes: 'מתכונים',
+  recipesTitle: 'מתכונים',
+  ingredients: 'מצרכים',
+  ingredientsHint: 'לחצי על מצרך כדי לסמן שהוא מוכן',
+  steps: 'הוראות הכנה',
+  withAdult: 'עם מבוגר',
 } as const;

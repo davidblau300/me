@@ -169,3 +169,27 @@ export const AURORA_SVG = princess('aurora',
     + '<path d="M17 40 Q14 56 18 66 L22 64 Q20 52 22 42 Z M47 40 Q50 56 46 66 L42 64 Q44 52 42 42 Z" fill="#e8b84a"/>',
   '<path d="M17 32 Q17 16 32 15 Q47 16 47 32 Q42 21 32 21 Q22 21 17 32 Z" fill="#e8b84a"/>'
     + '<path d="M24 17 L26 10 L29 14 L32 7 L35 14 L38 10 L40 17 Z" fill="#f5c242" stroke="#b8860b" stroke-width="1"/><circle cx="32" cy="10" r="1.6" fill="#7b4bc4"/>');
+
+// Original golden dog mascot (Pluto-inspired colors only, no Disney artwork).
+export const PLUTO_SVG = `<svg class="pluto" viewBox="0 0 72 72" aria-hidden="true">
+<path d="M14 18 Q4 30 8 50 Q12 54 16 48 Q16 34 22 26 Z" fill="#1b1b1b"/>
+<path d="M58 18 Q68 30 64 50 Q60 54 56 48 Q56 34 50 26 Z" fill="#1b1b1b"/>
+<ellipse cx="36" cy="34" rx="20" ry="19" fill="#f4b63c" stroke="#c98a12" stroke-width="1.4"/>
+<ellipse cx="36" cy="45" rx="13" ry="9" fill="#f7c95e"/>
+<ellipse cx="29" cy="29" rx="3" ry="4.4" fill="#fff"/><ellipse cx="43" cy="29" rx="3" ry="4.4" fill="#fff"/>
+<circle cx="29.5" cy="30" r="1.9" fill="#111"/><circle cx="42.5" cy="30" r="1.9" fill="#111"/>
+<ellipse cx="36" cy="40" rx="6" ry="4.2" fill="#111"/><ellipse cx="34.5" cy="39" rx="1.6" ry="1" fill="#fff" opacity=".7"/>
+<path d="M30 47 Q36 52 42 47" fill="none" stroke="#7a4a00" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M36 49 Q36 57 40 56 Q42 52 40 48 Z" fill="#e85a6b"/>
+<path d="M20 58 Q36 64 52 58 L52 63 Q36 69 20 63 Z" fill="#3a8f3a"/>
+<circle cx="36" cy="66" r="3.4" fill="#f5c242" stroke="#b8860b" stroke-width="1"/>
+</svg>`;
+
+export const RAPUNZEL_SVG = princess('rapunzel',
+  '<path d="M11 38 Q8 12 32 11 Q56 12 53 38 Q54 50 50 56 L44 50 L20 50 L14 56 Q10 50 11 38 Z" fill="#f0c75a"/>'
+    + '<path d="M50 44 Q60 52 56 62 Q54 68 58 72 L50 72 Q46 66 49 60 Q52 54 46 48 Z" fill="#f0c75a" stroke="#d9a93a" stroke-width="1"/>',
+  '<path d="M8 72 Q10 56 32 55 Q54 56 56 72 Z" fill="#9b6ad1"/><path d="M22 56 L32 66 L42 56 Z" fill="#f4a6c8"/>'
+    + '<path d="M26 58 L38 58 M27 61 L37 61" stroke="#f9e7f1" stroke-width="1.2"/>',
+  '<path d="M17 31 Q17 16 32 15 Q47 16 47 31 Q42 21 32 21 Q22 21 17 31 Z" fill="#f0c75a"/>'
+    + '<circle cx="53" cy="56" r="2.6" fill="#ff7eb9"/><circle cx="51" cy="64" r="2.2" fill="#b88cff"/><circle cx="56" cy="69" r="2" fill="#fff59d"/>'
+    + '<circle cx="20" cy="22" r="2.4" fill="#ff7eb9"/><circle cx="20" cy="22" r="1" fill="#fff59d"/>');

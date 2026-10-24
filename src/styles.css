@@ -46,16 +46,22 @@ body { background: #fff6f4; font-family: 'Varela Round', system-ui, sans-serif; 
   --accent-2-edge: var(--pal-accent-2-edge, #e0a92a); --tint: var(--pal-tint, #ffe6f2);
 }
 
+.app[data-screen="recipes"] {
+  --bg: var(--pal-bg, #fff7e0); --dot: var(--pal-dot, #ffe6a3); --ink: var(--pal-ink, #3a2a0a); --muted: var(--pal-muted, #6b5a36);
+  --primary: var(--pal-primary, #8a5a00); --accent: var(--pal-accent, #3a8f3a); --accent-2: var(--pal-accent-2, #f4b63c);
+  --accent-2-edge: var(--pal-accent-2-edge, #c98a12); --tint: var(--pal-tint, #fff1c4);
+}
+
 /* Shared header pieces */
 .head { padding: 26px 16px 0; }
-.cal-head, .weather-head, .schedule-head, .design-head { display: flex; align-items: center; gap: 14px; padding: 18px 16px 2px; }
+.cal-head, .weather-head, .schedule-head, .design-head, .recipes-head { display: flex; align-items: center; gap: 14px; padding: 18px 16px 2px; }
 .brand { display: flex; align-items: center; gap: 16px; }
 .ears { position: relative; display: inline-block; padding: 0 6px; }
 .ears::before, .ears::after { content: ''; position: absolute; top: -14px; width: 24px; height: 24px; border-radius: 50%; background: #111; }
 .ears::before { right: -6px; }
 .ears::after { left: -6px; }
 .logo { position: relative; font-family: 'Pacifico', cursive; font-size: 34px; direction: ltr; line-height: 1.3; color: var(--primary); }
-.cal-head .logo, .weather-head .logo, .schedule-head .logo, .design-head .logo { font-size: 32px; }
+.cal-head .logo, .weather-head .logo, .schedule-head .logo, .design-head .logo, .recipes-head .logo { font-size: 32px; }
 .mascot { margin-inline-start: auto; }
 .mascot svg { display: block; width: 54px; height: 59px; }
 .back { width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; border: 2px solid var(--primary); background: #fff; color: var(--primary); display: grid; place-items: center; padding: 0; cursor: pointer; }
@@ -112,6 +118,7 @@ body { background: #fff6f4; font-family: 'Varela Round', system-ui, sans-serif; 
 .pick-weather { background: #fff1e3; border-color: #1f5e2a; color: #1f5e2a; box-shadow: 6px 6px 0 #f47b20; }
 .pick-schedule { background: #ffe4f0; border-color: #c2185b; color: #c2185b; box-shadow: 6px 6px 0 #ff6fae; }
 .pick-design { background: #f4ecff; border-color: #6a3fb5; color: #6a3fb5; box-shadow: 6px 6px 0 #ff6fb0; }
+.pick-recipes { background: #fff7e0; border-color: #8a5a00; color: #8a5a00; box-shadow: 6px 6px 0 #3a8f3a; }
 .pick-art { display: grid; place-items: center; width: 62px; height: 62px; flex-shrink: 0; }
 .pick-art svg { width: 100%; height: 100%; }
 .pick:active { transform: translate(3px, 3px); }
@@ -240,6 +247,35 @@ html[data-cast="princesses"] .mascot svg { width: 54px; height: 61px; }
 .cast-option.on { border-color: var(--accent); box-shadow: 0 0 0 3px var(--tint), 3px 3px 0 var(--accent); }
 .cast-preview { display: flex; gap: 6px; align-items: center; }
 .cast-preview svg { width: 34px; height: 34px; }
+
+/* Recipes — Pluto (animals) / Rapunzel (princesses) */
+html[data-cast="princesses"] .app[data-screen="recipes"] {
+  --bg: var(--pal-bg, #f5edff); --dot: var(--pal-dot, #e6d6ff); --ink: var(--pal-ink, #2e1a47); --muted: var(--pal-muted, #5d4a78);
+  --primary: var(--pal-primary, #7b4bc4); --accent: var(--pal-accent, #e08a1e); --accent-2: var(--pal-accent-2, #f2c14e);
+  --accent-2-edge: var(--pal-accent-2-edge, #c99a20); --tint: var(--pal-tint, #fff4d6);
+}
+html[data-cast="princesses"] .pick-recipes { background: #f5edff; border-color: #7b4bc4; color: #7b4bc4; box-shadow: 6px 6px 0 #f2c14e; }
+.recipes-theme .mascot svg { width: 58px; height: 58px; }
+html[data-cast="princesses"] .recipes-theme .mascot svg { width: 54px; height: 61px; }
+.recipes-body { padding-bottom: 40px; }
+.recipes-title, .recipe-detail-title { font-family: var(--font-display); font-weight: var(--display-weight); font-size: calc(24px * var(--display-scale)); color: var(--primary); margin: 8px 4px 12px; }
+.recipe-card { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; width: 100%; margin-bottom: 12px; padding: 14px 18px; border-radius: 20px; border: 2px solid var(--primary); background: #fff; color: var(--ink); box-shadow: 4px 4px 0 var(--accent-2); text-align: start; font: inherit; cursor: pointer; }
+.recipe-card:active { transform: translate(2px, 2px); }
+.recipe-title { font-family: var(--font-display); font-weight: var(--display-weight); font-size: calc(20px * var(--display-scale)); }
+.recipe-meta { font-size: 13px; color: var(--muted); }
+.recipe-detail-title { margin-bottom: 2px; }
+.recipe-detail-title + .recipe-meta { margin: 0 4px 6px; }
+.recipe-section { font-family: var(--font-display); font-weight: var(--display-weight); font-size: calc(19px * var(--display-scale)); color: var(--primary); margin: 18px 4px 6px; }
+.recipe-hint { font-size: 12.5px; color: var(--muted); margin: 0 4px 8px; }
+.ingredients { list-style: none; display: grid; gap: 8px; }
+.ingredient { display: block; width: 100%; text-align: start; font: inherit; font-size: 15.5px; padding: 10px 14px 10px 40px; position: relative; border-radius: 14px; border: 2px solid var(--primary); background: #fff; color: var(--ink); cursor: pointer; }
+.ingredient::after { content: ''; position: absolute; left: 12px; top: 50%; width: 18px; height: 18px; transform: translateY(-50%); border-radius: 50%; border: 2px solid var(--accent); background: #fff; }
+.ingredient.got { opacity: .55; text-decoration: line-through; }
+.ingredient.got::after { background: var(--accent); box-shadow: inset 0 0 0 3px #fff; }
+.steps { list-style: none; counter-reset: step; display: grid; gap: 10px; }
+.step { counter-increment: step; position: relative; background: #fff; border: 2px solid var(--primary); border-radius: 16px; padding: 12px 14px 12px 14px; padding-inline-start: 46px; font-size: 15.5px; line-height: 1.5; box-shadow: 3px 3px 0 var(--accent-2); }
+.step::before { content: counter(step); position: absolute; inset-inline-start: 12px; top: 12px; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 13.5px; display: grid; place-items: center; }
+.adult-badge { display: inline-block; margin-inline-start: 8px; padding: 1px 9px; border-radius: 10px; background: #e3191b; color: #fff; font-size: 11.5px; vertical-align: middle; }
 
 @media (prefers-reduced-motion: reduce) {
   .mouse .wave { animation: none; }

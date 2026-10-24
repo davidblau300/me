@@ -8,13 +8,14 @@ describe('cast art', () => {
   });
 
   it('gives each screen its princess character', () => {
-    const { picker, chipMascot, calendarMascot, weatherMascot, scheduleMascot, designMascot } = CAST_ART.princesses;
+    const { picker, chipMascot, calendarMascot, weatherMascot, scheduleMascot, designMascot, recipesMascot } = CAST_ART.princesses;
 
-    expect(picker).toEqual({ tasks: chipMascot, calendar: calendarMascot, weather: weatherMascot, schedule: scheduleMascot, design: designMascot });
+    expect(picker).toEqual({ tasks: chipMascot, calendar: calendarMascot, weather: weatherMascot, schedule: scheduleMascot, design: designMascot, recipes: recipesMascot });
     expect(chipMascot).toContain('class="snow-white"');
     expect(calendarMascot).toContain('class="cinderella"');
     expect(weatherMascot).toContain('class="mermaid"');
     expect(scheduleMascot).toContain('class="belle"');
     expect(designMascot).toContain('class="aurora"');
+    expect(recipesMascot).toContain('class="rapunzel"');
   });
 });
