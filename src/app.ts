@@ -2,6 +2,7 @@ import { localDateKey } from './domain/day';
 import type { Filter } from './domain/order';
 import { addTask, deleteTask, toggleDone, updateTask, type TaskList } from './domain/task';
 import { loadState, saveState } from './storage/store';
+import { FAB_SVG, MOUSE_SVG } from './ui/art';
 import { COPY } from './ui/copy';
 import { renderList } from './ui/list';
 import { bindPress } from './ui/press';
@@ -107,6 +108,7 @@ function buildShell(): Shell {
   const chips = [chip('all', COPY.tabToday), chip('done', COPY.tabDone)];
   const mouseSlot = document.createElement('span');
   mouseSlot.className = 'mouse-slot';
+  mouseSlot.innerHTML = MOUSE_SVG;
   chips[1].append(mouseSlot);
   chipRow.append(...chips);
   head.append(brand, chipRow);
@@ -118,6 +120,7 @@ function buildShell(): Shell {
   fab.className = 'fab';
   fab.type = 'button';
   fab.setAttribute('aria-label', COPY.addLabel);
+  fab.innerHTML = FAB_SVG;
 
   app.append(head, feed, fab);
   return { app, feed, chips, fab };

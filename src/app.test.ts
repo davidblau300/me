@@ -121,4 +121,12 @@ describe('startApp', () => {
     expect(root.querySelector<HTMLInputElement>('[name="title"]')!.value).toBe('לקרוא');
     expect(root.querySelector('.sheet')!.classList.contains('open')).toBe(true);
   });
+
+  it('shows the mouse on the done tab and a mouse-head add button', () => {
+    start();
+
+    expect(root.querySelector('[data-filter="done"] svg.mouse')).not.toBeNull();
+    expect(root.querySelector('.fab svg')).not.toBeNull();
+    expect(root.querySelector('[data-filter="done"]')!.textContent!.trim()).toBe('בוצע');
+  });
 });
