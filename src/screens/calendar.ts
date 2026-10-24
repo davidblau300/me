@@ -2,7 +2,8 @@ import type { AppDeps, Mounted } from '../deps';
 import { addEvent, addMonths, datesWithEvents, deleteEvent, eventsOn, monthGrid, updateEvent, type EventList, type MonthRef } from '../domain/calendar';
 import { dateFromKey, localDateKey } from '../domain/day';
 import { CALENDAR_KEY, loadEvents, saveEvents } from '../storage/calendarStore';
-import { DUCK_FAB_SVG, DUCK_SVG } from '../ui/art';
+import { CAST_ART, type CastArt } from '../ui/castArt';
+import { loadPrefs } from '../storage/prefsStore';
 import { backButton } from '../ui/back';
 import { WEEKDAY_LETTERS, dayTitle, monthTitle, renderDayEvents, renderMonth } from '../ui/calendarView';
 import { COPY } from '../ui/copy';
@@ -19,7 +20,7 @@ export function mountCalendar(root: HTMLElement, deps: AppDeps, onBack: () => vo
   let selected = today();
   let visible = monthOf(selected);
 
-  const shell = buildShell(onBack);
+  const shell = buildShell(onBack, CAST_ART[loadPrefs(deps.storage).cast]);
   root.replaceChildren(shell.app);
 
   const render = (): void => {
@@ -111,7 +112,7 @@ interface Shell {
   fab: HTMLButtonElement;
 }
 
-function buildShell(onBack: () => void): Shell {
+function buildShell(onBack: () => void, art: CastArt): Shell {
   const app = document.createElement('div');
   app.className = 'app duck-theme';
   app.dataset.screen = 'calendar';
@@ -123,7 +124,7 @@ function buildShell(onBack: () => void): Shell {
   logo.textContent = 'me';
   const mascot = document.createElement('span');
   mascot.className = 'mascot';
-  mascot.innerHTML = DUCK_SVG;
+  mascot.innerHTML = art.calendarMascot;
   head.append(backButton(onBack), logo, mascot);
 
   const nav = document.createElement('nav');
@@ -157,7 +158,7 @@ function buildShell(onBack: () => void): Shell {
   fab.type = 'button';
   fab.className = 'fab';
   fab.setAttribute('aria-label', COPY.addEventLabel);
-  fab.innerHTML = DUCK_FAB_SVG;
+  fab.innerHTML = art.calendarFab;
 
   app.append(head, body, fab);
   return { app, title, prev, next, grid, dayTitle: dayTitleNode, events, fab };

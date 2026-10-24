@@ -1,6 +1,7 @@
 import type { AppDeps, Mounted } from '../deps';
 import { loadCachedWeather, saveCachedWeather } from '../storage/weatherStore';
-import { GOOFY_SVG } from '../ui/art';
+import { CAST_ART, type CastArt } from '../ui/castArt';
+import { loadPrefs } from '../storage/prefsStore';
 import { backButton } from '../ui/back';
 import { renderWeather, type WeatherStatus } from '../ui/weatherView';
 import { WeatherUnavailableError, fetchForecast } from '../weather/client';
@@ -14,7 +15,7 @@ export function mountWeather(root: HTMLElement, deps: AppDeps, onBack: () => voi
   let inFlight: AbortController | null = null;
   let stopped = false;
 
-  const shell = buildShell(onBack);
+  const shell = buildShell(onBack, CAST_ART[loadPrefs(deps.storage).cast]);
   root.replaceChildren(shell.app);
 
   const render = (): void => renderWeather(shell.body, report, status, deps.now(), () => void refresh());
@@ -56,7 +57,7 @@ export function mountWeather(root: HTMLElement, deps: AppDeps, onBack: () => voi
   };
 }
 
-function buildShell(onBack: () => void): { app: HTMLElement; body: HTMLElement } {
+function buildShell(onBack: () => void, art: CastArt): { app: HTMLElement; body: HTMLElement } {
   const app = document.createElement('div');
   app.className = 'app goofy-theme';
   app.dataset.screen = 'weather';
@@ -68,7 +69,7 @@ function buildShell(onBack: () => void): { app: HTMLElement; body: HTMLElement }
   logo.textContent = 'me';
   const mascot = document.createElement('span');
   mascot.className = 'mascot';
-  mascot.innerHTML = GOOFY_SVG;
+  mascot.innerHTML = art.weatherMascot;
   head.append(backButton(onBack), logo, mascot);
 
   const body = document.createElement('main');

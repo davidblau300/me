@@ -3,7 +3,9 @@ import { localDateKey } from '../domain/day';
 import type { Filter } from '../domain/order';
 import { addTask, deleteTask, toggleDone, updateTask, type TaskList } from '../domain/task';
 import { STORAGE_KEY, loadState, saveState } from '../storage/store';
-import { FAB_SVG, MOUSE_SVG } from '../ui/art';
+import { CROWN_SVG } from '../ui/art';
+import { CAST_ART, type CastArt } from '../ui/castArt';
+import { loadPrefs } from '../storage/prefsStore';
 import { backButton } from '../ui/back';
 import { COPY } from '../ui/copy';
 import { renderList } from '../ui/list';
@@ -20,7 +22,7 @@ export function mountTasks(root: HTMLElement, deps: AppDeps, onBack: () => void)
   let filter: Filter = 'all';
   let renderedDay = localDateKey(deps.now());
 
-  const shell = buildShell(onBack);
+  const shell = buildShell(onBack, CAST_ART[loadPrefs(deps.storage).cast]);
   root.replaceChildren(shell.app);
 
   const render = (): void => {
@@ -94,7 +96,7 @@ interface Shell {
   fab: HTMLButtonElement;
 }
 
-function buildShell(onBack: () => void): Shell {
+function buildShell(onBack: () => void, art: CastArt): Shell {
   const app = document.createElement('div');
   app.className = 'app';
   app.dataset.screen = 'tasks';
@@ -104,20 +106,21 @@ function buildShell(onBack: () => void): Shell {
   const brand = document.createElement('div');
   brand.className = 'brand';
   brand.append(backButton(onBack));
-  const ears = document.createElement('span');
-  ears.className = 'ears';
+  const decor = document.createElement('span');
+  decor.className = art.logoDecor === 'ears' ? 'ears' : 'crowned';
+  if (art.logoDecor === 'crown') decor.innerHTML = CROWN_SVG;
   const logo = document.createElement('span');
   logo.className = 'logo';
   logo.textContent = 'me';
-  ears.append(logo);
-  brand.append(ears);
+  decor.append(logo);
+  brand.append(decor);
 
   const chipRow = document.createElement('nav');
   chipRow.className = 'chips';
   const chips = [chip('all', COPY.tabToday), chip('done', COPY.tabDone)];
   const mouseSlot = document.createElement('span');
   mouseSlot.className = 'mouse-slot';
-  mouseSlot.innerHTML = MOUSE_SVG;
+  mouseSlot.innerHTML = art.chipMascot;
   chips[1].append(mouseSlot);
   chipRow.append(...chips);
   head.append(brand, chipRow);
@@ -129,7 +132,7 @@ function buildShell(onBack: () => void): Shell {
   fab.className = 'fab';
   fab.type = 'button';
   fab.setAttribute('aria-label', COPY.addLabel);
-  fab.innerHTML = FAB_SVG;
+  fab.innerHTML = art.tasksFab;
 
   app.append(head, feed, fab);
   return { app, feed, chips, fab };

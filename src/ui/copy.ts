@@ -39,4 +39,5 @@ export const COPY = {
   designColors: 'צבעים',
   designSample: 'מה עושים היום?',
   designReset: 'חזרה לברירת המחדל',
+  designCast: 'סגנון',
 } as const;

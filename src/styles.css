@@ -66,7 +66,8 @@ body { background: #fff6f4; font-family: 'Varela Round', system-ui, sans-serif; 
 .chip { position: relative; font: inherit; font-size: 14px; padding: 6px 16px; border-radius: 18px; background: #fff; border: 2px solid var(--primary); color: var(--ink); cursor: pointer; }
 .chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
 .mouse-slot { display: contents; }
-.mouse { position: absolute; bottom: calc(100% - 3px); left: 50%; width: 40px; height: 52px; transform: translateX(-50%); pointer-events: none; }
+/* The mascot standing on the "בוצע" tab — positioned by its slot, so the same art can sit elsewhere unpositioned. */
+.mouse-slot > svg { position: absolute; bottom: calc(100% - 3px); left: 50%; width: 40px; height: 52px; transform: translateX(-50%); pointer-events: none; }
 .mouse .wave { transform-origin: 13px 31px; animation: wave 1.6s ease-in-out infinite; }
 @keyframes wave { 0%, 60%, 100% { transform: rotate(0deg); } 70% { transform: rotate(-18deg); } 80% { transform: rotate(8deg); } 90% { transform: rotate(-12deg); } }
 
@@ -192,6 +193,53 @@ body { background: #fff6f4; font-family: 'Varela Round', system-ui, sans-serif; 
 .swatch { display: flex; gap: 4px; }
 .swatch-dot { width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(0,0,0,.15); }
 .reset { display: block; margin: 24px auto 0; font: inherit; font-size: 15px; padding: 10px 20px; border-radius: 22px; border: 2px solid var(--primary); background: #fff; color: var(--primary); cursor: pointer; }
+
+/* Princess-inspired cast: per-screen colors (still overridden by a chosen color set) and symbols */
+html[data-cast="princesses"] .app[data-screen="tasks"] {
+  --bg: var(--pal-bg, #f2f5ff); --dot: var(--pal-dot, #d9e1fb); --ink: var(--pal-ink, #1d2550); --muted: var(--pal-muted, #4a5275);
+  --primary: var(--pal-primary, #2b4aa0); --accent: var(--pal-accent, #d62828); --accent-2: var(--pal-accent-2, #ffd84d);
+  --accent-2-edge: var(--pal-accent-2-edge, #e0b400); --tint: var(--pal-tint, #fff);
+}
+html[data-cast="princesses"] .app[data-screen="picker"] { --bg: var(--pal-bg, #fff5fb); --dot: var(--pal-dot, #f7d9ea); --primary: var(--pal-primary, #8a3f9e); }
+html[data-cast="princesses"] .app[data-screen="calendar"] {
+  --bg: var(--pal-bg, #eef6ff); --dot: var(--pal-dot, #d3e6fb); --ink: var(--pal-ink, #1f3a5c); --muted: var(--pal-muted, #4f6684);
+  --primary: var(--pal-primary, #3f6fae); --accent: var(--pal-accent, #6fa8dc); --accent-2: var(--pal-accent-2, #c0c7d6);
+  --accent-2-edge: var(--pal-accent-2-edge, #8e98ad); --tint: var(--pal-tint, #dff0ff); --marker: var(--pal-primary, #e05d9c);
+}
+html[data-cast="princesses"] .app[data-screen="weather"] {
+  --bg: var(--pal-bg, #e8f8f6); --dot: var(--pal-dot, #c3ece6); --ink: var(--pal-ink, #0f3b3a); --muted: var(--pal-muted, #3e6461);
+  --primary: var(--pal-primary, #0b7a75); --accent: var(--pal-accent, #ff7f50); --accent-2: var(--pal-accent-2, #f2c14e);
+  --accent-2-edge: var(--pal-accent-2-edge, #c99a20); --tint: var(--pal-tint, #fff);
+}
+html[data-cast="princesses"] .app[data-screen="schedule"] {
+  --bg: var(--pal-bg, #fff8e6); --dot: var(--pal-dot, #ffecb3); --ink: var(--pal-ink, #3d2a0a); --muted: var(--pal-muted, #6e5a36);
+  --primary: var(--pal-primary, #8a6200); --accent: var(--pal-accent, #a8741a); --accent-2: var(--pal-accent-2, #c8102e);
+  --accent-2-edge: var(--pal-accent-2-edge, #9b0d23); --tint: var(--pal-tint, #fff1c4);
+}
+html[data-cast="princesses"] .app[data-screen="design"] {
+  --bg: var(--pal-bg, #f5edff); --dot: var(--pal-dot, #e6d6ff); --ink: var(--pal-ink, #2e1a47); --muted: var(--pal-muted, #5d4a78);
+  --primary: var(--pal-primary, #7b4bc4); --accent: var(--pal-accent, #e08a1e); --accent-2: var(--pal-accent-2, #f2c14e);
+  --accent-2-edge: var(--pal-accent-2-edge, #c99a20); --tint: var(--pal-tint, #fff4d6);
+}
+html[data-cast="princesses"] .pick-tasks { background: #f2f5ff; border-color: #2b4aa0; color: #2b4aa0; box-shadow: 6px 6px 0 #d62828; }
+html[data-cast="princesses"] .pick-calendar { background: #eef6ff; border-color: #3f6fae; color: #3f6fae; box-shadow: 6px 6px 0 #6fa8dc; }
+html[data-cast="princesses"] .pick-weather { background: #e8f8f6; border-color: #0b7a75; color: #0b7a75; box-shadow: 6px 6px 0 #ff7f50; }
+html[data-cast="princesses"] .pick-schedule { background: #fff8e6; border-color: #8a6200; color: #8a6200; box-shadow: 6px 6px 0 #c8102e; }
+html[data-cast="princesses"] .pick-design { background: #f5edff; border-color: #7b4bc4; color: #7b4bc4; box-shadow: 6px 6px 0 #f2c14e; }
+.crowned { position: relative; display: inline-block; padding: 0 6px; }
+.crowned .crown { position: absolute; top: -18px; left: 50%; width: 38px; height: 25px; transform: translateX(-50%); }
+/* Row marker becomes a small apple */
+html[data-cast="princesses"] .mini { background: #d62828; width: 15px; height: 14px; border-radius: 50% 50% 45% 45%; }
+html[data-cast="princesses"] .mini::before { top: -6px; right: 1px; width: 8px; height: 4px; border-radius: 50%; background: #3c9a4a; transform: rotate(-25deg); }
+html[data-cast="princesses"] .mini::after { top: -5px; left: 6px; width: 2px; height: 6px; border-radius: 1px; background: #6b3e1d; }
+html[data-cast="princesses"] .mascot svg { width: 56px; height: 56px; }
+
+/* Design — style (cast) choice */
+.cast-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cast-option { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 84px; padding: 10px; border-radius: 18px; border: 2px solid var(--primary); background: #fff; color: var(--ink); box-shadow: 3px 3px 0 var(--accent-2); cursor: pointer; font: inherit; }
+.cast-option.on { border-color: var(--accent); box-shadow: 0 0 0 3px var(--tint), 3px 3px 0 var(--accent); }
+.cast-preview { display: flex; gap: 6px; align-items: center; }
+.cast-preview svg { width: 34px; height: 34px; }
 
 @media (prefers-reduced-motion: reduce) {
   .mouse .wave { animation: none; }

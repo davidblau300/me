@@ -58,15 +58,23 @@ export const PALETTE_OPTIONS = [
   },
 ] as const satisfies readonly PaletteOption[];
 
+/** Which cartoon world decorates the screens: original animal-inspired or princess-inspired art. */
+export const CAST_OPTIONS = [
+  { id: 'animals', label: 'חיות מצוירות' },
+  { id: 'princesses', label: 'נסיכות' },
+] as const satisfies ReadonlyArray<{ readonly id: string; readonly label: string }>;
+
 export type FontId = (typeof FONT_OPTIONS)[number]['id'];
 export type PaletteId = (typeof PALETTE_OPTIONS)[number]['id'];
+export type CastId = (typeof CAST_OPTIONS)[number]['id'];
 
 export interface Prefs {
   font: FontId;
   palette: PaletteId;
+  cast: CastId;
 }
 
-export const DEFAULT_PREFS: Prefs = { font: 'playpen', palette: 'characters' };
+export const DEFAULT_PREFS: Prefs = { font: 'playpen', palette: 'characters', cast: 'animals' };
 
 const PALETTE_VARIABLES: ReadonlyArray<[keyof PaletteColors, string]> = [
   ['bg', '--pal-bg'], ['dot', '--pal-dot'], ['ink', '--pal-ink'], ['muted', '--pal-muted'], ['primary', '--pal-primary'],
@@ -77,7 +85,9 @@ export function parsePrefs(value: unknown): Prefs | null {
   if (!isRecord(value) || value.version !== 1) return null;
   const font = FONT_OPTIONS.find((option) => option.id === value.font);
   const palette = PALETTE_OPTIONS.find((option) => option.id === value.palette);
-  return font && palette ? { font: font.id, palette: palette.id } : null;
+  // Prefs saved before the cast option existed have no `cast`; they keep the original animals.
+  const cast = value.cast === undefined ? CAST_OPTIONS[0] : CAST_OPTIONS.find((option) => option.id === value.cast);
+  return font && palette && cast ? { font: font.id, palette: palette.id, cast: cast.id } : null;
 }
 
 /** Fonts and palettes are CSS variables on the root; each screen's character colors are the fallback. */
@@ -87,6 +97,8 @@ export function applyPrefs(target: HTMLElement, prefs: Prefs): void {
   target.style.setProperty('--font-display', font.family);
   target.style.setProperty('--display-scale', String(font.scale));
   target.style.setProperty('--display-weight', String(font.weight));
+
+  target.dataset.cast = prefs.cast;
 
   const palette: PaletteOption = PALETTE_OPTIONS.find((option) => option.id === prefs.palette) ?? PALETTE_OPTIONS[0];
   target.dataset.palette = palette.id;

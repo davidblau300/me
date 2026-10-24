@@ -9,6 +9,7 @@ import { mountSchedule } from './screens/schedule';
 import { mountDesign } from './screens/design';
 import { applyPrefs } from './prefs/prefs';
 import { PREFS_KEY, loadPrefs } from './storage/prefsStore';
+import { CAST_ART } from './ui/castArt';
 import { mountTasks } from './screens/tasks';
 import { mountWeather } from './screens/weather';
 
@@ -35,7 +36,7 @@ export function startApp(root: HTMLElement, deps: AppDeps): Mounted {
     if (route === 'weather') return mountWeather(root, deps, goBack);
     if (route === 'schedule') return mountSchedule(root, deps, goBack);
     if (route === 'design') return mountDesign(root, deps, goBack);
-    return mountPicker(root, open);
+    return mountPicker(root, open, CAST_ART[loadPrefs(deps.storage).cast]);
   };
 
   const open = (route: ScreenRoute): void => {

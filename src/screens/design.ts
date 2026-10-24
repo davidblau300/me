@@ -1,7 +1,7 @@
 import type { AppDeps, Mounted } from '../deps';
-import { DEFAULT_PREFS, FONT_OPTIONS, PALETTE_OPTIONS, applyPrefs, type Prefs } from '../prefs/prefs';
+import { CAST_OPTIONS, DEFAULT_PREFS, FONT_OPTIONS, PALETTE_OPTIONS, applyPrefs, type Prefs } from '../prefs/prefs';
 import { loadPrefs, savePrefs } from '../storage/prefsStore';
-import { DAISY_SVG } from '../ui/art';
+import { CAST_ART } from '../ui/castArt';
 import { backButton } from '../ui/back';
 import { COPY } from '../ui/copy';
 
@@ -19,7 +19,6 @@ export function mountDesign(root: HTMLElement, deps: AppDeps, onBack: () => void
   logo.textContent = 'me';
   const mascot = document.createElement('span');
   mascot.className = 'mascot';
-  mascot.innerHTML = DAISY_SVG;
   head.append(backButton(onBack), logo, mascot);
 
   const body = document.createElement('main');
@@ -35,6 +34,18 @@ export function mountDesign(root: HTMLElement, deps: AppDeps, onBack: () => void
   };
 
   const render = (): void => {
+    mascot.innerHTML = CAST_ART[prefs.cast].designMascot;
+
+    const casts = CAST_OPTIONS.map((cast) => {
+      const button = optionButton('cast-option', cast.id === prefs.cast);
+      button.dataset.cast = cast.id;
+      const preview = text('span', 'cast-preview');
+      preview.innerHTML = CAST_ART[cast.id].picker.tasks + CAST_ART[cast.id].picker.calendar + CAST_ART[cast.id].picker.schedule;
+      button.append(preview, text('span', 'option-label', cast.label));
+      button.addEventListener('click', () => choose({ ...prefs, cast: cast.id }));
+      return button;
+    });
+
     const fonts = FONT_OPTIONS.map((font) => {
       const button = optionButton('font-option', font.id === prefs.font);
       button.dataset.font = font.id;
@@ -67,6 +78,7 @@ export function mountDesign(root: HTMLElement, deps: AppDeps, onBack: () => void
 
     body.replaceChildren(
       text('h2', 'design-title', COPY.designTitle),
+      text('h3', 'design-section', COPY.designCast), grid('cast-options', casts),
       text('h3', 'design-section', COPY.designFont), grid('font-options', fonts),
       text('h3', 'design-section', COPY.designColors), grid('palette-options', palettes),
       reset,

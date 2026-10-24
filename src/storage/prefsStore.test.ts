@@ -9,8 +9,8 @@ describe('prefs store', () => {
   });
 
   it('round-trips prefs', () => {
-    expect(savePrefs(localStorage, { font: 'suez', palette: 'candy' })).toBe(true);
-    expect(loadPrefs(localStorage)).toEqual({ font: 'suez', palette: 'candy' });
+    expect(savePrefs(localStorage, { font: 'suez', palette: 'candy', cast: 'princesses' })).toBe(true);
+    expect(loadPrefs(localStorage)).toEqual({ font: 'suez', palette: 'candy', cast: 'princesses' });
   });
 
   it('falls back to defaults for unreadable prefs', () => {

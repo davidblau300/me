@@ -109,3 +109,23 @@ export const DAISY_SVG = `<svg class="daisy" viewBox="0 0 72 74" aria-hidden="tr
 <ellipse cx="36" cy="49.5" rx="7.5" ry="3" fill="#f29a00"/>
 <path d="M22 60 Q36 54 50 60 L52 74 L20 74 Z" fill="#b88cff"/>
 </svg>`;
+
+// ── Princess-inspired symbols (original drawings; no Disney characters) ──
+
+export const CROWN_SVG = `<svg class="crown" viewBox="0 0 40 26" aria-hidden="true"><path d="M3 23 L6 6 L14 14 L20 3 L26 14 L34 6 L37 23 Z" fill="#f5c242" stroke="#b8860b" stroke-width="1.6" stroke-linejoin="round"/><rect x="3" y="20" width="34" height="5" rx="2" fill="#e0a800"/><circle cx="20" cy="4" r="2.4" fill="#d62828"/><circle cx="6" cy="7" r="2" fill="#2b4aa0"/><circle cx="34" cy="7" r="2" fill="#2b4aa0"/></svg>`;
+
+const APPLE_BODY = '<path d="M20 14 C12 8 2 14 4 26 C6 38 14 44 20 41 C26 44 34 38 36 26 C38 14 28 8 20 14 Z" fill="#d62828" stroke="#9b1c1c" stroke-width="1.4"/><path d="M20 14 Q21 8 24 4" fill="none" stroke="#6b3e1d" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="28" cy="8" rx="6" ry="3" transform="rotate(-30 28 8)" fill="#3c9a4a"/><ellipse cx="12" cy="23" rx="3" ry="5.5" fill="#fff" opacity=".55"/>';
+
+export const APPLE_SVG = `<svg class="apple" viewBox="0 0 40 46" aria-hidden="true">${APPLE_BODY}</svg>`;
+
+export const APPLE_FAB_SVG = `<svg class="apple" viewBox="0 0 92 82" aria-hidden="true"><path d="M46 24 C30 12 8 24 12 48 C16 70 34 82 46 76 C58 82 76 70 80 48 C84 24 62 12 46 24 Z" fill="#d62828" stroke="#9b1c1c" stroke-width="2.5"/><path d="M46 24 Q48 12 54 6" fill="none" stroke="#6b3e1d" stroke-width="4" stroke-linecap="round"/><ellipse cx="62" cy="13" rx="11" ry="5.5" transform="rotate(-30 62 13)" fill="#3c9a4a"/><path d="M46 38 V64 M33 51 H59" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`;
+
+export const SLIPPER_SVG = `<svg class="slipper" viewBox="0 0 64 52" aria-hidden="true"><path d="M6 40 Q8 30 22 30 Q34 30 44 18 Q50 10 56 14 Q60 18 54 26 L50 40 Z" fill="#cfe9ff" stroke="#3f6fae" stroke-width="2" stroke-linejoin="round"/><path d="M12 36 Q20 33 30 34" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"/><rect x="48" y="38" width="5" height="11" rx="2" fill="#cfe9ff" stroke="#3f6fae" stroke-width="1.6"/><path d="M14 10 l2 5 l5 2 l-5 2 l-2 5 l-2 -5 l-5 -2 l5 -2 Z M34 4 l1.4 3.6 l3.6 1.4 l-3.6 1.4 l-1.4 3.6 l-1.4 -3.6 l-3.6 -1.4 l3.6 -1.4 Z" fill="#9fd0ff"/></svg>`;
+
+export const PRINCESS_CAL_FAB_SVG = `<svg viewBox="0 0 92 82" aria-hidden="true"><path d="M24 24 L28 5 L38 15 L46 1 L54 15 L64 5 L68 24 Z" fill="#f5c242" stroke="#b8860b" stroke-width="2" stroke-linejoin="round"/><circle cx="46" cy="52" r="29" fill="#6fa8dc" stroke="#3f6fae" stroke-width="3"/><path d="M46 38 V66 M32 52 H60" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`;
+
+export const SHELL_SVG = `<svg class="shell" viewBox="0 0 64 56" aria-hidden="true"><path d="M32 50 L8 26 Q10 8 32 6 Q54 8 56 26 Z" fill="#ffb08f" stroke="#d9623b" stroke-width="2" stroke-linejoin="round"/><g stroke="#d9623b" stroke-width="1.8" stroke-linecap="round"><path d="M32 50 L14 18 M32 50 L22 10 M32 50 L32 7 M32 50 L42 10 M32 50 L50 18"/></g><ellipse cx="32" cy="50" rx="8" ry="3.5" fill="#f2c14e" stroke="#c99a20" stroke-width="1.2"/><circle cx="52" cy="44" r="5" fill="#ff7f50"/><circle cx="52" cy="44" r="2" fill="#ffe08a"/></svg>`;
+
+export const ROSE_SVG = `<svg class="rose" viewBox="0 0 56 70" aria-hidden="true"><path d="M28 38 V67" stroke="#3c9a4a" stroke-width="3.2" stroke-linecap="round"/><ellipse cx="19" cy="52" rx="8" ry="4" transform="rotate(-25 19 52)" fill="#3c9a4a"/><ellipse cx="37" cy="58" rx="8" ry="4" transform="rotate(25 37 58)" fill="#3c9a4a"/><circle cx="28" cy="22" r="16" fill="#c8102e" stroke="#8a0b1f" stroke-width="1.5"/><path d="M28 22 m-9 0 a9 9 0 1 0 18 0 a6 6 0 1 0 -12 0 a3 3 0 1 0 6 0" fill="none" stroke="#8a0b1f" stroke-width="2" stroke-linecap="round"/></svg>`;
+
+export const SUN_SVG = `<svg class="sun" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#b48cf0"/><g fill="#e08a1e">${[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => `<path d="M32 6 Q36 13 32 20 Q28 13 32 6 Z" transform="rotate(${angle} 32 32)"/>`).join('')}</g><circle cx="32" cy="32" r="11" fill="#f2c14e" stroke="#e08a1e" stroke-width="2"/></svg>`;

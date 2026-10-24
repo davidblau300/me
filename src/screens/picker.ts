@@ -1,9 +1,9 @@
 import type { Mounted } from '../deps';
 import type { ScreenRoute } from '../router';
-import { DAISY_SVG, DUCK_SVG, GOOFY_SVG, MINNIE_SVG, MOUSE_HEAD_SVG } from '../ui/art';
+import type { CastArt } from '../ui/castArt';
 import { COPY } from '../ui/copy';
 
-export function mountPicker(root: HTMLElement, onPick: (route: ScreenRoute) => void): Mounted {
+export function mountPicker(root: HTMLElement, onPick: (route: ScreenRoute) => void, art: CastArt): Mounted {
   const app = document.createElement('div');
   app.className = 'app picker';
   app.dataset.screen = 'picker';
@@ -19,11 +19,11 @@ export function mountPicker(root: HTMLElement, onPick: (route: ScreenRoute) => v
   const choices = document.createElement('div');
   choices.className = 'choices';
   choices.append(
-    choice('tasks', COPY.routeTasks, MOUSE_HEAD_SVG, onPick),
-    choice('calendar', COPY.routeCalendar, DUCK_SVG, onPick),
-    choice('weather', COPY.routeWeather, GOOFY_SVG, onPick),
-    choice('schedule', COPY.routeSchedule, MINNIE_SVG, onPick),
-    choice('design', COPY.routeDesign, DAISY_SVG, onPick),
+    choice('tasks', COPY.routeTasks, art.picker.tasks, onPick),
+    choice('calendar', COPY.routeCalendar, art.picker.calendar, onPick),
+    choice('weather', COPY.routeWeather, art.picker.weather, onPick),
+    choice('schedule', COPY.routeSchedule, art.picker.schedule, onPick),
+    choice('design', COPY.routeDesign, art.picker.design, onPick),
   );
 
   app.append(logo, title, choices);

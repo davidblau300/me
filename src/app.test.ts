@@ -56,7 +56,7 @@ describe('startApp routing', () => {
   });
 
   it('applies saved design choices on start', () => {
-    savePrefs(localStorage, { font: 'karantina', palette: 'candy' });
+    savePrefs(localStorage, { font: 'karantina', palette: 'candy', cast: 'animals' });
     start();
 
     expect(document.documentElement.dataset.font).toBe('karantina');
@@ -150,5 +150,27 @@ describe('startApp routing', () => {
     expect(screenName()).toBe('schedule');
     expect(location.hash).toBe('#schedule');
     expect(localStorage.getItem(SCHEDULE_KEY)).toBeNull();
+  });
+
+  it('uses princess art across screens when princesses are chosen', () => {
+    savePrefs(localStorage, { font: 'playpen', palette: 'characters', cast: 'princesses' });
+    start();
+
+    expect(document.documentElement.dataset.cast).toBe('princesses');
+    expect(root.querySelector('[data-route="tasks"] svg.apple')).not.toBeNull();
+    expect(root.querySelector('[data-route="schedule"] svg.rose')).not.toBeNull();
+
+    root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
+    expect(root.querySelector('[data-filter="done"] svg.apple')).not.toBeNull();
+    expect(root.querySelector('.brand .crowned')).not.toBeNull();
+    expect(root.querySelector('.brand .ears')).toBeNull();
+  });
+
+  it('keeps animal art by default', () => {
+    start();
+    expect(root.querySelector('[data-route="tasks"] svg.apple')).toBeNull();
+    root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
+    expect(root.querySelector('[data-filter="done"] svg.mouse')).not.toBeNull();
+    expect(root.querySelector('.brand .ears')).not.toBeNull();
   });
 });

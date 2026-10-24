@@ -17,13 +17,14 @@ function start(): void {
 }
 
 function selected(selector: string): string[] {
-  return [...root.querySelectorAll<HTMLElement>(`${selector}.on`)].map((node) => node.dataset.font ?? node.dataset.palette ?? '');
+  return [...root.querySelectorAll<HTMLElement>(`${selector}.on`)].map((node) => node.dataset.font ?? node.dataset.palette ?? node.dataset.cast ?? '');
 }
 
 beforeEach(() => {
   localStorage.clear();
   document.documentElement.removeAttribute('data-font');
   document.documentElement.removeAttribute('data-palette');
+  document.documentElement.removeAttribute('data-cast');
   document.documentElement.removeAttribute('style');
   root = document.createElement('div');
   document.body.append(root);
@@ -43,6 +44,20 @@ describe('mountDesign', () => {
     expect(root.querySelectorAll('.palette-option')).toHaveLength(5);
     expect(selected('.font-option')).toEqual(['playpen']);
     expect(selected('.palette-option')).toEqual(['characters']);
+    expect(root.querySelectorAll('.cast-option')).toHaveLength(2);
+    expect(selected('.cast-option')).toEqual(['animals']);
+  });
+
+  it('switches the whole app to princesses and swaps its own mascot', () => {
+    start();
+    expect(root.querySelector('.mascot svg.daisy')).not.toBeNull();
+
+    root.querySelector<HTMLButtonElement>('.cast-option[data-cast="princesses"]')!.click();
+
+    expect(document.documentElement.dataset.cast).toBe('princesses');
+    expect(loadPrefs(localStorage).cast).toBe('princesses');
+    expect(selected('.cast-option')).toEqual(['princesses']);
+    expect(root.querySelector('.mascot svg.sun')).not.toBeNull();
   });
 
   it('applies and saves a font choice', () => {
@@ -71,7 +86,7 @@ describe('mountDesign', () => {
 
     root.querySelector<HTMLButtonElement>('.reset')!.click();
 
-    expect(loadPrefs(localStorage)).toEqual({ font: 'playpen', palette: 'characters' });
+    expect(loadPrefs(localStorage)).toEqual({ font: 'playpen', palette: 'characters', cast: 'animals' });
     expect(document.documentElement.dataset.palette).toBe('characters');
     expect(localStorage.getItem(PREFS_KEY)).not.toBeNull();
   });

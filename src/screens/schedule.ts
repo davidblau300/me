@@ -1,7 +1,8 @@
 import type { AppDeps, Mounted } from '../deps';
 import { schoolDayIndex, type Schedule } from '../schedule/schedule';
 import { SCHEDULE_KEY, loadSchedule } from '../storage/scheduleStore';
-import { MINNIE_SVG } from '../ui/art';
+import { CAST_ART, type CastArt } from '../ui/castArt';
+import { loadPrefs } from '../storage/prefsStore';
 import { backButton } from '../ui/back';
 import { renderSchedule } from '../ui/scheduleView';
 
@@ -11,7 +12,7 @@ export function mountSchedule(root: HTMLElement, deps: AppDeps, onBack: () => vo
   let schedule: Schedule | null = loadSchedule(deps.storage, deps.now().getTime()).schedule;
   let dayIndex = schoolDayIndex(deps.now());
 
-  const shell = buildShell(onBack);
+  const shell = buildShell(onBack, CAST_ART[loadPrefs(deps.storage).cast]);
   root.replaceChildren(shell.app);
 
   const render = (): void => {
@@ -45,7 +46,7 @@ export function mountSchedule(root: HTMLElement, deps: AppDeps, onBack: () => vo
   };
 }
 
-function buildShell(onBack: () => void): { app: HTMLElement; body: HTMLElement } {
+function buildShell(onBack: () => void, art: CastArt): { app: HTMLElement; body: HTMLElement } {
   const app = document.createElement('div');
   app.className = 'app minnie-theme';
   app.dataset.screen = 'schedule';
@@ -57,7 +58,7 @@ function buildShell(onBack: () => void): { app: HTMLElement; body: HTMLElement }
   logo.textContent = 'me';
   const mascot = document.createElement('span');
   mascot.className = 'mascot';
-  mascot.innerHTML = MINNIE_SVG;
+  mascot.innerHTML = art.scheduleMascot;
   head.append(backButton(onBack), logo, mascot);
 
   const body = document.createElement('main');
