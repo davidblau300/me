@@ -1,0 +1,15 @@
+export const COPY = {
+  tabToday: 'היום',
+  tabDone: 'בוצע',
+  emptyAll: 'אין עדיין משימות — לחצי על + כדי להוסיף',
+  emptyDone: 'עוד לא סימנת משימות היום',
+  sheetNew: 'משימה חדשה',
+  sheetEdit: 'עריכת משימה',
+  fieldName: 'שם המשימה',
+  fieldTime: 'שעה (לא חובה)',
+  fieldNote: 'הערה (לא חובה)',
+  save: 'שמירה',
+  remove: 'מחיקה',
+  confirmDelete: 'בטוח?',
+  addLabel: 'הוספת משימה',
+} as const;
