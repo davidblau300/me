@@ -58,16 +58,16 @@ describe('cast art', () => {
     expect(logoDecor).toBe('cap');
   });
 
-  it("dresses every screen's animal in a bow tie", () => {
+  it("gives each screen its own bow tie, with no characters", () => {
     const { picker, chipMascot, calendarMascot, weatherMascot, scheduleMascot, designMascot, recipesMascot, logoDecor } = CAST_ART.bowties;
 
     expect(picker).toEqual({ tasks: chipMascot, calendar: calendarMascot, weather: weatherMascot, schedule: scheduleMascot, design: designMascot, recipes: recipesMascot });
-    expect(chipMascot).toContain('class="kitty"');
-    expect(calendarMascot).toContain('class="bunny"');
-    expect(weatherMascot).toContain('class="penguin"');
-    expect(scheduleMascot).toContain('class="bear"');
-    expect(designMascot).toContain('class="fox"');
-    expect(recipesMascot).toContain('class="puppy"');
+    expect(chipMascot).toContain('class="bow-polka"');
+    expect(calendarMascot).toContain('class="bow-stars"');
+    expect(weatherMascot).toContain('class="bow-stripes"');
+    expect(scheduleMascot).toContain('class="bow-gingham"');
+    expect(designMascot).toContain('class="bow-rainbow"');
+    expect(recipesMascot).toContain('class="bow-hearts"');
     expect(logoDecor).toBe('bowtie');
   });
 });

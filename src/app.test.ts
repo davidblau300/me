@@ -228,9 +228,9 @@ describe('startApp routing', () => {
     savePrefs(localStorage, { font: 'playpen', palette: 'characters', cast: 'bowties' });
     start();
 
-    expect(root.querySelector('[data-route="weather"] svg.penguin')).not.toBeNull();
+    expect(root.querySelector('[data-route="weather"] svg.bow-stripes')).not.toBeNull();
     root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
-    expect(root.querySelector('[data-filter="done"] svg.kitty')).not.toBeNull();
+    expect(root.querySelector('[data-filter="done"] svg.bow-polka')).not.toBeNull();
     expect(root.querySelector('.brand .bowtied svg.bow-tie')).not.toBeNull();
   });
 });

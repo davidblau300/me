@@ -58,7 +58,7 @@ export const PALETTE_OPTIONS = [
   },
 ] as const satisfies readonly PaletteOption[];
 
-/** Which cartoon world decorates the screens: original animal-, princess-, emotion-, Pooh- or Smurf-inspired art, or bow-tie animals. */
+/** Which cartoon world decorates the screens: original animal-, princess-, emotion-, Pooh- or Smurf-inspired art, or plain bow ties. */
 export const CAST_OPTIONS = [
   { id: 'animals', label: 'חיות מצוירות' },
   { id: 'princesses', label: 'נסיכות' },

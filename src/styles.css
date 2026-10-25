@@ -413,7 +413,7 @@ html[data-cast="smurfs"] .mini { width: 14px; height: 14px; background: radial-g
 html[data-cast="smurfs"] .mini::before { top: -5px; right: 2px; width: 8px; height: 4px; border-radius: 50%; background: #3c9a4a; transform: rotate(-25deg); }
 html[data-cast="smurfs"] .mini::after { display: none; }
 
-/* Bow-tie cast: dressed-up animals and soft party colors (still overridden by a chosen color set) */
+/* Bow-tie cast: a patterned bow tie per screen and soft party colors (still overridden by a chosen color set) */
 html[data-cast="bowties"] .app[data-screen="picker"] { --bg: var(--pal-bg, #fdf5fb); --dot: var(--pal-dot, #f5dcec); --primary: var(--pal-primary, #b03a7e); }
 html[data-cast="bowties"] .app[data-screen="tasks"] {
   --bg: var(--pal-bg, #fff4f9); --dot: var(--pal-dot, #fbd9ea); --ink: var(--pal-ink, #3a1428); --muted: var(--pal-muted, #6e4a5c);

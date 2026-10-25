@@ -488,7 +488,7 @@ export const SMURFBERRY_FAB_SVG = '<svg class="smurfberry" viewBox="0 0 92 82" a
   + '<g fill="#e05aac"><circle cx="30" cy="34" r="4"/><circle cx="62" cy="34" r="4"/><circle cx="34" cy="56" r="4"/><circle cx="58" cy="56" r="4"/></g>'
   + '<path d="M46 31 V57 M33 44 H59" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>';
 
-// ── Bow-tie friends (original dressed-up animals, each wearing a bow tie) ──
+// ── Bow ties (no characters: each screen gets its own patterned bow tie) ──
 
 function bowTie(cx: number, cy: number, fill: string, edge: string, dots = ''): string {
   return `<path d="M${cx - 11} ${cy - 6} L${cx - 2} ${cy - 1.8} L${cx - 2} ${cy + 1.8} L${cx - 11} ${cy + 6} Q${cx - 13} ${cy} ${cx - 11} ${cy - 6} Z`
@@ -498,77 +498,54 @@ function bowTie(cx: number, cy: number, fill: string, edge: string, dots = ''): 
     + `<rect x="${cx - 2.8}" y="${cy - 3}" width="5.6" height="6" rx="1.8" fill="${edge}"/>`;
 }
 
-function dressedUp(className: string, suit: string, suitEdge: string, tie: string, head: string): string {
+const WINGS = 'M29 30 L7 17 Q0 36 7 55 L29 42 Z M35 30 L57 17 Q64 36 57 55 L35 42 Z';
+
+function bigBowTie(className: string, fill: string, edge: string, pattern: string, knot = edge): string {
+  const clip = `${className}-wings`;
   return woodFriend(className,
-    `<path d="M10 72 Q12 56 32 55 Q52 56 54 72 Z" fill="${suit}" stroke="${suitEdge}" stroke-width="1"/>`
-    + '<path d="M23 55.5 L32 66 L41 55.5 Z" fill="#fff" stroke="#d8d8e0" stroke-width=".8"/>'
-    + head + tie);
+    `<defs><clipPath id="${clip}"><path d="${WINGS}"/></clipPath></defs>`
+    + `<path d="${WINGS}" fill="${fill}"/>`
+    + `<g clip-path="url(#${clip})">${pattern}</g>`
+    + `<path d="${WINGS}" fill="none" stroke="${edge}" stroke-width="2" stroke-linejoin="round"/>`
+    + `<path d="M12 24 Q9 30 9.5 36" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".55"/>`
+    + `<rect x="25" y="27" width="14" height="18" rx="5" fill="${knot}" stroke="${edge}" stroke-width="1.5"/>`
+    + '<path d="M28.5 31 Q29 36 28.5 41" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity=".45"/>');
 }
 
-const SMILE = '<path d="M28 44 Q30 46.5 32 44 Q34 46.5 36 44" fill="none" stroke="#3a2030" stroke-width="1.4" stroke-linecap="round"/>';
-
-function eyes(color = '#1b1b2f'): string {
-  return `<ellipse cx="25.5" cy="33" rx="2.2" ry="2.8" fill="${color}"/><ellipse cx="38.5" cy="33" rx="2.2" ry="2.8" fill="${color}"/>`
-    + '<circle cx="26.3" cy="32" r=".8" fill="#fff"/><circle cx="39.3" cy="32" r=".8" fill="#fff"/>';
+function star(cx: number, cy: number, r: number): string {
+  const points = Array.from({ length: 10 }, (_, k) => {
+    const angle = Math.PI / 5 * k - Math.PI / 2;
+    const radius = k % 2 ? r * .45 : r;
+    return `${(cx + radius * Math.cos(angle)).toFixed(1)},${(cy + radius * Math.sin(angle)).toFixed(1)}`;
+  });
+  return `<polygon points="${points.join(' ')}"/>`;
 }
 
-function cheeks(color: string): string {
-  return `<ellipse cx="20.5" cy="39" rx="2.6" ry="1.6" fill="${color}" opacity=".55"/><ellipse cx="43.5" cy="39" rx="2.6" ry="1.6" fill="${color}" opacity=".55"/>`;
+function heart(cx: number, cy: number): string {
+  return `<path d="M${cx} ${cy + 3} C${cx - 5} ${cy - 1} ${cx - 3} ${cy - 5} ${cx} ${cy - 2.5} C${cx + 3} ${cy - 5} ${cx + 5} ${cy - 1} ${cx} ${cy + 3} Z"/>`;
 }
 
-export const KITTY_SVG = dressedUp('kitty', '#8a8aa8', '#6a6a88', bowTie(32, 58, '#ff5fa2', '#c2337a', '#fff'),
-  '<path d="M16 26 L15 8 L29 18 Z M48 26 L49 8 L35 18 Z" fill="#dcd6ea" stroke="#a8a2bf" stroke-width="1.2" stroke-linejoin="round"/>'
-  + '<path d="M18 22 L17.5 12.5 L25 18 Z M46 22 L46.5 12.5 L39 18 Z" fill="#ffb3d1"/>'
-  + '<ellipse cx="32" cy="35" rx="17" ry="15.5" fill="#dcd6ea" stroke="#a8a2bf" stroke-width="1.2"/>'
-  + '<path d="M28 20 L29 25 M32 19.5 L32 25 M36 20 L35 25" stroke="#a8a2bf" stroke-width="1.6" stroke-linecap="round"/>'
-  + '<ellipse cx="32" cy="42" rx="7.5" ry="5.5" fill="#fff"/>'
-  + eyes('#2a5a3a') + cheeks('#ff8ac0')
-  + '<path d="M30 39.5 L34 39.5 L32 42 Z" fill="#ff5fa2"/>' + SMILE
-  + '<path d="M13 39 L22 40.5 M13 43.5 L22 42.5 M51 39 L42 40.5 M51 43.5 L42 42.5" stroke="#8a84a0" stroke-width="1" stroke-linecap="round"/>');
+const SPOTS = [[13, 28], [10, 40], [19, 36], [15, 49], [51, 28], [54, 40], [45, 36], [49, 49], [22, 26], [42, 26], [22, 46], [42, 46]];
 
-export const BUNNY_SVG = dressedUp('bunny', '#cdb8f0', '#a88ad6', bowTie(32, 58, '#7b3fc4', '#55288f', '#ffd84d'),
-  '<ellipse cx="24" cy="12" rx="5.5" ry="13" transform="rotate(-10 24 12)" fill="#fbf7f2" stroke="#d9cfc4" stroke-width="1.2"/>'
-  + '<ellipse cx="40" cy="12" rx="5.5" ry="13" transform="rotate(10 40 12)" fill="#fbf7f2" stroke="#d9cfc4" stroke-width="1.2"/>'
-  + '<ellipse cx="24" cy="13" rx="2.6" ry="9" transform="rotate(-10 24 13)" fill="#ffc2d6"/><ellipse cx="40" cy="13" rx="2.6" ry="9" transform="rotate(10 40 13)" fill="#ffc2d6"/>'
-  + '<ellipse cx="32" cy="36" rx="16" ry="15" fill="#fbf7f2" stroke="#d9cfc4" stroke-width="1.2"/>'
-  + eyes() + cheeks('#ff9ab8')
-  + '<ellipse cx="32" cy="40" rx="2.4" ry="1.7" fill="#ff8aa8"/>'
-  + '<path d="M32 41.5 V43.5 M28.5 44 Q30.2 46 32 43.5 Q33.8 46 35.5 44" fill="none" stroke="#3a2030" stroke-width="1.3" stroke-linecap="round"/>'
-  + '<rect x="30.2" y="44.6" width="3.6" height="3.4" rx=".7" fill="#fff" stroke="#d9cfc4" stroke-width=".7"/>');
+export const POLKA_BOW_SVG = bigBowTie('bow-polka', '#ff5fa2', '#c2337a',
+  `<g fill="#fff">${SPOTS.map(([x, y]) => `<circle cx="${x}" cy="${y}" r="2.3"/>`).join('')}</g>`);
 
-export const PENGUIN_SVG = woodFriend('penguin',
-  '<path d="M10 72 Q12 54 32 53 Q52 54 54 72 Z" fill="#1f2a3a"/><path d="M22 72 Q22 58 32 57 Q42 58 42 72 Z" fill="#fff"/>'
-  + '<ellipse cx="32" cy="33" rx="18" ry="18" fill="#1f2a3a"/>'
-  + '<path d="M32 26 Q22 18 18 30 Q16 42 24 47 Q32 51 40 47 Q48 42 46 30 Q42 18 32 26 Z" fill="#fff"/>'
-  + eyes() + cheeks('#ff8aa8')
-  + '<path d="M27.5 38 Q32 36 36.5 38 L32 43 Z" fill="#f7a23a" stroke="#c97a10" stroke-width="1" stroke-linejoin="round"/>'
-  + '<rect x="20" y="10" width="24" height="5" rx="1" fill="#1b1b24"/><rect x="24" y="0" width="16" height="12" rx="1.5" fill="#1b1b24"/><rect x="24" y="8" width="16" height="2.5" fill="#d62839"/>'
-  + bowTie(32, 57, '#d62839', '#9b1c2a'));
+export const STAR_BOW_SVG = bigBowTie('bow-stars', '#7b3fc4', '#55288f',
+  `<g fill="#ffd84d">${star(14, 30, 4)}${star(12, 45, 3.4)}${star(22, 38, 3)}${star(50, 30, 4)}${star(52, 45, 3.4)}${star(42, 38, 3)}</g>`);
 
-export const BEAR_SVG = dressedUp('bear', '#2b6fd6', '#1f55a8', bowTie(32, 58, '#f2c14e', '#c4952a'),
-  '<circle cx="17" cy="20" r="7" fill="#a8743f" stroke="#7a5228" stroke-width="1.2"/><circle cx="47" cy="20" r="7" fill="#a8743f" stroke="#7a5228" stroke-width="1.2"/>'
-  + '<circle cx="17" cy="20" r="3.5" fill="#e0b07a"/><circle cx="47" cy="20" r="3.5" fill="#e0b07a"/>'
-  + '<ellipse cx="32" cy="35" rx="17" ry="16" fill="#a8743f" stroke="#7a5228" stroke-width="1.2"/>'
-  + '<ellipse cx="32" cy="42" rx="8.5" ry="6.5" fill="#e0b07a"/>'
-  + eyes() + cheeks('#f08a5a')
-  + '<ellipse cx="32" cy="39.5" rx="3.4" ry="2.4" fill="#3a2208"/>' + SMILE);
+export const STRIPE_BOW_SVG = bigBowTie('bow-stripes', '#3d8fe0', '#1f5fa8',
+  `<g stroke="#fff" stroke-width="3">${[-20, -10, 0, 10, 20, 30, 40, 50, 60, 70].map((x) => `<path d="M${x} 60 L${x + 30} 10"/>`).join('')}</g>`);
 
-export const FOX_SVG = dressedUp('fox', '#13968f', '#0d6e69', bowTie(32, 58, '#f2c14e', '#c4952a', '#13968f'),
-  '<path d="M15 28 L13 7 L29 19 Z M49 28 L51 7 L35 19 Z" fill="#f08a24" stroke="#c96a10" stroke-width="1.2" stroke-linejoin="round"/>'
-  + '<path d="M14.2 14 L13.6 7.6 L19 11.6 Z M49.8 14 L50.4 7.6 L45 11.6 Z" fill="#2a1a10"/>'
-  + '<path d="M15 30 Q15 17 32 17 Q49 17 49 30 Q49 40 40 46 L32 51 L24 46 Q15 40 15 30 Z" fill="#f08a24" stroke="#c96a10" stroke-width="1.2" stroke-linejoin="round"/>'
-  + '<path d="M16 34 Q22 36 28 40 L32 51 L24 46 Q17 41 16 34 Z M48 34 Q42 36 36 40 L32 51 L40 46 Q47 41 48 34 Z" fill="#fff"/>'
-  + eyes() + cheeks('#ff8a6a')
-  + '<ellipse cx="32" cy="45.5" rx="2.6" ry="1.9" fill="#2a1a10"/>');
+export const GINGHAM_BOW_SVG = bigBowTie('bow-gingham', '#fff', '#b8243a',
+  `<g fill="#e8384f" opacity=".45">${[0, 8, 16, 24, 32, 40, 48, 56].map((x) => `<rect x="${x}" y="10" width="4" height="50"/>`).join('')}`
+  + `${[14, 22, 30, 38, 46, 54].map((y) => `<rect x="0" y="${y}" width="64" height="4"/>`).join('')}</g>`, '#e8384f');
 
-export const PUPPY_SVG = dressedUp('puppy', '#3d9a4a', '#2a7035', bowTie(32, 58, '#e2343f', '#a81f2a', '#fff'),
-  '<ellipse cx="32" cy="35" rx="16.5" ry="16" fill="#e8c38e" stroke="#b8935a" stroke-width="1.2"/>'
-  + '<path d="M18 22 Q8 20 7 34 Q8 44 14 44 Q18 38 18 30 Z M46 22 Q56 20 57 34 Q56 44 50 44 Q46 38 46 30 Z" fill="#8a5a2b" stroke="#6b4320" stroke-width="1.2"/>'
-  + '<ellipse cx="38" cy="31" rx="6" ry="5.5" fill="#c9965a"/>'
-  + '<ellipse cx="32" cy="42" rx="8" ry="6" fill="#fbebd2"/>'
-  + eyes() + cheeks('#f08a7a')
-  + '<ellipse cx="32" cy="39.5" rx="3.4" ry="2.5" fill="#2a1a10"/>' + SMILE
-  + '<path d="M30.5 45 Q32 50 33.5 45 Z" fill="#ff7a9a"/>');
+export const RAINBOW_BOW_SVG = bigBowTie('bow-rainbow', '#e2343f', '#8a2a6a',
+  ['#e2343f', '#f7a23a', '#ffd84d', '#4fbf5a', '#3d8fe0', '#8a4fd6'].map((color, k) => `<rect x="0" y="${16 + k * 7}" width="64" height="7" fill="${color}"/>`).join(''),
+  '#ff5fa2');
+
+export const HEART_BOW_SVG = bigBowTie('bow-hearts', '#5cc49a', '#2f8a66',
+  `<g fill="#fff">${heart(14, 29)}${heart(11, 43)}${heart(20, 37)}${heart(50, 29)}${heart(53, 43)}${heart(44, 37)}</g>`, '#e2345f');
 
 // A bow tie above the logo.
 export const BOW_TIE_SVG = '<svg class="bow-tie" viewBox="0 0 36 20" aria-hidden="true">' + bowTie(18, 10, '#ff5fa2', '#c2337a', '#fff') + '</svg>';
