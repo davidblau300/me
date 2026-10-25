@@ -367,6 +367,97 @@ html[data-cast="pooh"] .mascot svg, html[data-cast="pooh"] .recipes-theme .masco
 html[data-cast="pooh"] .mini { width: 12px; height: 12px; border-radius: 0 50% 50% 50%; transform: translateY(-50%) rotate(45deg); background: radial-gradient(circle at 60% 60%, #ffe08a, #f5b82e 55%, #c97d0a); }
 html[data-cast="pooh"] .mini::before, html[data-cast="pooh"] .mini::after { display: none; }
 
+/* Smurf-inspired cast: Smurf blue, white caps and each Smurf's colors (still overridden by a chosen color set) */
+html[data-cast="smurfs"] .app[data-screen="picker"] { --bg: var(--pal-bg, #eef7ff); --dot: var(--pal-dot, #cfe6fb); --primary: var(--pal-primary, #1f6fb8); }
+html[data-cast="smurfs"] .app[data-screen="tasks"] {
+  --bg: var(--pal-bg, #f0f8ff); --dot: var(--pal-dot, #d3e9fc); --ink: var(--pal-ink, #12304d); --muted: var(--pal-muted, #46607a);
+  --primary: var(--pal-primary, #2a7fd4); --accent: var(--pal-accent, #ff6fa5); --accent-2: var(--pal-accent-2, #ffd84d);
+  --accent-2-edge: var(--pal-accent-2-edge, #d4ad1c); --tint: var(--pal-tint, #e2f1ff);
+}
+html[data-cast="smurfs"] .app[data-screen="calendar"] {
+  --bg: var(--pal-bg, #fff3f2); --dot: var(--pal-dot, #fbd5d2); --ink: var(--pal-ink, #3a1414); --muted: var(--pal-muted, #6e4646);
+  --primary: var(--pal-primary, #c8282e); --accent: var(--pal-accent, #3d8fe0); --accent-2: var(--pal-accent-2, #f7b2b0);
+  --accent-2-edge: var(--pal-accent-2-edge, #c95a5a); --tint: var(--pal-tint, #ffe4e2);
+}
+html[data-cast="smurfs"] .app[data-screen="weather"] {
+  --bg: var(--pal-bg, #eef6fb); --dot: var(--pal-dot, #d0e6f3); --ink: var(--pal-ink, #10293d); --muted: var(--pal-muted, #44607a);
+  --primary: var(--pal-primary, #2f6fa8); --accent: var(--pal-accent, #5bb0ea); --accent-2: var(--pal-accent-2, #e8384f);
+  --accent-2-edge: var(--pal-accent-2-edge, #b8243a); --tint: var(--pal-tint, #fff);
+}
+html[data-cast="smurfs"] .app[data-screen="schedule"] {
+  --bg: var(--pal-bg, #f3f6fb); --dot: var(--pal-dot, #dbe3f0); --ink: var(--pal-ink, #1a2233); --muted: var(--pal-muted, #4f5a70);
+  --primary: var(--pal-primary, #2b3a67); --accent: var(--pal-accent, #4f8fd6); --accent-2: var(--pal-accent-2, #9fd3ff);
+  --accent-2-edge: var(--pal-accent-2-edge, #4f8fd6); --tint: var(--pal-tint, #e6eefa);
+}
+html[data-cast="smurfs"] .app[data-screen="design"] {
+  --bg: var(--pal-bg, #fff6ec); --dot: var(--pal-dot, #ffe0bf); --ink: var(--pal-ink, #3a2210); --muted: var(--pal-muted, #6e5038);
+  --primary: var(--pal-primary, #d94f6a); --accent: var(--pal-accent, #3d8fe0); --accent-2: var(--pal-accent-2, #ffcf3d);
+  --accent-2-edge: var(--pal-accent-2-edge, #d4a20f); --tint: var(--pal-tint, #ffeede);
+}
+html[data-cast="smurfs"] .app[data-screen="recipes"] {
+  --bg: var(--pal-bg, #f2fbf0); --dot: var(--pal-dot, #d4efcd); --ink: var(--pal-ink, #1c3318); --muted: var(--pal-muted, #4e6648);
+  --primary: var(--pal-primary, #2f8a3a); --accent: var(--pal-accent, #e2343f); --accent-2: var(--pal-accent-2, #b8dcf7);
+  --accent-2-edge: var(--pal-accent-2-edge, #5bb0ea); --tint: var(--pal-tint, #e4f5e0);
+}
+html[data-cast="smurfs"] .pick-tasks { background: #f0f8ff; border-color: #2a7fd4; color: #2a7fd4; box-shadow: 6px 6px 0 #ffd84d; }
+html[data-cast="smurfs"] .pick-calendar { background: #fff3f2; border-color: #c8282e; color: #c8282e; box-shadow: 6px 6px 0 #5bb0ea; }
+html[data-cast="smurfs"] .pick-weather { background: #eef6fb; border-color: #2f6fa8; color: #2f6fa8; box-shadow: 6px 6px 0 #e8384f; }
+html[data-cast="smurfs"] .pick-schedule { background: #f3f6fb; border-color: #2b3a67; color: #2b3a67; box-shadow: 6px 6px 0 #9fd3ff; }
+html[data-cast="smurfs"] .pick-design { background: #fff6ec; border-color: #d94f6a; color: #d94f6a; box-shadow: 6px 6px 0 #ffcf3d; }
+html[data-cast="smurfs"] .pick-recipes { background: #f2fbf0; border-color: #2f8a3a; color: #2f8a3a; box-shadow: 6px 6px 0 #e2343f; }
+html[data-cast="smurfs"] .mascot svg, html[data-cast="smurfs"] .recipes-theme .mascot svg { width: 54px; height: 61px; }
+.capped { position: relative; display: inline-block; padding: 0 6px; }
+.capped .smurf-hat { position: absolute; top: -19px; left: 50%; width: 34px; height: 25px; transform: translateX(-50%); }
+/* Row marker becomes a smurfberry */
+html[data-cast="smurfs"] .mini { width: 14px; height: 14px; background: radial-gradient(circle at 35% 30%, #f08ac8, #c2338a 60%, #8a1f60); }
+html[data-cast="smurfs"] .mini::before { top: -5px; right: 2px; width: 8px; height: 4px; border-radius: 50%; background: #3c9a4a; transform: rotate(-25deg); }
+html[data-cast="smurfs"] .mini::after { display: none; }
+
+/* Bow-tie cast: dressed-up animals and soft party colors (still overridden by a chosen color set) */
+html[data-cast="bowties"] .app[data-screen="picker"] { --bg: var(--pal-bg, #fdf5fb); --dot: var(--pal-dot, #f5dcec); --primary: var(--pal-primary, #b03a7e); }
+html[data-cast="bowties"] .app[data-screen="tasks"] {
+  --bg: var(--pal-bg, #fff4f9); --dot: var(--pal-dot, #fbd9ea); --ink: var(--pal-ink, #3a1428); --muted: var(--pal-muted, #6e4a5c);
+  --primary: var(--pal-primary, #d6337f); --accent: var(--pal-accent, #ff8ac0); --accent-2: var(--pal-accent-2, #ffd1e6);
+  --accent-2-edge: var(--pal-accent-2-edge, #e07aa8); --tint: var(--pal-tint, #ffe6f2);
+}
+html[data-cast="bowties"] .app[data-screen="calendar"] {
+  --bg: var(--pal-bg, #f7f2ff); --dot: var(--pal-dot, #e4d8fb); --ink: var(--pal-ink, #24163d); --muted: var(--pal-muted, #5a4c72);
+  --primary: var(--pal-primary, #7b3fc4); --accent: var(--pal-accent, #a77bea); --accent-2: var(--pal-accent-2, #ffd84d);
+  --accent-2-edge: var(--pal-accent-2-edge, #d4ad1c); --tint: var(--pal-tint, #efe6ff);
+}
+html[data-cast="bowties"] .app[data-screen="weather"] {
+  --bg: var(--pal-bg, #eef4fa); --dot: var(--pal-dot, #d3e1ee); --ink: var(--pal-ink, #141c26); --muted: var(--pal-muted, #4a5666);
+  --primary: var(--pal-primary, #1f2a3a); --accent: var(--pal-accent, #d62839); --accent-2: var(--pal-accent-2, #f7a23a);
+  --accent-2-edge: var(--pal-accent-2-edge, #c97a10); --tint: var(--pal-tint, #fff);
+}
+html[data-cast="bowties"] .app[data-screen="schedule"] {
+  --bg: var(--pal-bg, #f1f6ff); --dot: var(--pal-dot, #d6e4fb); --ink: var(--pal-ink, #142440); --muted: var(--pal-muted, #4a5a76);
+  --primary: var(--pal-primary, #2b6fd6); --accent: var(--pal-accent, #a8743f); --accent-2: var(--pal-accent-2, #f2c98a);
+  --accent-2-edge: var(--pal-accent-2-edge, #c9974f); --tint: var(--pal-tint, #e4eefd);
+}
+html[data-cast="bowties"] .app[data-screen="design"] {
+  --bg: var(--pal-bg, #effaf9); --dot: var(--pal-dot, #cdeeea); --ink: var(--pal-ink, #0f2e2c); --muted: var(--pal-muted, #45605d);
+  --primary: var(--pal-primary, #13968f); --accent: var(--pal-accent, #f08a24); --accent-2: var(--pal-accent-2, #ffc78a);
+  --accent-2-edge: var(--pal-accent-2-edge, #d97a1a); --tint: var(--pal-tint, #def5f2);
+}
+html[data-cast="bowties"] .app[data-screen="recipes"] {
+  --bg: var(--pal-bg, #f3faee); --dot: var(--pal-dot, #d9efcc); --ink: var(--pal-ink, #1c3314); --muted: var(--pal-muted, #4f6644);
+  --primary: var(--pal-primary, #3d9a4a); --accent: var(--pal-accent, #c9874a); --accent-2: var(--pal-accent-2, #f2d39a);
+  --accent-2-edge: var(--pal-accent-2-edge, #c9a050); --tint: var(--pal-tint, #e6f5dc);
+}
+html[data-cast="bowties"] .pick-tasks { background: #fff4f9; border-color: #d6337f; color: #d6337f; box-shadow: 6px 6px 0 #ffb3d1; }
+html[data-cast="bowties"] .pick-calendar { background: #f7f2ff; border-color: #7b3fc4; color: #7b3fc4; box-shadow: 6px 6px 0 #ffd84d; }
+html[data-cast="bowties"] .pick-weather { background: #eef4fa; border-color: #1f2a3a; color: #1f2a3a; box-shadow: 6px 6px 0 #d62839; }
+html[data-cast="bowties"] .pick-schedule { background: #f1f6ff; border-color: #2b6fd6; color: #2b6fd6; box-shadow: 6px 6px 0 #f2c14e; }
+html[data-cast="bowties"] .pick-design { background: #effaf9; border-color: #13968f; color: #13968f; box-shadow: 6px 6px 0 #f08a24; }
+html[data-cast="bowties"] .pick-recipes { background: #f3faee; border-color: #3d9a4a; color: #3d9a4a; box-shadow: 6px 6px 0 #e2343f; }
+html[data-cast="bowties"] .mascot svg, html[data-cast="bowties"] .recipes-theme .mascot svg { width: 54px; height: 61px; }
+.bowtied { position: relative; display: inline-block; padding: 0 6px; }
+.bowtied .bow-tie { position: absolute; top: -16px; left: 50%; width: 34px; height: 19px; transform: translateX(-50%); }
+/* Row marker becomes a little bow tie */
+html[data-cast="bowties"] .mini { width: 18px; height: 12px; border-radius: 2px; background: var(--primary); clip-path: polygon(0 0, 50% 35%, 100% 0, 100% 100%, 50% 65%, 0 100%); }
+html[data-cast="bowties"] .mini::before, html[data-cast="bowties"] .mini::after { display: none; }
+
 @media (prefers-reduced-motion: reduce) {
   .mouse .wave { animation: none; }
   .sheet, .scrim, .row { transition: none; }

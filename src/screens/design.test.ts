@@ -44,7 +44,7 @@ describe('mountDesign', () => {
     expect(root.querySelectorAll('.palette-option')).toHaveLength(5);
     expect(selected('.font-option')).toEqual(['playpen']);
     expect(selected('.palette-option')).toEqual(['characters']);
-    expect(root.querySelectorAll('.cast-option')).toHaveLength(4);
+    expect(root.querySelectorAll('.cast-option')).toHaveLength(6);
     expect(selected('.cast-option')).toEqual(['animals']);
   });
 

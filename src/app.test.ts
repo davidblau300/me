@@ -213,4 +213,24 @@ describe('startApp routing', () => {
     expect(root.querySelector('[data-filter="done"] svg.pooh')).not.toBeNull();
     expect(root.querySelector('.brand .honeyed svg.honey-pot')).not.toBeNull();
   });
+
+  it('uses the Smurf art when that style is chosen', () => {
+    savePrefs(localStorage, { font: 'playpen', palette: 'characters', cast: 'smurfs' });
+    start();
+
+    expect(document.documentElement.dataset.cast).toBe('smurfs');
+    expect(root.querySelector('[data-route="tasks"] svg.smurfette')).not.toBeNull();
+    root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
+    expect(root.querySelector('.brand .capped svg.smurf-hat')).not.toBeNull();
+  });
+
+  it('uses the bow-tie art when that style is chosen', () => {
+    savePrefs(localStorage, { font: 'playpen', palette: 'characters', cast: 'bowties' });
+    start();
+
+    expect(root.querySelector('[data-route="weather"] svg.penguin')).not.toBeNull();
+    root.querySelector<HTMLButtonElement>('[data-route="tasks"]')!.click();
+    expect(root.querySelector('[data-filter="done"] svg.kitty')).not.toBeNull();
+    expect(root.querySelector('.brand .bowtied svg.bow-tie')).not.toBeNull();
+  });
 });

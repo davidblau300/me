@@ -44,4 +44,30 @@ describe('cast art', () => {
     expect(recipesMascot).toContain('class="rabbit"');
     expect(logoDecor).toBe('honey');
   });
+
+  it('gives each screen its Smurf', () => {
+    const { picker, chipMascot, calendarMascot, weatherMascot, scheduleMascot, designMascot, recipesMascot, logoDecor } = CAST_ART.smurfs;
+
+    expect(picker).toEqual({ tasks: chipMascot, calendar: calendarMascot, weather: weatherMascot, schedule: scheduleMascot, design: designMascot, recipes: recipesMascot });
+    expect(chipMascot).toContain('class="smurfette"');
+    expect(calendarMascot).toContain('class="papa-smurf"');
+    expect(weatherMascot).toContain('class="hefty-smurf"');
+    expect(scheduleMascot).toContain('class="brainy-smurf"');
+    expect(designMascot).toContain('class="painter-smurf"');
+    expect(recipesMascot).toContain('class="chef-smurf"');
+    expect(logoDecor).toBe('cap');
+  });
+
+  it("dresses every screen's animal in a bow tie", () => {
+    const { picker, chipMascot, calendarMascot, weatherMascot, scheduleMascot, designMascot, recipesMascot, logoDecor } = CAST_ART.bowties;
+
+    expect(picker).toEqual({ tasks: chipMascot, calendar: calendarMascot, weather: weatherMascot, schedule: scheduleMascot, design: designMascot, recipes: recipesMascot });
+    expect(chipMascot).toContain('class="kitty"');
+    expect(calendarMascot).toContain('class="bunny"');
+    expect(weatherMascot).toContain('class="penguin"');
+    expect(scheduleMascot).toContain('class="bear"');
+    expect(designMascot).toContain('class="fox"');
+    expect(recipesMascot).toContain('class="puppy"');
+    expect(logoDecor).toBe('bowtie');
+  });
 });

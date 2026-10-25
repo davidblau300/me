@@ -3,7 +3,7 @@ import { localDateKey } from '../domain/day';
 import type { Filter } from '../domain/order';
 import { addTask, deleteTask, toggleDone, updateTask, type TaskList } from '../domain/task';
 import { STORAGE_KEY, loadState, saveState } from '../storage/store';
-import { CROWN_SVG, HONEY_POT_SVG, ORBS_SVG } from '../ui/art';
+import { BOW_TIE_SVG, CROWN_SVG, HONEY_POT_SVG, ORBS_SVG, SMURF_HAT_SVG } from '../ui/art';
 import { CAST_ART, type CastArt } from '../ui/castArt';
 import { loadPrefs } from '../storage/prefsStore';
 import { backButton } from '../ui/back';
@@ -15,9 +15,9 @@ import { createSheet } from '../ui/sheet';
 export const DAY_CHECK_MS = 60_000;
 const ROW_SELECTOR = '.row';
 
-const DECOR_CLASS = { ears: 'ears', crown: 'crowned', orbs: 'orbed', honey: 'honeyed' } as const;
+const DECOR_CLASS = { ears: 'ears', crown: 'crowned', orbs: 'orbed', honey: 'honeyed', cap: 'capped', bowtie: 'bowtied' } as const;
 // Mickey ears are drawn by CSS on the class alone.
-const DECOR_ART = { ears: '', crown: CROWN_SVG, orbs: ORBS_SVG, honey: HONEY_POT_SVG } as const;
+const DECOR_ART = { ears: '', crown: CROWN_SVG, orbs: ORBS_SVG, honey: HONEY_POT_SVG, cap: SMURF_HAT_SVG, bowtie: BOW_TIE_SVG } as const;
 
 export function mountTasks(root: HTMLElement, deps: AppDeps, onBack: () => void): Mounted {
   const loaded = loadState(deps.storage, deps.now().getTime());

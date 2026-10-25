@@ -5,11 +5,13 @@ import {
   EEYORE_SVG, ENVY_SVG, FAB_SVG, FEAR_ORB_FAB_SVG, FEAR_SVG, GOOFY_SVG, HONEY_POT_FAB_SVG, JOY_ORB_FAB_SVG, JOY_SVG, MERMAID_SVG,
   MINNIE_SVG, MOUSE_HEAD_SVG, MOUSE_SVG, OWL_SVG, PIGLET_SVG, PLUTO_SVG, POOH_SVG, PRINCESS_CAL_FAB_SVG, RABBIT_SVG, RAPUNZEL_SVG,
   SADNESS_SVG, SNOW_WHITE_SVG, TIGGER_SVG,
+  BEAR_SVG, BOW_TIE_FAB_SVG, BRAINY_SMURF_SVG, BUNNY_SVG, CHEF_SMURF_SVG, FOX_SVG, GIFT_FAB_SVG, HEFTY_SMURF_SVG, KITTY_SVG,
+  MUSHROOM_FAB_SVG, PAINTER_SMURF_SVG, PAPA_SMURF_SVG, PENGUIN_SVG, PUPPY_SVG, SMURFBERRY_FAB_SVG, SMURFETTE_SVG,
 } from './art';
 
 export interface CastArt {
-  /** Decoration around the tasks logo: Mickey ears (CSS), a crown, memory orbs or a honey pot (SVG). */
-  logoDecor: 'ears' | 'crown' | 'orbs' | 'honey';
+  /** Decoration around the tasks logo: Mickey ears (CSS), a crown, memory orbs, a honey pot, a Smurf cap or a bow tie (SVG). */
+  logoDecor: 'ears' | 'crown' | 'orbs' | 'honey' | 'cap' | 'bowtie';
   chipMascot: string;
   tasksFab: string;
   calendarMascot: string;
@@ -73,4 +75,35 @@ const POOH: CastArt = {
   picker: { tasks: POOH_SVG, calendar: PIGLET_SVG, weather: EEYORE_SVG, schedule: OWL_SVG, design: TIGGER_SVG, recipes: RABBIT_SVG },
 };
 
-export const CAST_ART: Record<CastId, CastArt> = { animals: ANIMALS, princesses: PRINCESSES, emotions: EMOTIONS, pooh: POOH };
+const SMURFS: CastArt = {
+  logoDecor: 'cap',
+  chipMascot: SMURFETTE_SVG,
+  tasksFab: MUSHROOM_FAB_SVG,
+  calendarMascot: PAPA_SMURF_SVG,
+  calendarFab: SMURFBERRY_FAB_SVG,
+  weatherMascot: HEFTY_SMURF_SVG,
+  scheduleMascot: BRAINY_SMURF_SVG,
+  designMascot: PAINTER_SMURF_SVG,
+  recipesMascot: CHEF_SMURF_SVG,
+  picker: {
+    tasks: SMURFETTE_SVG, calendar: PAPA_SMURF_SVG, weather: HEFTY_SMURF_SVG,
+    schedule: BRAINY_SMURF_SVG, design: PAINTER_SMURF_SVG, recipes: CHEF_SMURF_SVG,
+  },
+};
+
+const BOWTIES: CastArt = {
+  logoDecor: 'bowtie',
+  chipMascot: KITTY_SVG,
+  tasksFab: BOW_TIE_FAB_SVG,
+  calendarMascot: BUNNY_SVG,
+  calendarFab: GIFT_FAB_SVG,
+  weatherMascot: PENGUIN_SVG,
+  scheduleMascot: BEAR_SVG,
+  designMascot: FOX_SVG,
+  recipesMascot: PUPPY_SVG,
+  picker: { tasks: KITTY_SVG, calendar: BUNNY_SVG, weather: PENGUIN_SVG, schedule: BEAR_SVG, design: FOX_SVG, recipes: PUPPY_SVG },
+};
+
+export const CAST_ART: Record<CastId, CastArt> = {
+  animals: ANIMALS, princesses: PRINCESSES, emotions: EMOTIONS, pooh: POOH, smurfs: SMURFS, bowties: BOWTIES,
+};

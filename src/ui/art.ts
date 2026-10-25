@@ -387,3 +387,201 @@ export const BALLOON_FAB_SVG = '<svg class="balloon" viewBox="0 0 92 82" aria-hi
   + '<path d="M46 66 C22 62 16 36 22 22 C28 6 64 6 70 22 C76 36 70 62 46 66 Z" fill="#d62839" stroke="#9b1c2a" stroke-width="2.5"/>'
   + '<path d="M42 64 L50 64 L48 68 L44 68 Z" fill="#9b1c2a"/><ellipse cx="33" cy="22" rx="5" ry="8" transform="rotate(25 33 22)" fill="#fff" opacity=".35"/>'
   + '<path d="M46 24 V50 M33 37 H59" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>';
+
+// ── Smurf village (original cartoons inspired by the Smurfs; no Peyo artwork) ──
+
+const SMURF_SKIN = '#5bb0ea';
+const SMURF_EDGE = '#2f7fbf';
+const SMURF_CAP = 'M15 32 Q14 14 32 11 Q46 9 52 17 Q57 24 53 29 Q50 25 47 24 Q49 28 49 32 Q32 28 15 32 Z';
+
+function smurfCap(fill: string, edge: string): string {
+  return `<path d="${SMURF_CAP}" fill="${fill}" stroke="${edge}" stroke-width="1.2" stroke-linejoin="round"/>`;
+}
+
+interface SmurfParts {
+  shoulders?: string;
+  behind?: string;
+  hat: string;
+  face?: string;
+  mouth?: string;
+  front?: string;
+}
+
+function smurf(className: string, parts: SmurfParts): string {
+  return woodFriend(className,
+    (parts.shoulders ?? `<path d="M14 72 Q16 57 32 56 Q48 57 50 72 Z" fill="${SMURF_SKIN}" stroke="${SMURF_EDGE}" stroke-width="1"/>`)
+    + (parts.behind ?? '')
+    + `<circle cx="16.5" cy="40" r="4" fill="${SMURF_SKIN}" stroke="${SMURF_EDGE}" stroke-width="1"/><circle cx="47.5" cy="40" r="4" fill="${SMURF_SKIN}" stroke="${SMURF_EDGE}" stroke-width="1"/>`
+    + `<ellipse cx="32" cy="39" rx="15" ry="14" fill="${SMURF_SKIN}" stroke="${SMURF_EDGE}" stroke-width="1.2"/>`
+    + parts.hat
+    + '<ellipse cx="27" cy="37" rx="4" ry="5.2" fill="#fff" stroke="#2a5a8a" stroke-width=".8"/><ellipse cx="37" cy="37" rx="4" ry="5.2" fill="#fff" stroke="#2a5a8a" stroke-width=".8"/>'
+    + '<circle cx="28" cy="38" r="2" fill="#10223a"/><circle cx="36" cy="38" r="2" fill="#10223a"/><circle cx="28.7" cy="37.2" r=".7" fill="#fff"/><circle cx="36.7" cy="37.2" r=".7" fill="#fff"/>'
+    + (parts.face ?? '')
+    + (parts.mouth ?? '<path d="M26 48.5 Q32 53.5 38 48.5" fill="none" stroke="#1d4f80" stroke-width="1.6" stroke-linecap="round"/>')
+    + `<ellipse cx="32" cy="44.5" rx="4.4" ry="3.5" fill="#4a9fdc" stroke="${SMURF_EDGE}" stroke-width="1"/><ellipse cx="31" cy="43.6" rx="1.4" ry=".8" fill="#fff" opacity=".5"/>`
+    + (parts.front ?? ''));
+}
+
+export const SMURFETTE_SVG = smurf('smurfette', {
+  shoulders: '<path d="M14 72 Q16 57 32 56 Q48 57 50 72 Z" fill="#fff" stroke="#c9d3dd" stroke-width="1"/>'
+    + '<path d="M24 57 Q32 62 40 57" fill="none" stroke="#ff8ac0" stroke-width="1.6"/>',
+  behind: '<path d="M16 30 Q7 46 10 66 Q16 64 19 54 Q16 44 20 34 Z M48 30 Q57 46 54 66 Q48 64 45 54 Q48 44 44 34 Z" fill="#ffd84d" stroke="#d4ad1c" stroke-width="1"/>',
+  hat: smurfCap('#fff', '#c9d3dd')
+    + '<path d="M17 31 Q20 36 24 31 Q27 35 30 31 M34 31 Q37 35 40 31 Q44 36 47 31" fill="#ffd84d" stroke="#d4ad1c" stroke-width="1"/>',
+  face: '<path d="M23 32.5 L22 31 M25.5 31.6 L25 30 M38.5 31.6 L39 30 M41 32.5 L42 31" stroke="#10223a" stroke-width="1" stroke-linecap="round"/>'
+    + '<ellipse cx="21.5" cy="45" rx="2.4" ry="1.5" fill="#ff8ac0" opacity=".6"/><ellipse cx="42.5" cy="45" rx="2.4" ry="1.5" fill="#ff8ac0" opacity=".6"/>',
+  mouth: '<path d="M27 49 Q32 53.5 37 49 Q32 50.5 27 49 Z" fill="#e2345f" stroke="#b8243a" stroke-width=".8"/>',
+});
+
+export const PAPA_SMURF_SVG = smurf('papa-smurf', {
+  hat: smurfCap('#d62839', '#9b1c2a'),
+  face: '<path d="M22 31.5 Q26 29 30 31.5 M34 31.5 Q38 29 42 31.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>'
+    + '<path d="M18 44 Q19 63 32 67 Q45 63 46 44 Q41 50 32 49 Q23 50 18 44 Z" fill="#fff" stroke="#c9d3dd" stroke-width="1"/>'
+    + '<path d="M24 50 Q28 47.5 32 49.5 Q36 47.5 40 50 Q36 52 32 50.5 Q28 52 24 50 Z" fill="#f2f4f7" stroke="#c9d3dd" stroke-width=".8"/>',
+  mouth: '',
+});
+
+export const HEFTY_SMURF_SVG = smurf('hefty-smurf', {
+  hat: smurfCap('#fff', '#c9d3dd'),
+  face: '<path d="M22.5 31.5 L30 33 M41.5 31.5 L34 33" stroke="#1d4f80" stroke-width="1.8" stroke-linecap="round"/>',
+  front: '<path d="M20 63 C17 60 18 57 20.5 58 C22 56.5 24.5 58 22.5 61 Z" fill="#e8384f" stroke="#b8243a" stroke-width=".8"/>',
+});
+
+export const BRAINY_SMURF_SVG = smurf('brainy-smurf', {
+  hat: smurfCap('#fff', '#c9d3dd'),
+  face: '<circle cx="27" cy="37" r="6.2" fill="none" stroke="#1a1a24" stroke-width="2.2"/><circle cx="37" cy="37" r="6.2" fill="none" stroke="#1a1a24" stroke-width="2.2"/>'
+    + '<path d="M30.8 35.5 Q32 34.5 33.2 35.5 M20.8 36 L17 34.5 M43.2 36 L47 34.5" fill="none" stroke="#1a1a24" stroke-width="1.8" stroke-linecap="round"/>',
+  mouth: '<path d="M28 49.5 Q32 51.5 36 49.5" fill="none" stroke="#1d4f80" stroke-width="1.6" stroke-linecap="round"/>',
+});
+
+export const PAINTER_SMURF_SVG = smurf('painter-smurf', {
+  hat: '<path d="M15 32 Q14 20 32 19 Q50 20 49 32 Q32 28 15 32 Z" fill="#fff" stroke="#c9d3dd" stroke-width="1.2"/>'
+    + '<ellipse cx="34" cy="21" rx="21" ry="7" transform="rotate(-8 34 21)" fill="#d94f6a" stroke="#a83350" stroke-width="1.2"/>'
+    + '<path d="M36 14 L37 10" stroke="#a83350" stroke-width="2" stroke-linecap="round"/>',
+  front: '<path d="M50 70 L60 50" stroke="#8a5a2b" stroke-width="2.4" stroke-linecap="round"/><path d="M58.5 49 L61.5 50.5 L63 45 Q62 43 60.5 44 Z" fill="#ffcf3d" stroke="#d4a20f" stroke-width=".8"/>'
+    + '<circle cx="20" cy="64" r="1.6" fill="#ffcf3d"/><circle cx="24" cy="67" r="1.4" fill="#d94f6a"/><circle cx="41" cy="66" r="1.5" fill="#3d8fe0"/>',
+});
+
+export const CHEF_SMURF_SVG = smurf('chef-smurf', {
+  shoulders: '<path d="M14 72 Q16 57 32 56 Q48 57 50 72 Z" fill="#fff" stroke="#c9d3dd" stroke-width="1"/>'
+    + '<circle cx="32" cy="62" r="1.2" fill="#c9d3dd"/><circle cx="32" cy="67" r="1.2" fill="#c9d3dd"/>',
+  hat: '<path d="M18 32 L19 20 L45 20 L46 32 Q32 28 18 32 Z" fill="#fff" stroke="#c9d3dd" stroke-width="1.2"/>'
+    + '<g fill="#fff" stroke="#c9d3dd" stroke-width="1.2"><circle cx="22" cy="15" r="6.5"/><circle cx="42" cy="15" r="6.5"/><circle cx="32" cy="10" r="8"/></g>'
+    + '<rect x="19" y="16" width="26" height="6" fill="#fff"/>',
+  mouth: '<path d="M25.5 48.5 Q32 55 38.5 48.5 Z" fill="#8a1f2a" stroke="#1d4f80" stroke-width="1"/>',
+});
+
+// A little Smurf cap above the logo.
+export const SMURF_HAT_SVG = '<svg class="smurf-hat" viewBox="0 0 36 26" aria-hidden="true">'
+  + '<path d="M3 24 Q2 7 17 4 Q29 2 33 9 Q36 15 32 18 Q30 14 27 14 Q29 19 29 24 Q16 21 3 24 Z" fill="#fff" stroke="#9fb3c8" stroke-width="1.4" stroke-linejoin="round"/></svg>';
+
+export const MUSHROOM_FAB_SVG = '<svg viewBox="0 0 92 82" aria-hidden="true">'
+  + '<path d="M30 44 Q28 66 32 78 L60 78 Q64 66 62 44 Z" fill="#f7efe2" stroke="#b8a68a" stroke-width="2.4"/>'
+  + '<path d="M41 78 L41 66 Q46 61 51 66 L51 78 Z" fill="#5bb0ea" stroke="#2f7fbf" stroke-width="1.6"/>'
+  + '<path d="M8 46 Q10 6 46 5 Q82 6 84 46 Q46 54 8 46 Z" fill="#e2343f" stroke="#a81f2a" stroke-width="2.5"/>'
+  + '<g fill="#fff"><circle cx="22" cy="30" r="4.5"/><circle cx="70" cy="30" r="4.5"/><circle cx="33" cy="15" r="3.5"/><circle cx="60" cy="15" r="3.5"/></g>'
+  + '<path d="M46 16 V40 M34 28 H58" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>';
+
+export const SMURFBERRY_FAB_SVG = '<svg class="smurfberry" viewBox="0 0 92 82" aria-hidden="true">'
+  + '<path d="M46 14 Q40 4 30 6 Q36 14 46 16 Q56 14 62 6 Q52 4 46 14 Z" fill="#3c9a4a" stroke="#2a7035" stroke-width="1.6"/>'
+  + '<path d="M46 16 C20 14 14 40 24 58 C32 74 60 74 68 58 C78 40 72 14 46 16 Z" fill="#c2338a" stroke="#8a1f60" stroke-width="2.5"/>'
+  + '<g fill="#e05aac"><circle cx="30" cy="34" r="4"/><circle cx="62" cy="34" r="4"/><circle cx="34" cy="56" r="4"/><circle cx="58" cy="56" r="4"/></g>'
+  + '<path d="M46 31 V57 M33 44 H59" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>';
+
+// ── Bow-tie friends (original dressed-up animals, each wearing a bow tie) ──
+
+function bowTie(cx: number, cy: number, fill: string, edge: string, dots = ''): string {
+  return `<path d="M${cx - 11} ${cy - 6} L${cx - 2} ${cy - 1.8} L${cx - 2} ${cy + 1.8} L${cx - 11} ${cy + 6} Q${cx - 13} ${cy} ${cx - 11} ${cy - 6} Z`
+    + ` M${cx + 11} ${cy - 6} L${cx + 2} ${cy - 1.8} L${cx + 2} ${cy + 1.8} L${cx + 11} ${cy + 6} Q${cx + 13} ${cy} ${cx + 11} ${cy - 6} Z"`
+    + ` fill="${fill}" stroke="${edge}" stroke-width="1" stroke-linejoin="round"/>`
+    + (dots ? `<g fill="${dots}"><circle cx="${cx - 7}" cy="${cy - 1.5}" r="1.1"/><circle cx="${cx - 8}" cy="${cy + 2.5}" r="1.1"/><circle cx="${cx + 7}" cy="${cy - 1.5}" r="1.1"/><circle cx="${cx + 8}" cy="${cy + 2.5}" r="1.1"/></g>` : '')
+    + `<rect x="${cx - 2.8}" y="${cy - 3}" width="5.6" height="6" rx="1.8" fill="${edge}"/>`;
+}
+
+function dressedUp(className: string, suit: string, suitEdge: string, tie: string, head: string): string {
+  return woodFriend(className,
+    `<path d="M10 72 Q12 56 32 55 Q52 56 54 72 Z" fill="${suit}" stroke="${suitEdge}" stroke-width="1"/>`
+    + '<path d="M23 55.5 L32 66 L41 55.5 Z" fill="#fff" stroke="#d8d8e0" stroke-width=".8"/>'
+    + head + tie);
+}
+
+const SMILE = '<path d="M28 44 Q30 46.5 32 44 Q34 46.5 36 44" fill="none" stroke="#3a2030" stroke-width="1.4" stroke-linecap="round"/>';
+
+function eyes(color = '#1b1b2f'): string {
+  return `<ellipse cx="25.5" cy="33" rx="2.2" ry="2.8" fill="${color}"/><ellipse cx="38.5" cy="33" rx="2.2" ry="2.8" fill="${color}"/>`
+    + '<circle cx="26.3" cy="32" r=".8" fill="#fff"/><circle cx="39.3" cy="32" r=".8" fill="#fff"/>';
+}
+
+function cheeks(color: string): string {
+  return `<ellipse cx="20.5" cy="39" rx="2.6" ry="1.6" fill="${color}" opacity=".55"/><ellipse cx="43.5" cy="39" rx="2.6" ry="1.6" fill="${color}" opacity=".55"/>`;
+}
+
+export const KITTY_SVG = dressedUp('kitty', '#8a8aa8', '#6a6a88', bowTie(32, 58, '#ff5fa2', '#c2337a', '#fff'),
+  '<path d="M16 26 L15 8 L29 18 Z M48 26 L49 8 L35 18 Z" fill="#dcd6ea" stroke="#a8a2bf" stroke-width="1.2" stroke-linejoin="round"/>'
+  + '<path d="M18 22 L17.5 12.5 L25 18 Z M46 22 L46.5 12.5 L39 18 Z" fill="#ffb3d1"/>'
+  + '<ellipse cx="32" cy="35" rx="17" ry="15.5" fill="#dcd6ea" stroke="#a8a2bf" stroke-width="1.2"/>'
+  + '<path d="M28 20 L29 25 M32 19.5 L32 25 M36 20 L35 25" stroke="#a8a2bf" stroke-width="1.6" stroke-linecap="round"/>'
+  + '<ellipse cx="32" cy="42" rx="7.5" ry="5.5" fill="#fff"/>'
+  + eyes('#2a5a3a') + cheeks('#ff8ac0')
+  + '<path d="M30 39.5 L34 39.5 L32 42 Z" fill="#ff5fa2"/>' + SMILE
+  + '<path d="M13 39 L22 40.5 M13 43.5 L22 42.5 M51 39 L42 40.5 M51 43.5 L42 42.5" stroke="#8a84a0" stroke-width="1" stroke-linecap="round"/>');
+
+export const BUNNY_SVG = dressedUp('bunny', '#cdb8f0', '#a88ad6', bowTie(32, 58, '#7b3fc4', '#55288f', '#ffd84d'),
+  '<ellipse cx="24" cy="12" rx="5.5" ry="13" transform="rotate(-10 24 12)" fill="#fbf7f2" stroke="#d9cfc4" stroke-width="1.2"/>'
+  + '<ellipse cx="40" cy="12" rx="5.5" ry="13" transform="rotate(10 40 12)" fill="#fbf7f2" stroke="#d9cfc4" stroke-width="1.2"/>'
+  + '<ellipse cx="24" cy="13" rx="2.6" ry="9" transform="rotate(-10 24 13)" fill="#ffc2d6"/><ellipse cx="40" cy="13" rx="2.6" ry="9" transform="rotate(10 40 13)" fill="#ffc2d6"/>'
+  + '<ellipse cx="32" cy="36" rx="16" ry="15" fill="#fbf7f2" stroke="#d9cfc4" stroke-width="1.2"/>'
+  + eyes() + cheeks('#ff9ab8')
+  + '<ellipse cx="32" cy="40" rx="2.4" ry="1.7" fill="#ff8aa8"/>'
+  + '<path d="M32 41.5 V43.5 M28.5 44 Q30.2 46 32 43.5 Q33.8 46 35.5 44" fill="none" stroke="#3a2030" stroke-width="1.3" stroke-linecap="round"/>'
+  + '<rect x="30.2" y="44.6" width="3.6" height="3.4" rx=".7" fill="#fff" stroke="#d9cfc4" stroke-width=".7"/>');
+
+export const PENGUIN_SVG = woodFriend('penguin',
+  '<path d="M10 72 Q12 54 32 53 Q52 54 54 72 Z" fill="#1f2a3a"/><path d="M22 72 Q22 58 32 57 Q42 58 42 72 Z" fill="#fff"/>'
+  + '<ellipse cx="32" cy="33" rx="18" ry="18" fill="#1f2a3a"/>'
+  + '<path d="M32 26 Q22 18 18 30 Q16 42 24 47 Q32 51 40 47 Q48 42 46 30 Q42 18 32 26 Z" fill="#fff"/>'
+  + eyes() + cheeks('#ff8aa8')
+  + '<path d="M27.5 38 Q32 36 36.5 38 L32 43 Z" fill="#f7a23a" stroke="#c97a10" stroke-width="1" stroke-linejoin="round"/>'
+  + '<rect x="20" y="10" width="24" height="5" rx="1" fill="#1b1b24"/><rect x="24" y="0" width="16" height="12" rx="1.5" fill="#1b1b24"/><rect x="24" y="8" width="16" height="2.5" fill="#d62839"/>'
+  + bowTie(32, 57, '#d62839', '#9b1c2a'));
+
+export const BEAR_SVG = dressedUp('bear', '#2b6fd6', '#1f55a8', bowTie(32, 58, '#f2c14e', '#c4952a'),
+  '<circle cx="17" cy="20" r="7" fill="#a8743f" stroke="#7a5228" stroke-width="1.2"/><circle cx="47" cy="20" r="7" fill="#a8743f" stroke="#7a5228" stroke-width="1.2"/>'
+  + '<circle cx="17" cy="20" r="3.5" fill="#e0b07a"/><circle cx="47" cy="20" r="3.5" fill="#e0b07a"/>'
+  + '<ellipse cx="32" cy="35" rx="17" ry="16" fill="#a8743f" stroke="#7a5228" stroke-width="1.2"/>'
+  + '<ellipse cx="32" cy="42" rx="8.5" ry="6.5" fill="#e0b07a"/>'
+  + eyes() + cheeks('#f08a5a')
+  + '<ellipse cx="32" cy="39.5" rx="3.4" ry="2.4" fill="#3a2208"/>' + SMILE);
+
+export const FOX_SVG = dressedUp('fox', '#13968f', '#0d6e69', bowTie(32, 58, '#f2c14e', '#c4952a', '#13968f'),
+  '<path d="M15 28 L13 7 L29 19 Z M49 28 L51 7 L35 19 Z" fill="#f08a24" stroke="#c96a10" stroke-width="1.2" stroke-linejoin="round"/>'
+  + '<path d="M14.2 14 L13.6 7.6 L19 11.6 Z M49.8 14 L50.4 7.6 L45 11.6 Z" fill="#2a1a10"/>'
+  + '<path d="M15 30 Q15 17 32 17 Q49 17 49 30 Q49 40 40 46 L32 51 L24 46 Q15 40 15 30 Z" fill="#f08a24" stroke="#c96a10" stroke-width="1.2" stroke-linejoin="round"/>'
+  + '<path d="M16 34 Q22 36 28 40 L32 51 L24 46 Q17 41 16 34 Z M48 34 Q42 36 36 40 L32 51 L40 46 Q47 41 48 34 Z" fill="#fff"/>'
+  + eyes() + cheeks('#ff8a6a')
+  + '<ellipse cx="32" cy="45.5" rx="2.6" ry="1.9" fill="#2a1a10"/>');
+
+export const PUPPY_SVG = dressedUp('puppy', '#3d9a4a', '#2a7035', bowTie(32, 58, '#e2343f', '#a81f2a', '#fff'),
+  '<ellipse cx="32" cy="35" rx="16.5" ry="16" fill="#e8c38e" stroke="#b8935a" stroke-width="1.2"/>'
+  + '<path d="M18 22 Q8 20 7 34 Q8 44 14 44 Q18 38 18 30 Z M46 22 Q56 20 57 34 Q56 44 50 44 Q46 38 46 30 Z" fill="#8a5a2b" stroke="#6b4320" stroke-width="1.2"/>'
+  + '<ellipse cx="38" cy="31" rx="6" ry="5.5" fill="#c9965a"/>'
+  + '<ellipse cx="32" cy="42" rx="8" ry="6" fill="#fbebd2"/>'
+  + eyes() + cheeks('#f08a7a')
+  + '<ellipse cx="32" cy="39.5" rx="3.4" ry="2.5" fill="#2a1a10"/>' + SMILE
+  + '<path d="M30.5 45 Q32 50 33.5 45 Z" fill="#ff7a9a"/>');
+
+// A bow tie above the logo.
+export const BOW_TIE_SVG = '<svg class="bow-tie" viewBox="0 0 36 20" aria-hidden="true">' + bowTie(18, 10, '#ff5fa2', '#c2337a', '#fff') + '</svg>';
+
+export const BOW_TIE_FAB_SVG = '<svg viewBox="0 0 92 82" aria-hidden="true">'
+  + '<path d="M6 16 L38 34 L38 48 L6 66 Q-1 41 6 16 Z M86 16 L54 34 L54 48 L86 66 Q93 41 86 16 Z" fill="#ff5fa2" stroke="#c2337a" stroke-width="2.5" stroke-linejoin="round"/>'
+  + '<g fill="#fff" opacity=".7"><circle cx="16" cy="30" r="3"/><circle cx="14" cy="52" r="3"/><circle cx="76" cy="30" r="3"/><circle cx="78" cy="52" r="3"/></g>'
+  + '<rect x="32" y="26" width="28" height="30" rx="9" fill="#c2337a"/>'
+  + '<path d="M46 31 V51 M36 41 H56" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>';
+
+export const GIFT_FAB_SVG = '<svg class="gift" viewBox="0 0 92 82" aria-hidden="true">'
+  + '<rect x="16" y="30" width="60" height="48" rx="5" fill="#7b3fc4" stroke="#55288f" stroke-width="2.5"/>'
+  + '<rect x="12" y="24" width="68" height="13" rx="4" fill="#9b63e0" stroke="#55288f" stroke-width="2.2"/>'
+  + '<path d="M46 24 L28 8 Q20 14 26 22 Z M46 24 L64 8 Q72 14 66 22 Z" fill="#ffd84d" stroke="#d4ad1c" stroke-width="2" stroke-linejoin="round"/>'
+  + '<rect x="41" y="20" width="10" height="58" fill="#ffd84d"/><circle cx="46" cy="57" r="15" fill="#55288f"/>'
+  + '<path d="M46 46 V68 M35 57 H57" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>';

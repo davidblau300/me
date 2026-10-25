@@ -58,12 +58,14 @@ export const PALETTE_OPTIONS = [
   },
 ] as const satisfies readonly PaletteOption[];
 
-/** Which cartoon world decorates the screens: original animal-, princess-, emotion- or Pooh-inspired art. */
+/** Which cartoon world decorates the screens: original animal-, princess-, emotion-, Pooh- or Smurf-inspired art, or bow-tie animals. */
 export const CAST_OPTIONS = [
   { id: 'animals', label: 'חיות מצוירות' },
   { id: 'princesses', label: 'נסיכות' },
   { id: 'emotions', label: 'רגשות' },
   { id: 'pooh', label: 'פו הדב' },
+  { id: 'smurfs', label: 'דרדסים' },
+  { id: 'bowties', label: 'פפיונים' },
 ] as const satisfies ReadonlyArray<{ readonly id: string; readonly label: string }>;
 
 export type FontId = (typeof FONT_OPTIONS)[number]['id'];
